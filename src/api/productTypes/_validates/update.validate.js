@@ -5,7 +5,7 @@ export default (req, res, next) => {
     Joi
         .object(
             {
-                amount: Joi.number().required(),
+                name: Joi.string().required(),
             }
         )
         .validate(req.body, err => {

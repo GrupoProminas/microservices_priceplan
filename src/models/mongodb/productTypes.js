@@ -1,17 +1,17 @@
 import mongoose from 'mongoose';
 
 export default mongoose.model(
-    'prices',
+    'productTypes',
     mongoose.Schema(
         {
-            amount: {
-                type        : Number,
+            name: {
+                type        : String,
                 required    : true,
                 index       : true
             }
         },
         {
-            collection: 'prices',
+            collection: 'productTypes',
             timestamps: true
         }
     )
