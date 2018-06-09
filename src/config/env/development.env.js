@@ -6,8 +6,8 @@ module.exports = {
      * All configurations for express App instance
      */
     app: {
-        name    : 'Base - DEVELOPMENT MODE',
-        version : '2.0.0'
+        name    : 'MICROSSERVICE PRICE AND PLANS',
+        version : '1.0.0'
     },
 
 
@@ -42,10 +42,7 @@ module.exports = {
      * All configurations to connect in databases should go here
      */
     databases: {
-
-        // Example for mongo databases
-        // Support for cluster
-        exampleMongo: {
+        mongo: {
             servers: [
                 {
                     host: 'localhost',
@@ -56,40 +53,14 @@ module.exports = {
             replicaSet  : '',
             authSource  : 'admin',
             ssl         : false,
-            user        : 'admin',
-            pass        : 'admin',
-            name        : 'example',
+            user        : 'root',
+            pass        : 'root',
+            name        : 'microservice-price-and-plans',
             dialect     : 'mongodb',
             charset     : 'utf8',
             logging     : true,
             enabled     : true,
             configWith  : 'mongoose'
         },
-
-        // Example for SQL databases
-        exampleMysql: {
-            host        : 'localhost',
-            port        : 3306,
-            user        : 'admin',
-            pass        : 'admin',
-            name        : 'example',
-            dialect     : 'mysql',
-            charset     : 'utf8',
-            logging     : true,
-            enabled     : false,
-            configWith  : 'sequelize'
-        },
-        examplePostgre  : {
-            host        : 'localhost',
-            port        : 5432,
-            user        : 'admin',
-            pass        : 'admin',
-            name        : 'example',
-            dialect     : 'postgres',
-            charset     : 'utf8',
-            logging     : true,
-            enabled     : false,
-            configWith  : 'sequelize'
-        }
     }
 };

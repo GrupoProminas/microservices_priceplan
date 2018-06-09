@@ -18,7 +18,7 @@ module.exports = {
     server: {
         secure  : false,
         host    : '127.0.0.1',
-        port    : 3000,
+        port    : 3002,
         cors    : {
             'Access-Control-Allow-Origin'   : '*',
             'Access-Control-Allow-Methods'  : 'GET, POST, PUT, DELETE, OPTIONS',
@@ -42,10 +42,7 @@ module.exports = {
      * All configurations to connect in databases should go here
      */
     databases: {
-
-        // Example for mongo databases
-        // Support for cluster
-        exampleMongo: {
+        mongo: {
             servers: [
                 {
                     host: 'localhost',
@@ -56,40 +53,14 @@ module.exports = {
             replicaSet  : '',
             authSource  : 'admin',
             ssl         : false,
-            user        : 'admin',
-            pass        : 'admin',
-            name        : 'example',
+            user        : 'root',
+            pass        : 'root',
+            name        : 'microservice-price-and-plans',
             dialect     : 'mongodb',
             charset     : 'utf8',
             logging     : true,
             enabled     : true,
             configWith  : 'mongoose'
         },
-
-        // Example for SQL databases
-        exampleMysql: {
-            host        : 'localhost',
-            port        : 3306,
-            user        : 'admin',
-            pass        : 'admin',
-            name        : 'example',
-            dialect     : 'mysql',
-            charset     : 'utf8',
-            logging     : true,
-            enabled     : false,
-            configWith  : 'sequelize'
-        },
-        examplePostgre  : {
-            host        : 'localhost',
-            port        : 5432,
-            user        : 'admin',
-            pass        : 'admin',
-            name        : 'example',
-            dialect     : 'postgres',
-            charset     : 'utf8',
-            logging     : true,
-            enabled     : false,
-            configWith  : 'sequelize'
-        }
     }
 };
