@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d63adf55-eeae-43e4-ad6a-7faebb03b360" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/_index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/_validates/create.validate.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/_validates/update.validate.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/create.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/read.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/readOne.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/update.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/models/mongodb/promotions.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/productPrices/_index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/productPrices/_validates/create.validate.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/productPrices/_validates/update.validate.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/productPrices/create.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/productPrices/read.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/productPrices/readOne.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/productPrices/update.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/models/mongodb/productPrices.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,31 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="read.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/api/promotions/read.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model_findAllById.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../ei-api-data/src/api/filter/model_findAllById.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="62" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update.validate.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/promotions/_validates/update.validate.js">
+      <file leaf-file-name="productPrices.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/mongodb/productPrices.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+              <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="read.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/api/productPrices/read.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -68,16 +58,19 @@
       <find>prices</find>
       <find>products</find>
       <find>plans</find>
+      <find>promotions</find>
     </findStrings>
     <replaceStrings>
       <replace>products</replace>
       <replace>plans</replace>
       <replace>promotions</replace>
+      <replace>productPrices</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/api/products</dir>
       <dir>$PROJECT_DIR$/src/api/plans</dir>
       <dir>$PROJECT_DIR$/src/api/promotions</dir>
+      <dir>$PROJECT_DIR$/src/api/productPrices</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -122,6 +115,10 @@
         <option value="$PROJECT_DIR$/src/api/promotions/_validates/update.validate.js" />
         <option value="$PROJECT_DIR$/src/api/promotions/read.js" />
         <option value="$PROJECT_DIR$/src/models/mongodb/promotions.js" />
+        <option value="$PROJECT_DIR$/src/models/mongodb/productPrices.js" />
+        <option value="$PROJECT_DIR$/src/api/productPrices/_validates/create.validate.js" />
+        <option value="$PROJECT_DIR$/src/api/productPrices/_validates/update.validate.js" />
+        <option value="$PROJECT_DIR$/src/api/productPrices/read.js" />
       </list>
     </option>
   </component>
@@ -184,14 +181,14 @@
               <item name="microsservice-price-plans" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="promotions" type="462c0819:PsiDirectoryNode" />
+              <item name="productPrices" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="microsservice-price-plans" type="b2602c69:ProjectViewProjectNode" />
               <item name="microsservice-price-plans" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="promotions" type="462c0819:PsiDirectoryNode" />
+              <item name="productPrices" type="462c0819:PsiDirectoryNode" />
               <item name="_validates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -258,12 +255,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528553002516</updated>
-      <workItem from="1528553004103" duration="11360000" />
+      <workItem from="1528553004103" duration="13179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11360000" />
+    <option name="totallyTimeSpent" value="13179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="0" width="1366" height="732" extended-state="6" />
@@ -672,18 +669,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/mongodb/promotions.js">
+    <entry file="file://$PROJECT_DIR$/src/api/promotions/read.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        <state relative-caret-position="221">
+          <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/promotions/read.js">
+    <entry file="file://$PROJECT_DIR$/src/models/mongodb/promotions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        <state relative-caret-position="493">
+          <caret line="29" column="30" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/productPrices/_validates/update.validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="57" lean-forward="true" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/productPrices/_validates/create.validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/mongodb/productPrices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/productPrices/read.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
           <folding />
         </state>
       </provider>
