@@ -5,6 +5,7 @@ export default (req, res, next) => {
         .object(
             {
                 name: Joi.string().required(),
+                active: Joi.boolean().allow('').optional()
             }
         )
         .validate(req.body, err => {

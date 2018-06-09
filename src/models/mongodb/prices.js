@@ -8,6 +8,12 @@ export default mongoose.model(
                 type        : Number,
                 required    : true,
                 index       : true
+            },
+            active: {
+                type        : Boolean,
+                required    : true,
+                default     : true,
+                index       : true
             }
         },
         {

@@ -6,6 +6,7 @@ export default (req, res, next) => {
         .object(
             {
                 amount: Joi.number().required(),
+                active: Joi.boolean().allow('').optional()
             }
         )
         .validate(req.body, err => {
