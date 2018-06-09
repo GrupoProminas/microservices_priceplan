@@ -1,16 +1,21 @@
 import mongoose from 'mongoose';
 
 export default mongoose.model(
-    'products',
+    'plans',
     mongoose.Schema(
         {
-            name: {
-                type        : String,
+            installment: {
+                type        : Number,
                 required    : true,
                 index       : true
             },
-            alias: {
-                type        : String,
+            percent: {
+                type        : Number,
+                required    : true,
+                index       : true
+            },
+            amount: {
+                type        : Number,
                 required    : true,
                 index       : true
             },
@@ -22,7 +27,7 @@ export default mongoose.model(
             }
         },
         {
-            collection: 'products',
+            collection: 'plans',
             timestamps: true
         }
     )
