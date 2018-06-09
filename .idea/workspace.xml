@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d63adf55-eeae-43e4-ad6a-7faebb03b360" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/plans/_index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/plans/_validates/create.validate.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/plans/_validates/update.validate.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/plans/create.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/plans/read.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/plans/readOne.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/plans/update.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/models/mongodb/plans.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/_index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/_validates/create.validate.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/_validates/update.validate.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/create.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/read.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/readOne.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/promotions/update.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/models/mongodb/promotions.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/models/mongodb/products.js" afterPath="$PROJECT_DIR$/src/models/mongodb/products.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,21 +24,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="create.validate.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/plans/_validates/create.validate.js">
+      <file leaf-file-name="read.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/api/promotions/read.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="9" selection-end-column="58" />
+            <state relative-caret-position="391">
+              <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.validate.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/api/plans/_validates/update.validate.js">
+      <file leaf-file-name="model_findAllById.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../ei-api-data/src/api/filter/model_findAllById.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+            <state relative-caret-position="136">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="62" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.validate.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/promotions/_validates/update.validate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -58,14 +67,17 @@
     <findStrings>
       <find>prices</find>
       <find>products</find>
+      <find>plans</find>
     </findStrings>
     <replaceStrings>
       <replace>products</replace>
       <replace>plans</replace>
+      <replace>promotions</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/api/products</dir>
       <dir>$PROJECT_DIR$/src/api/plans</dir>
+      <dir>$PROJECT_DIR$/src/api/promotions</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -106,6 +118,10 @@
         <option value="$PROJECT_DIR$/src/models/mongodb/plans.js" />
         <option value="$PROJECT_DIR$/src/api/plans/_validates/create.validate.js" />
         <option value="$PROJECT_DIR$/src/api/plans/_validates/update.validate.js" />
+        <option value="$PROJECT_DIR$/src/api/promotions/_validates/create.validate.js" />
+        <option value="$PROJECT_DIR$/src/api/promotions/_validates/update.validate.js" />
+        <option value="$PROJECT_DIR$/src/api/promotions/read.js" />
+        <option value="$PROJECT_DIR$/src/models/mongodb/promotions.js" />
       </list>
     </option>
   </component>
@@ -168,14 +184,14 @@
               <item name="microsservice-price-plans" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="plans" type="462c0819:PsiDirectoryNode" />
+              <item name="promotions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="microsservice-price-plans" type="b2602c69:ProjectViewProjectNode" />
               <item name="microsservice-price-plans" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="plans" type="462c0819:PsiDirectoryNode" />
+              <item name="promotions" type="462c0819:PsiDirectoryNode" />
               <item name="_validates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -242,12 +258,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528553002516</updated>
-      <workItem from="1528553004103" duration="9337000" />
+      <workItem from="1528553004103" duration="11360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9337000" />
+    <option name="totallyTimeSpent" value="11360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="0" width="1366" height="732" extended-state="6" />
@@ -558,14 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/mongodb/products.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/mongodb/plans.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -582,6 +590,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/plans/_validates/update.validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/plans/_validates/create.validate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -590,10 +606,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/plans/_validates/update.validate.js">
+    <entry file="file://$PROJECT_DIR$/../ei-api-data/src/api/filter/_validates/create.validate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        <state relative-caret-position="34">
+          <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ei-api-data/src/models/mongodb/filters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ei-api-data/src/api/filter/model_findAll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/promotions/update.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/promotions/_validates/create.validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/promotions/_validates/update.validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ei-api-data/src/api/filter/model_findAllById.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="62" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/mongodb/products.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/mongodb/promotions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/promotions/read.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
           <folding />
         </state>
       </provider>
