@@ -1,0 +1,15 @@
+version: '2'
+services:
+  service:
+    container_name: api_name
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./dist:/opt/services/api_name/dist
+      - ./node_modules:/opt/services/api_name/node_modules
+    image: my_tag/api_name
+    tty: true
+    environment:
+      - NODE_ENV=production
+    entrypoint: node dist/app.js
