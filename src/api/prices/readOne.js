@@ -1,6 +1,6 @@
 /* eslint-disable id-length,new-cap */
 import mongoose from 'mongoose';
-import Prices  from '../../models/mongodb/prices';
+import Model  from '../../models/mongodb/prices';
 
 export default (req, res) => {
 
@@ -8,9 +8,9 @@ export default (req, res) => {
     req.query.where._id = mongoose.Types.ObjectId(req.params._id);
 
     /**
-     * Find all registers of Prices collection
+     * Find all registers of Model collection
      */
-    Prices
+    Model
         .findOne(
             req.query.where,
             req.query.project

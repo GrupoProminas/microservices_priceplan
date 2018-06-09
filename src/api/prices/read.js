@@ -1,12 +1,12 @@
 /* eslint-disable id-length */
-import Prices from '../../models/mongodb/prices';
+import Model from '../../models/mongodb/prices';
 
 export default (req, res) => {
 
     /**
-     * Find all registers of Prices collection
+     * Find all registers of Model collection
      */
-    Prices
+    Model
         .paginate(
             [
                 {

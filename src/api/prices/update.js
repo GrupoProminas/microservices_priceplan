@@ -1,10 +1,10 @@
 /* eslint-disable id-length */
-import Prices  from '../../models/mongodb/prices';
+import Model  from '../../models/mongodb/prices';
 
 export default (req, res) => {
 
     // Create new prices by req.body data
-    Prices
+    Model
         .update(
             {
                 _id: req.params._id
