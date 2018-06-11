@@ -24,6 +24,9 @@ This is a base API using ExpressJs and NodeJs with docker deploy or PM2, easily 
 - Unprocessable Entity response (422)
 - Fix bugs
 
+## Test file
+
+- To test the project simply import the `MICROSERVICE PRICE AN PLAN.postman_collection.json` file into your postman and all test paths and their objects. 
 
 ## Structure
 ```
@@ -125,8 +128,9 @@ This is a base API using ExpressJs and NodeJs with docker deploy or PM2, easily 
   ```
 
 ## Contributors
-|[<img src="https://avatars2.githubusercontent.com/u/13393772?v=4" width="80px;"/><br><sub><b>Tales Luna</b></sub>](https://github.com/talesluna/)|[<img src="https://avatars0.githubusercontent.com/u/26255600?v=4" width="80px;"/><br><sub><b>Wanber Silva</b></sub>](https://github.com/wanber/) |
+|[<img src="https://avatars2.githubusercontent.com/u/13393772?v=4" width="80px;"/><br><sub><b>Tales Luna</b></sub>](https://github.com/talesluna/)|[<img src="https://avatars0.githubusercontent.com/u/26255600?v=4" width="80px;"/><br><sub><b>Wanber Silva</b></sub>](https://github.com/wanber/) |[<img src="https://avatars2.githubusercontent.com/u/12611706?s=400&u=14046f2bf77a28b449faac6b4c4cc55da4a3b779&v=4" width="80px;"/><br><sub><b>Renan Moraes</b></sub>](https://github.com/renanmoraes/)
 |---|---|
 | 🖥| 💡|
+
 
 

@@ -1,0 +1,814 @@
+{
+	"info": {
+		"name": "MICROSERVICE PRICE AN PLAN",
+		"_postman_id": "737ed4ea-e02f-4e89-87ab-ddf6645402c4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "prices",
+			"description": "",
+			"item": [
+				{
+					"name": "POST PRICE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 5000\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/prices",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"prices"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT PRICE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 55000\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/prices/5b1bee34abe2772394aabe39",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"prices",
+								"5b1bee34abe2772394aabe39"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL PRICES",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/prices/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"prices",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE PRICE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/prices/5b1bee34abe2772394aabe39",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"prices",
+								"5b1bee34abe2772394aabe39"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "productType",
+			"description": "",
+			"item": [
+				{
+					"name": "POST PRODUCT TYPE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 5000\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/prices",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"prices"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT PRODUCT TYPE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Declaracao\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productTypes/5b1bf85c4094532e6bd28949",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productTypes",
+								"5b1bf85c4094532e6bd28949"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL PRODUCT TYPES",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productTypes/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productTypes",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE PRODUCT TYPE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productTypes/5b1bf85c4094532e6bd28949",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productTypes",
+								"5b1bf85c4094532e6bd28949"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"description": "",
+			"item": [
+				{
+					"name": "POST PRODUCTS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 5000\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/prices",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"prices"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT PRODUCT S",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Declaracao\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productTypes/5b1bf85c4094532e6bd28949",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productTypes",
+								"5b1bf85c4094532e6bd28949"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL PRODUCTS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productTypes/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productTypes",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE PRODUCTS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productTypes/5b1bf85c4094532e6bd28949",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productTypes",
+								"5b1bf85c4094532e6bd28949"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "plans",
+			"description": "",
+			"item": [
+				{
+					"name": "POST PLANS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"installment\": 5000,\n\t\"percent\": 5600,\n\t\"amount\": 6000\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/plans",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"plans"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT PLANS",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"percent\": 5161\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/plans/5b1c1e973779f345718bee76",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"plans",
+								"5b1c1e973779f345718bee76"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL PLANS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/plans/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"plans",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE PLANS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/plans/5b1c1e973779f345718bee76",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"plans",
+								"5b1c1e973779f345718bee76"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "promotions",
+			"description": "",
+			"item": [
+				{
+					"name": "POST PROMOTIONS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n                \"price_id\": \"5b1bf5fa84270d2b7f820561\",\n                \"amount\": 50000,\n                \"regulation\": 50550,\n                \"date_start\": \"2018-03-02\",\n                \"date_end\": \"2018-06-03\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/promotions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"promotions"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT PROMOTIONS",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"regulation\": 999999\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/promotions/5b1c249f3624324b483354c5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								"5b1c249f3624324b483354c5"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL PROMOTIONS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/promotions/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE PROMOTIONS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/promotions/5b1c249f3624324b483354c5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								"5b1c249f3624324b483354c5"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "productPrices",
+			"description": "",
+			"item": [
+				{
+					"name": "POST PRODUCT PRICES",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n                \"reference_id\": \"5b1bf5fa84270d2b7f820561\",\n                \"alias\": \"alias\",\n                \"product_type_id\": \"5b1bf85c4094532e6bd28949\",\n                \"price_id\": \"5b1bf5fa84270d2b7f820561\",\n                \"plan_id\": \"5b1c1e973779f345718bee76\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productPrices",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productPrices"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT PRODUCT PRICE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDhlMDU2ZTExYzE2MWZhNGZjMDM1OCIsImlhdCI6MTUyNDE2NTgwOH0.Nv-Cu36w1mj6lxcl0-6VG6BzkgDGjS7ojxw7gE3Q_Kc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"active\": false\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productPrices/5b1c2fb456d25754d222ba8f",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productPrices",
+								"5b1c2fb456d25754d222ba8f"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL PRODUCT PRICES",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productPrices/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productPrices",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE PRODUCT PRICES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1:3000/productPrices/5b1c2fb456d25754d222ba8f",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productPrices",
+								"5b1c2fb456d25754d222ba8f"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
