@@ -11,8 +11,8 @@ export default mongoose.model(
             },
             alias: {
                 type        : String,
-                required    : true,
-                index       : true
+                unique      : true,
+                required    : true
             },
             active: {
                 type        : Boolean,

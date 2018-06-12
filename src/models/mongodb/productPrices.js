@@ -10,6 +10,7 @@ export default mongoose.model(
             },
             alias: {
                 type: String,
+                unique: true,
                 allowNull: false
             },
             product_type_id: {
