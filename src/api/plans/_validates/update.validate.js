@@ -5,9 +5,11 @@ export default (req, res, next) => {
     Joi
         .object(
             {
-                installment: Joi.number().allow('').optional(),
-                percent: Joi.number().allow('').optional(),
-                amount: Joi.number().allow('').optional(),
+                installments: Joi.array().items(Joi.object().keys({
+                    installment: Joi.number().required(),
+                    percent: Joi.number().required(),
+                    amount: Joi.number().required(),
+                })).allow('').optional(),
                 active: Joi.boolean().allow('').optional()
             }
         )
