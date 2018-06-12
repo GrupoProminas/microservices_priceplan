@@ -6,7 +6,7 @@ export default (req, res, next) => {
             {
                 price_id: Joi.string().required(),
                 amount: Joi.number().required(),
-                regulation: Joi.number().required(),
+                regulation: Joi.string().required(),
                 date_start: Joi.date().required(),
                 date_end: Joi.date().required(),
                 active: Joi.boolean().allow('').optional()

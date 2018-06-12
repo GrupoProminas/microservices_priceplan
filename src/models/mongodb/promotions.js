@@ -15,7 +15,7 @@ export default mongoose.model(
                 allowNull: false
             },
             regulation: {
-                type: Number,
+                type: String,
                 allowNull: false
             },
             date_start: {
