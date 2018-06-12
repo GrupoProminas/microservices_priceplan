@@ -294,10 +294,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"amount\": 5000\n}"
+							"raw": "{\n\t\"name\": \"Livro\",\n\t\"alias\": \"ab\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/prices",
+							"raw": "http://127.0.0.1:3000/products",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -307,7 +307,7 @@
 							],
 							"port": "3000",
 							"path": [
-								"prices"
+								"products"
 							]
 						},
 						"description": ""
@@ -330,10 +330,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Declaracao\"\n}"
+							"raw": "{\n\t\"name\": \"Declaracao\",\n\t\"alias\": \"ab\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/productTypes/5b1bf85c4094532e6bd28949",
+							"raw": "http://127.0.0.1:3000/products/5b1f289a3bec4d183ff38d4c",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -343,8 +343,8 @@
 							],
 							"port": "3000",
 							"path": [
-								"productTypes",
-								"5b1bf85c4094532e6bd28949"
+								"products",
+								"5b1f289a3bec4d183ff38d4c"
 							]
 						},
 						"description": ""
@@ -363,7 +363,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "http://127.0.0.1:3000/productTypes/",
+							"raw": "http://127.0.0.1:3000/products/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -373,7 +373,7 @@
 							],
 							"port": "3000",
 							"path": [
-								"productTypes",
+								"products",
 								""
 							]
 						},
@@ -388,7 +388,7 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://127.0.0.1:3000/productTypes/5b1bf85c4094532e6bd28949",
+							"raw": "http://127.0.0.1:3000/products/5b1f289a3bec4d183ff38d4c",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -398,8 +398,8 @@
 							],
 							"port": "3000",
 							"path": [
-								"productTypes",
-								"5b1bf85c4094532e6bd28949"
+								"products",
+								"5b1f289a3bec4d183ff38d4c"
 							]
 						},
 						"description": ""
@@ -428,7 +428,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"installment\": 5000,\n\t\"percent\": 5600,\n\t\"amount\": 6000\n}"
+							"raw": "{\n\t\"installments\": [\n\t\t\t{\n\t\t\t\t\"installment\": 5000,\n\t\t\t\t\"percent\": 5600,\n\t\t\t\t\"amount\": 6000\n\t\t\t}\n\t\t]\n\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:3000/plans",
@@ -464,10 +464,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"percent\": 5161\n}"
+							"raw": "{\n\t\"installments\": [\n\t\t\t{\n\t\t\t\t\"installment\": 20,\n\t\t\t\t\"percent\": 5600,\n\t\t\t\t\"amount\": 6000\n\t\t\t}\n\t\t]\n\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/plans/5b1c1e973779f345718bee76",
+							"raw": "http://127.0.0.1:3000/plans/5b1f2de7d8ad971fa2a54b82",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -478,7 +478,7 @@
 							"port": "3000",
 							"path": [
 								"plans",
-								"5b1c1e973779f345718bee76"
+								"5b1f2de7d8ad971fa2a54b82"
 							]
 						},
 						"description": ""
@@ -522,7 +522,7 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://127.0.0.1:3000/plans/5b1c1e973779f345718bee76",
+							"raw": "http://127.0.0.1:3000/plans/5b1f2de7d8ad971fa2a54b82",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -533,7 +533,7 @@
 							"port": "3000",
 							"path": [
 								"plans",
-								"5b1c1e973779f345718bee76"
+								"5b1f2de7d8ad971fa2a54b82"
 							]
 						},
 						"description": ""
