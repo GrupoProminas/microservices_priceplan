@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d63adf55-eeae-43e4-ad6a-7faebb03b360" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/api/promotions/readOne.js" afterPath="$PROJECT_DIR$/src/api/promotions/readOne.js" />
-    </list>
+    <list default="true" id="d63adf55-eeae-43e4-ad6a-7faebb03b360" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -267,7 +265,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26722000" />
+    <option name="totallyTimeSpent" value="26952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1690" y="20" width="1366" height="732" extended-state="6" />
