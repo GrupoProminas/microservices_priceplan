@@ -1,44 +1,19 @@
 /* eslint-disable id-length,new-cap */
 import {models} from 'mongoose';
+
 const {Promotions} = models;
 
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const getPromotions = (req, res) => {
 
-    console.log(new mongoose.Types.ObjectId(req.params._id));
-
+    req.query.where._id = mongoose.Types.ObjectId(req.params._id.toString());
     /**
      * Find all registers of Promotions collection
      */
     Promotions
-        .aggregate(
-            [
-                {
-                    $match : { "_id": mongoose.Types.ObjectId(req.params._id)}
-                },
-                {
-                    $lookup: {
-                        from: 'prices',
-                        localField: 'price_id',
-                        foreignField: '_id',
-                        as: 'price'
-                    }
-                },
-                {"$unwind": "$price"},
-                {
-                    $project: {
-                        _id: true,
-                        'price': true,
-                        amount: true,
-                        regulation: true,
-                        date_start: true,
-                        date_end: true,
-                        createdAt: true,
-                        updatedAt: true
-                    }
-                }
-            ]
+        .findOne(
+            req.query.where
         )
         .then(artist => {
 
