@@ -1,10 +1,12 @@
 /* eslint-disable id-length */
-import Model  from '../../models/mongodb/plans';
+import {models} from 'mongoose';
 
-export default (req, res) => {
+const {Plans} = models;
+
+const updatePlans = (req, res) => {
 
     // Create new plans by req.body data
-    Model
+    Plans
         .update(
             {
                 _id: req.params._id
@@ -19,4 +21,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default updatePlans;

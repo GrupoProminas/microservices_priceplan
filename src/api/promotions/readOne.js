@@ -1,25 +1,50 @@
 /* eslint-disable id-length,new-cap */
+import {models} from 'mongoose';
+const {Promotions} = models;
+
 import mongoose from 'mongoose';
-import Model  from '../../models/mongodb/promotions';
 
-export default (req, res) => {
+const getPromotions = (req, res) => {
 
-    // Set _id in where object as ObjectId
-    req.query.where._id = mongoose.Types.ObjectId(req.params._id);
+    console.log(new mongoose.Types.ObjectId(req.params._id));
 
     /**
-     * Find all registers of Model collection
+     * Find all registers of Promotions collection
      */
-    Model
-        .findOne(
-            req.query.where,
-            req.query.project
+    Promotions
+        .aggregate(
+            [
+                {
+                    $match : { "_id": mongoose.Types.ObjectId(req.params._id)}
+                },
+                {
+                    $lookup: {
+                        from: 'prices',
+                        localField: 'price_id',
+                        foreignField: '_id',
+                        as: 'price'
+                    }
+                },
+                {"$unwind": "$price"},
+                {
+                    $project: {
+                        _id: true,
+                        'price': true,
+                        amount: true,
+                        regulation: true,
+                        date_start: true,
+                        date_end: true,
+                        createdAt: true,
+                        updatedAt: true
+                    }
+                }
+            ]
         )
         .then(artist => {
 
             // If no have data send a not found response
             if (!artist) {
-                return res.api.send(null, res.api.codes.NOT_FOUND);
+                return res.api.send(null, res.api.codes.OK);
             }
 
             return res.api.send(artist, res.api.codes.OK);
@@ -27,4 +52,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default getPromotions;

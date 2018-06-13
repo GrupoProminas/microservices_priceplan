@@ -1,10 +1,11 @@
 /* eslint-disable id-length */
-import Model  from '../../models/mongodb/plans';
+import {models} from 'mongoose';
+const {Plans} = models;
 
-export default (req, res) => {
+const createPlans = (req, res) => {
 
     // Create new plans by req.body data
-    Model
+    Plans
         .create(req.body)
         .then(plans => {
             return res.api.send(plans, res.api.codes.CREATED);
@@ -12,4 +13,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default createPlans;

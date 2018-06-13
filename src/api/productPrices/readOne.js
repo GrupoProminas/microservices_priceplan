@@ -1,19 +1,61 @@
 /* eslint-disable id-length,new-cap */
+import {models} from 'mongoose';
+const {ProductPrices} = models;
+
 import mongoose from 'mongoose';
-import Model  from '../../models/mongodb/productPrices';
 
-export default (req, res) => {
-
-    // Set _id in where object as ObjectId
-    req.query.where._id = mongoose.Types.ObjectId(req.params._id);
+const getProductPrices = (req, res) => {
 
     /**
-     * Find all registers of Model collection
+     * Find all registers of ProductPrices collection
      */
-    Model
-        .findOne(
-            req.query.where,
-            req.query.project
+    ProductPrices
+        .aggregate(
+            [
+                {
+                  $match : { "_id": mongoose.Types.ObjectId(req.params._id)}
+                },
+                {
+                    $lookup: {
+                        from: 'prices',
+                        localField: 'price_id',
+                        foreignField: '_id',
+                        as: 'price'
+                    }
+                },
+                {"$unwind": "$price"},
+                {
+                    $lookup: {
+                        from: 'plans',
+                        localField: 'plan_id',
+                        foreignField: '_id',
+                        as: 'plan'
+                    }
+                },
+                {"$unwind": "$plan"},
+                {
+                    $lookup: {
+                        from: 'productTypes',
+                        localField: 'product_type_id',
+                        foreignField: '_id',
+                        as: 'productType'
+                    }
+                },
+                {"$unwind": "$productType"},
+                {
+                    $project: {
+                        _id: true,
+                        reference_id: true,
+                        alias: true,
+                        'price': true,
+                        'plan': true,
+                        'productType': true,
+                        active: true,
+                        createdAt: true,
+                        updatedAt: true
+                    }
+                }
+            ]
         )
         .then(artist => {
 
@@ -27,4 +69,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default getProductPrices;

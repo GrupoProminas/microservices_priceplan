@@ -1,8 +1,9 @@
+/* eslint-disable multiline-ternary */
 /**
  * Use this class for all methods that synchronize and set routes for express app
  */
-import path     from 'path';
-import fs       from 'fs'
+import path from 'path';
+import fs   from 'fs'
 
 export default class Routers {
 
@@ -23,15 +24,43 @@ export default class Routers {
 
                 // Load module if path is not hidden and index file exists
                 if (!unixHidden.test(module.toString()) && fs.existsSync(moduleIndex))
-                    require(moduleIndex).default(app);
+                    try {
+                        require(moduleIndex).default(app);
+                    } catch (err) {
+                        console.log(err);
+                    }
 
             });
+
+        app.get('/', (req, res) => {
+
+            const routes = [];
+
+            app._router.stack.forEach(middleware => {
+                if (middleware.route && middleware.route.path !== '/') {
+
+                    const name = middleware.route.stack.find(stack => {
+                        return stack.name !== '<anonymous>';
+                    });
+
+                    routes.push({
+                        name  : typeof name === 'undefined' ? null : name.name,
+                        method: Object.keys(middleware.route.methods)[0].toUpperCase(),
+                        path  : middleware.route.path
+                    });
+                }
+            });
+
+            return res.api.send(routes, res.api.codes.OK);
+        });
 
         /**
          * Route Not Found Error
          */
-        app.get('*', function(req, res){
-            res.api.send(null, res.api.codes.NOT_FOUND, null, 'route_not_found');
+        app.use('*', function (req, res) {
+            return req.method === 'OPTIONS'
+                ? res.api.send(null, res.api.codes.OK, null)
+                : res.api.send(null, res.api.codes.NOT_FOUND, null, 'route_not_found');
         });
 
         /**

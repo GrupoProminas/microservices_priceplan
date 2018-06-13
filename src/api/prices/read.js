@@ -1,12 +1,13 @@
 /* eslint-disable id-length */
-import Model from '../../models/mongodb/prices';
+import {models} from 'mongoose';
+const {Prices} = models;
 
-export default (req, res) => {
+const listPrices = (req, res) => {
 
     /**
-     * Find all registers of Model collection
+     * Find all registers of Prices collection
      */
-    Model
+    Prices
         .paginate(
             [
                 {
@@ -20,7 +21,7 @@ export default (req, res) => {
 
             // If no have data send a not found response
             if (!result.data.length) {
-                return res.api.send(null, res.api.codes.NOT_FOUND);
+                return res.api.send(null, res.api.codes.OK);
             }
 
             return res.api.send(result.data, res.api.codes.OK, {paginate: result.paginate});
@@ -30,4 +31,6 @@ export default (req, res) => {
         })
 
 
-}
+};
+
+export default listPrices;

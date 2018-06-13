@@ -1,10 +1,11 @@
 /* eslint-disable id-length */
-import Model  from '../../models/mongodb/products';
+import {models} from 'mongoose';
+const {Products} = models;
 
-export default (req, res) => {
+const createProducts = (req, res) => {
 
     // Create new products by req.body data
-    Model
+    Products
         .create(req.body)
         .then(products => {
             return res.api.send(products, res.api.codes.CREATED);
@@ -12,4 +13,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default createProducts;

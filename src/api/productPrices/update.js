@@ -1,10 +1,11 @@
 /* eslint-disable id-length */
-import Model  from '../../models/mongodb/productPrices';
+import {models} from 'mongoose';
+const {ProductPrices} = models;
 
-export default (req, res) => {
+const updateProductPrices = (req, res) => {
 
     // Create new productPrices by req.body data
-    Model
+    ProductPrices
         .update(
             {
                 _id: req.params._id
@@ -19,4 +20,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default updateProductPrices;

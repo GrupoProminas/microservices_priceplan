@@ -1,10 +1,11 @@
 /* eslint-disable id-length */
-import Model  from '../../models/mongodb/prices';
+import {models} from 'mongoose';
+const {Prices} = models;
 
-export default (req, res) => {
+const createPrice = (req, res) => {
 
     // Create new prices by req.body data
-    Model
+    Prices
         .create(req.body)
         .then(prices => {
             return res.api.send(prices, res.api.codes.CREATED);
@@ -12,4 +13,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default createPrice;

@@ -19,6 +19,9 @@ import RequestQuery from './core/RequestQuery';
 import SSL          from './core/SSL';
 import Security     from './core/Security';
 import Response     from './core/Response';
+import Locales      from './core/Locales';
+import Validator    from './core/Validator';
+
 
 // Classes & app
 const app           = express();
@@ -29,9 +32,22 @@ const requestQuery  = new RequestQuery();
 const ssl           = new SSL();
 const security      = new Security();
 const response      = new Response();
+const locales       = new Locales(environment.app.locale);
+const validator     = new Validator();
 
 // Set express app in Response class
 response.setApp(app);
+
+
+/**
+ * Setup validator with Joi
+ * @private
+ */
+const _setupValidator = () => {
+    // Set locale in validator
+    validator.setLocale(locales.locale, locales.getLocaleObject('joi'));
+    validator.syncSettings();
+};
 
 /**
  * Use routes in app
@@ -70,8 +86,14 @@ const _setupDatabase = () => {
     // Define cors headers
     _setupCors();
 
+    // Define validator configs
+    _setupValidator();
+
     // Connect to databases
     if (Object.keys(environment.databases).length) {
+
+        // Define languages
+        database.setMongooseLocale(locales.getLocaleObject('mongoose'));
 
         database
             .connectDatabases(
@@ -96,9 +118,15 @@ const _setupDatabase = () => {
  * @private
  */
 const _listenSuccess = () => {
+
+    // Init databases
     _setupDatabase();
+
+    // Print in console app status
     _appLog(`\n${environment.app.name} on at ${environment.server.host}:${environment.server.port}\n`);
-    if (ssl.cert && environment.server.secure) {
+
+    // Detect if app is running in secure mode and print this
+    if (environment.server.secure) {
         _appLog('[SSL_ON]\tSecure')
     } else {
         _appLog('[SSL_OFF]\tNOT SECURE (!)')
@@ -110,12 +138,12 @@ if (config.getEnvName() !== 'test') {
     app.use(morgan(config.getEnvName() === 'development'? 'dev' : 'combined'));
 }
 
-// Express global usages and middleware
+// Express global usages and middlewares
 app.use(bodyParser.json());
 app.use(requestQuery.parseQuery);
 app.use(compression({threshold : 100}));
 
-// Security middleware with helmet
+// Security middlewares with helmet
 security.makeSecure(app, environment.server.ssl.hpkpKeys);
 
 // Create secure server or insecure server (see your *.env.js)

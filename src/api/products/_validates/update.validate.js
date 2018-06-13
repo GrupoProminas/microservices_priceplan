@@ -1,6 +1,6 @@
 import Joi from 'joi';
-import mongoose from 'mongoose';
-import Model from '../../../models/mongodb/products';
+import {models} from 'mongoose';
+const {Products} = models;
 
 export default (req, res, next) => {
 
@@ -16,7 +16,7 @@ export default (req, res, next) => {
             if (err) {
                 return res.api.send(err.message, res.api.codes.UNPROCESSABLE_ENTITY);
             } else {
-                Model
+                Products
                     .findOne(
                         {"alias": req.body.alias}
                     )

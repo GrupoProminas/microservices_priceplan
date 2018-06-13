@@ -50,7 +50,7 @@ class Paginate {
                 paginateObject = Paginate.getPaginateObject(limit, page, total);
 
                 // Define options complements
-                options.limit   = paginateObject.perPage;
+                options.limit   = paginateObject.limit;
                 options.offset  = paginateObject.offset;
 
                 // Find registers with options

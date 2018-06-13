@@ -1,10 +1,15 @@
-/* eslint-disable multiline-ternary,no-console,no-process-exit,capitalized-comments */
-import mongoose         from 'mongoose';
-import Sequelize        from 'sequelize';
-import SequelizeConf    from '../config/sequelize.conf';
-import fs               from 'fs'
-import path             from 'path';
-import paginate         from './Paginate';
+/* eslint-disable no-console,multiline-ternary */
+import mongoose       from 'mongoose';
+import Sequelize      from 'sequelize';
+import {
+    defaultMongooseOptions,
+    defaultSchemaOptions
+}                     from '../config/mongoose/mongoose.conf';
+import SequelizeConf  from '../config/sequelize/sequelize.conf';
+import fs             from 'fs'
+import path           from 'path';
+import paginate       from './Paginate';
+import beautifyUnique from 'mongoose-beautiful-unique-validation';
 
 /**
  * Use this class for all methods that manage databases connections, MySQL, PGSql, MongoDB etc..
@@ -14,7 +19,7 @@ export default class Database {
     /**
      * Run baby
      */
-    constructor () {
+    constructor() {
         this.DEFAULTS = {
             CHARSET: 'utf8',
             DIALECT: 'mysql',
@@ -66,11 +71,63 @@ export default class Database {
      */
     _connectInMongoDB(databaseConfig) {
 
+        // Define if mongoose should show  or hide logs
+        mongoose.set('debug', databaseConfig.logging);
+
         // Use promises
         mongoose.Promise = global.Promise;
 
         // Inject paginate function in mongoose
         mongoose.Model.paginate = paginate.mongoose;
+
+        // Get config database dialect or use default
+        const dialect = databaseConfig.dialect ? databaseConfig.dialect : 'mongodb';
+
+        // Use plugin Beautify Unique in mongoose (for parse mongodb unique errors)
+        mongoose.plugin(beautifyUnique);
+
+        // Set mongoose default options
+        Object.keys(defaultMongooseOptions).forEach(key => {
+            mongoose.set(key, defaultMongooseOptions[key]);
+        });
+
+        // Synchronize models in dir to mongoose
+        fs.readdirSync(path.join(__dirname, '../models', dialect))
+            .forEach(filename => {
+                // Define path for model script
+                const schemaDef = require(path.join(__dirname, '../models/', dialect, filename)).default;
+
+                // Set schema name
+                defaultSchemaOptions.collection = schemaDef.collection;
+
+                // Set schema options
+                schemaDef.options = 'options' in schemaDef
+                    ? Object.assign(defaultSchemaOptions, schemaDef.options) : defaultSchemaOptions;
+
+                // Create schema
+                const schema = new mongoose.Schema(schemaDef.fields, schemaDef.options);
+
+                // Register pre hooks
+                if ('pre' in schemaDef)
+                    Object.keys(schemaDef.pre).forEach(hook => {
+                        schema.pre(hook, schemaDef.pre[hook]);
+                    });
+
+                // Register post hooks
+                if ('post' in schemaDef)
+                    Object.keys(schemaDef.post).forEach(hook => {
+                        schema.post(hook, schemaDef.post[hook]);
+                    });
+
+                // Register schema indexes
+                if ('indexes' in schemaDef)
+                    Object.keys(schemaDef.indexes).forEach(index => {
+                        schema.index(schemaDef.indexes[index].fields, schemaDef.indexes[index].options);
+                    });
+
+                // Create mongoose model from schema
+                mongoose.model(schemaDef.collection, schema);
+            });
 
         // Return mongo connection
         return mongoose.connection.openUri(this._createMongooseUri('mongodb', databaseConfig));
@@ -88,7 +145,7 @@ export default class Database {
         const dialect = databaseConfig.dialect ? databaseConfig.dialect : this.DEFAULTS.DIALECT;
 
         // Get config logging or no use logs
-        const logging = databaseConfig.logging ? console.log: this.DEFAULTS.LOGGING;
+        const logging = databaseConfig.logging ? console.log : this.DEFAULTS.LOGGING;
 
         // Get config database charset or use default
         const charset = databaseConfig.charset ? databaseConfig.charset : this.DEFAULTS.CHARSET;
@@ -96,7 +153,7 @@ export default class Database {
         // Create dialect object
         SequelizeConf[dialect] = {
             sequelize: null,
-            DB: []
+            DB       : []
         };
 
         // Inject paginate in sequelize Model
@@ -107,8 +164,8 @@ export default class Database {
             this._createSequelizeUri(dialect, databaseConfig),
             {
                 operatorsAliases: Sequelize.Op.Aliases,
-                charset: charset,
-                logging: logging
+                charset         : charset,
+                logging         : logging
             }
         );
 
@@ -140,8 +197,7 @@ export default class Database {
         // Sync models to database
         return SequelizeConf[dialect].sequelize.sync(
             {
-                // process.env.NODE_ENV !== 'production'
-                force: false,
+                force  : false,
                 logging: false
             }
         );
@@ -155,7 +211,7 @@ export default class Database {
      * @private
      */
     _createSequelizeUri(driver, config) {
-        return  config.user.length
+        return config.user.length
             ? `${driver}://${config.user}:${config.pass}@${config.host}:${config.port}/${config.name}`
             : `${driver}://${config.host}:${config.port}/${config.name}`;
     }
@@ -222,5 +278,13 @@ export default class Database {
                     console.log('[SQL Error] \n\n\t' + err.message + '\n\tEXIT\n');
                     process.exit(0);
                 });
+    }
+
+    /**
+     * Define mongoose message by locale
+     * @param localeObject
+     */
+    setMongooseLocale(localeObject) {
+        mongoose.Error.messages = localeObject
     }
 }

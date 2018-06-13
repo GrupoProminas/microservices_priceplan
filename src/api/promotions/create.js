@@ -1,10 +1,11 @@
 /* eslint-disable id-length */
-import Model  from '../../models/mongodb/promotions';
+import {models} from 'mongoose';
+const {Promotions} = models;
 
-export default (req, res) => {
+const createPromotions = (req, res) => {
 
     // Create new promotions by req.body data
-    Model
+    Promotions
         .create(req.body)
         .then(promotions => {
             return res.api.send(promotions, res.api.codes.CREATED);
@@ -12,4 +13,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default createPromotions;

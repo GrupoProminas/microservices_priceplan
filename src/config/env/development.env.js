@@ -7,7 +7,8 @@ module.exports = {
      */
     app: {
         name    : 'MICROSSERVICE PRICE AND PLANS',
-        version : '1.0.0'
+        version : '1.0.0',
+        locale : 'pt_BR'
     },
 
 
@@ -62,5 +63,20 @@ module.exports = {
             enabled     : true,
             configWith  : 'mongoose'
         },
+    },
+
+    /**
+     * APIs CONFIGS
+     * All configurations for another apis go here
+     */
+    apis: {
+        apiKey  : '',
+        accounts: {
+            uri: 'https://api-accounts.institutoprominas.com.br'
+        },
+        storage : {
+            uri   : 'https://api-storage.institutoprominas.com.br',
+            bucket: ''
+        }
     }
 };

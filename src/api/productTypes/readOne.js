@@ -1,30 +1,21 @@
 /* eslint-disable id-length,new-cap */
-import mongoose from 'mongoose';
-import Model  from '../../models/mongodb/productTypes';
+import {models} from 'mongoose';
+const {ProductTypes} = models;
 
-export default (req, res) => {
+const getProductTypes = (req, res) => {
 
-    // Set _id in where object as ObjectId
-    req.query.where._id = mongoose.Types.ObjectId(req.params._id);
-
-    /**
-     * Find all registers of Model collection
-     */
-    Model
-        .findOne(
-            req.query.where,
-            req.query.project
+    return ProductTypes
+        .findById(
+            req.params._id
         )
         .then(artist => {
-
-            // If no have data send a not found response
-            if (!artist) {
-                return res.api.send(null, res.api.codes.NOT_FOUND);
-            }
+            if (!artist) return res.api.send(null, res.api.codes.OK);
 
             return res.api.send(artist, res.api.codes.OK);
         })
         .catch(err => {
-            return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
-}
+            return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
+        });
+};
+
+export default getProductTypes;

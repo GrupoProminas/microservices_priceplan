@@ -1,16 +1,13 @@
 /* eslint-disable id-length,new-cap */
-import mongoose from 'mongoose';
-import Model  from '../../models/mongodb/plans';
+import {models} from 'mongoose';
+const {Plans} = models;
 
-export default (req, res) => {
-
-    // Set _id in where object as ObjectId
-    req.query.where._id = mongoose.Types.ObjectId(req.params._id);
+const getPlans = (req, res) => {
 
     /**
      * Find all registers of Model collection
      */
-    Model
+    Plans
         .findOne(
             req.query.where,
             req.query.project
@@ -19,7 +16,7 @@ export default (req, res) => {
 
             // If no have data send a not found response
             if (!artist) {
-                return res.api.send(null, res.api.codes.NOT_FOUND);
+                return res.api.send(null, res.api.codes.OK);
             }
 
             return res.api.send(artist, res.api.codes.OK);
@@ -27,4 +24,6 @@ export default (req, res) => {
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
         })
-}
+};
+
+export default getPlans;
