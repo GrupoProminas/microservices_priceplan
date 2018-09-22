@@ -2,585 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d63adf55-eeae-43e4-ad6a-7faebb03b360" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/rates/_validates/create.validate.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/rates/_validates/update.validate.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/rates/create.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/api/rates/readOne.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/models/mongodb/rates.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/.bin/detect-libc" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/.bin/mkdirp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/.bin/needle" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/.bin/node-pre-gyp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/.bin/nopt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/.bin/rc" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/.bin/rimraf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/.bin/semver" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/abbrev/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/abbrev/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/abbrev/abbrev.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/abbrev/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ansi-regex/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ansi-regex/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ansi-regex/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ansi-regex/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/aproba/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/aproba/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/aproba/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/aproba/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/CHANGES.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/tracker-base.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/tracker-group.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/tracker-stream.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/are-we-there-yet/tracker.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/balanced-match/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/balanced-match/LICENSE.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/balanced-match/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/balanced-match/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/balanced-match/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/brace-expansion/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/brace-expansion/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/brace-expansion/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/brace-expansion/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/chownr/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/chownr/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/chownr/chownr.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/chownr/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/code-point-at/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/code-point-at/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/code-point-at/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/code-point-at/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/concat-map/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/concat-map/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/concat-map/README.markdown" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/concat-map/example/map.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/concat-map/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/concat-map/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/concat-map/test/map.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/console-control-strings/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/console-control-strings/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/console-control-strings/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/console-control-strings/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/core-util-is/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/core-util-is/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/core-util-is/float.patch" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/core-util-is/lib/util.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/core-util-is/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/core-util-is/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/.coveralls.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/.eslintrc" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/Makefile" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/component.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/karma.conf.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/src/browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/src/debug.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/src/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/src/inspector-log.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/debug/src/node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/deep-extend/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/deep-extend/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/deep-extend/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/deep-extend/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/deep-extend/lib/deep-extend.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/deep-extend/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/delegates/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/delegates/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/delegates/License" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/delegates/Makefile" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/delegates/Readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/delegates/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/delegates/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/delegates/test/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/detect-libc/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/detect-libc/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/detect-libc/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/detect-libc/bin/detect-libc.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/detect-libc/lib/detect-libc.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/detect-libc/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs-minipass/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs-minipass/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs-minipass/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs-minipass/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs.realpath/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs.realpath/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs.realpath/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs.realpath/old.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/fs.realpath/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/base-theme.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/error.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/has-color.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/plumbing.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/process.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/progress-bar.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/render-template.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/set-immediate.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/set-interval.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/spin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/template-item.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/theme-set.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/themes.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/gauge/wide-truncate.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/glob/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/glob/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/glob/changelog.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/glob/common.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/glob/glob.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/glob/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/glob/sync.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/has-unicode/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/has-unicode/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/has-unicode/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/has-unicode/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/Changelog.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/dbcs-codec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/dbcs-data.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/internal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/sbcs-codec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/sbcs-data-generated.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/sbcs-data.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/tables/big5-added.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/tables/cp936.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/tables/cp949.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/tables/cp950.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/tables/eucjp.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/tables/gbk-added.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/tables/shiftjis.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/utf16.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/encodings/utf7.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/lib/bom-handling.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/lib/extend-node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/lib/index.d.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/lib/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/lib/streams.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/iconv-lite/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ignore-walk/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ignore-walk/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ignore-walk/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ignore-walk/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inflight/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inflight/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inflight/inflight.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inflight/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inherits/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inherits/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inherits/inherits.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inherits/inherits_browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/inherits/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ini/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ini/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ini/ini.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ini/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/is-fullwidth-code-point/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/is-fullwidth-code-point/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/is-fullwidth-code-point/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/is-fullwidth-code-point/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/isarray/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/isarray/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/isarray/Makefile" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/isarray/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/isarray/component.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/isarray/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/isarray/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/isarray/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimatch/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimatch/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimatch/minimatch.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimatch/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/example/parse.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/readme.markdown" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/test/dash.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/test/default_bool.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/test/dotted.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/test/long.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/test/parse.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/test/parse_modified.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/test/short.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minimist/test/whitespace.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/node_modules/yallist/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/node_modules/yallist/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/node_modules/yallist/iterator.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/node_modules/yallist/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/node_modules/yallist/yallist.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minizlib/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minizlib/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minizlib/constants.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minizlib/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minizlib/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/bin/cmd.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/bin/usage.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/examples/pow.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/readme.markdown" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/chmod.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/clobber.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/mkdirp.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/opts_fs.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/opts_fs_sync.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/perm.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/perm_sync.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/race.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/rel.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/return.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/return_sync.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/root.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/sync.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/umask.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/mkdirp/test/umask_sync.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ms/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ms/license.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ms/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/ms/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/bin/needle" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/deflated-stream.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/digest-auth.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/download-to-file.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/multipart-stream.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/parsed-stream.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/parsed-stream2.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/stream-events.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/stream-to-file.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/examples/upload-image.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/lib/auth.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/lib/cookies.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/lib/decoder.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/lib/multipart.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/lib/needle.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/lib/parsers.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/lib/querystring.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/license.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/basic_auth_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/compression_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/cookies_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/decoder_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/errors_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/headers_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/helpers.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/long_string_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/output_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/parsing_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/post_data_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/proxy_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/querystring_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/redirect_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/redirect_with_timeout.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/request_stream_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/response_stream_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/socket_pool_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/url_spec.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/utils/formidable.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/utils/proxy.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/needle/test/utils/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/appveyor.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/bin/node-pre-gyp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/bin/node-pre-gyp.cmd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/contributing.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/build.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/clean.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/configure.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/info.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/install.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/node-pre-gyp.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/package.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/pre-binding.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/publish.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/rebuild.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/reinstall.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/reveal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/testbinary.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/testpackage.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/unpublish.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/util/abi_crosswalk.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/util/compile.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/util/handle_gyp_opts.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/util/napi.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/util/nw-pre-gyp/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/util/nw-pre-gyp/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/util/s3_setup.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/lib/util/versioning.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/node-pre-gyp/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/bin/nopt.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/examples/my-program.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/lib/nopt.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/nopt/test/basic.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npm-bundled/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npm-bundled/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npm-bundled/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npm-packlist/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npm-packlist/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npm-packlist/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npm-packlist/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npmlog/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npmlog/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npmlog/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npmlog/log.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/npmlog/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/number-is-nan/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/number-is-nan/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/number-is-nan/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/number-is-nan/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/object-assign/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/object-assign/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/object-assign/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/object-assign/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/once/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/once/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/once/once.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/once/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/os-homedir/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/os-homedir/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/os-homedir/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/os-homedir/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/os-tmpdir/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/os-tmpdir/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/os-tmpdir/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/os-tmpdir/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/osenv/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/osenv/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/osenv/osenv.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/osenv/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/path-is-absolute/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/path-is-absolute/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/path-is-absolute/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/path-is-absolute/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/process-nextick-args/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/process-nextick-args/license.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/process-nextick-args/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/process-nextick-args/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/LICENSE.APACHE2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/LICENSE.BSD" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/LICENSE.MIT" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/cli.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/lib/utils.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/example/parse.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/readme.markdown" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/all_bool.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/bool.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/dash.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/default_bool.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/dotted.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/kv_short.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/long.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/num.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/parse.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/parse_modified.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/short.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/stop_early.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/unknown.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/node_modules/minimist/test/whitespace.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/test/ini.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/test/nested-env-vars.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rc/test/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/CONTRIBUTING.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/GOVERNANCE.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/doc/wg-meetings/2015-01-30.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/duplex-browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/duplex.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/_stream_duplex.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/_stream_passthrough.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/_stream_readable.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/_stream_transform.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/_stream_writable.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/internal/streams/BufferList.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/internal/streams/destroy.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/internal/streams/stream-browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/lib/internal/streams/stream.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/passthrough.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/readable-browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/readable.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/transform.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/writable-browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/readable-stream/writable.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rimraf/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rimraf/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rimraf/bin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rimraf/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/rimraf/rimraf.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safe-buffer/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safe-buffer/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safe-buffer/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safe-buffer/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safe-buffer/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safe-buffer/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safer-buffer/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safer-buffer/Porting-Buffer.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safer-buffer/Readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safer-buffer/dangerous.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safer-buffer/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safer-buffer/safer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/safer-buffer/tests.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/sax/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/sax/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/sax/lib/sax.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/sax/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/semver/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/semver/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/semver/bin/semver" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/semver/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/semver/range.bnf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/semver/semver.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/set-blocking/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/set-blocking/LICENSE.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/set-blocking/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/set-blocking/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/set-blocking/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/signal-exit/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/signal-exit/LICENSE.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/signal-exit/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/signal-exit/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/signal-exit/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/signal-exit/signals.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string-width/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string-width/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string-width/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string-width/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string_decoder/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string_decoder/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string_decoder/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string_decoder/lib/string_decoder.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/string_decoder/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/strip-ansi/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/strip-ansi/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/strip-ansi/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/strip-ansi/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/strip-json-comments/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/strip-json-comments/license" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/strip-json-comments/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/strip-json-comments/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/buffer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/create.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/extract.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/header.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/high-level-opt.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/large-numbers.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/list.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/mkdir.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/pack.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/parse.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/pax.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/read-entry.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/replace.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/types.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/unpack.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/update.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/warn-mixin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/winchars.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/lib/write-entry.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/node_modules/yallist/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/node_modules/yallist/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/node_modules/yallist/iterator.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/node_modules/yallist/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/node_modules/yallist/yallist.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/tar/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/util-deprecate/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/util-deprecate/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/util-deprecate/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/util-deprecate/browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/util-deprecate/node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/util-deprecate/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/wide-align/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/wide-align/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/wide-align/align.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/wide-align/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/wrappy/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/wrappy/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/wrappy/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/wrappy/wrappy.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/api/plans/_validates/create.validate.js" afterPath="$PROJECT_DIR$/src/api/plans/_validates/create.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/plans/_validates/update.validate.js" afterPath="$PROJECT_DIR$/src/api/plans/_validates/update.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/prices/_index.js" afterPath="$PROJECT_DIR$/src/api/pricesCourses/_index.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/prices/_validates/create.validate.js" afterPath="$PROJECT_DIR$/src/api/pricesCourses/_validates/create.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/prices/_validates/update.validate.js" afterPath="$PROJECT_DIR$/src/api/pricesCourses/_validates/update.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/prices/create.js" afterPath="$PROJECT_DIR$/src/api/pricesCourses/create.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/prices/read.js" afterPath="$PROJECT_DIR$/src/api/pricesCourses/read.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/prices/readOne.js" afterPath="$PROJECT_DIR$/src/api/pricesCourses/readOne.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/prices/update.js" afterPath="$PROJECT_DIR$/src/api/pricesCourses/update.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/_index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/_index.js" afterPath="$PROJECT_DIR$/src/api/rates/_index.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/_validates/create.validate.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/_validates/update.validate.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/create.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/read.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/read.js" afterPath="$PROJECT_DIR$/src/api/rates/read.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/readOne.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/update.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/api/productPrices/update.js" afterPath="$PROJECT_DIR$/src/api/rates/update.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/productTypes/_validates/create.validate.js" afterPath="$PROJECT_DIR$/src/api/productTypes/_validates/create.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/productTypes/_validates/update.validate.js" afterPath="$PROJECT_DIR$/src/api/productTypes/_validates/update.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/products/_validates/create.validate.js" afterPath="$PROJECT_DIR$/src/api/products/_validates/create.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/products/_validates/update.validate.js" afterPath="$PROJECT_DIR$/src/api/products/_validates/update.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/promotions/_index.js" afterPath="$PROJECT_DIR$/src/api/promotionCourses/_index.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/promotions/_validates/create.validate.js" afterPath="$PROJECT_DIR$/src/api/promotionCourses/_validates/create.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/promotions/_validates/update.validate.js" afterPath="$PROJECT_DIR$/src/api/promotionCourses/_validates/update.validate.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/promotions/create.js" afterPath="$PROJECT_DIR$/src/api/promotionCourses/create.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/promotions/read.js" afterPath="$PROJECT_DIR$/src/api/promotionCourses/read.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/promotions/readOne.js" afterPath="$PROJECT_DIR$/src/api/promotionCourses/readOne.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/promotions/update.js" afterPath="$PROJECT_DIR$/src/api/promotionCourses/update.js" />
-      <change beforePath="$PROJECT_DIR$/src/config/env/development.env.js" afterPath="$PROJECT_DIR$/src/config/env/development.env.js" />
-      <change beforePath="$PROJECT_DIR$/src/models/mongodb/plans.js" afterPath="$PROJECT_DIR$/src/models/mongodb/plans.js" />
-      <change beforePath="$PROJECT_DIR$/src/models/mongodb/prices.js" afterPath="$PROJECT_DIR$/src/models/mongodb/priceCourses.js" />
-      <change beforePath="$PROJECT_DIR$/src/models/mongodb/productPrices.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/models/mongodb/productTypes.js" afterPath="$PROJECT_DIR$/src/models/mongodb/productTypes.js" />
-      <change beforePath="$PROJECT_DIR$/src/models/mongodb/products.js" afterPath="$PROJECT_DIR$/src/models/mongodb/products.js" />
-      <change beforePath="$PROJECT_DIR$/src/models/mongodb/promotions.js" afterPath="$PROJECT_DIR$/src/models/mongodb/promotionCourses.js" />
+      <change beforePath="$PROJECT_DIR$/src/api/rates/_index.js" afterPath="$PROJECT_DIR$/src/api/rates/_index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -594,73 +16,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rates.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/mongodb/rates.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/api/rates/_index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding>
-                <element signature="e#16#74#0" expanded="true" />
-                <element signature="e#157#187#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/rates/create.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="read.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/rates/read.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="readOne.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/rates/readOne.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/rates/update.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -712,7 +73,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/api/productPrices/update.js" />
         <option value="$PROJECT_DIR$/src/api/productPrices/create.js" />
         <option value="$PROJECT_DIR$/src/api/products/create.js" />
         <option value="$PROJECT_DIR$/src/api/products/read.js" />
@@ -763,6 +123,7 @@
         <option value="$PROJECT_DIR$/src/api/rates/readOne.js" />
         <option value="$PROJECT_DIR$/src/api/rates/read.js" />
         <option value="$PROJECT_DIR$/src/api/rates/create.js" />
+        <option value="$PROJECT_DIR$/src/api/rates/_index.js" />
       </list>
     </option>
   </component>
@@ -830,45 +191,7 @@
               <item name="microservice_priceplan" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="plans" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microservice_priceplan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice_priceplan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="plans" type="462c0819:PsiDirectoryNode" />
-              <item name="_validates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microservice_priceplan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice_priceplan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="productTypes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microservice_priceplan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice_priceplan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="productTypes" type="462c0819:PsiDirectoryNode" />
-              <item name="_validates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microservice_priceplan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice_priceplan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="rates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microservice_priceplan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice_priceplan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="rates" type="462c0819:PsiDirectoryNode" />
-              <item name="_validates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="microservice_priceplan" type="b2602c69:ProjectViewProjectNode" />
@@ -938,12 +261,12 @@
       <workItem from="1528553004103" duration="14785000" />
       <workItem from="1528767955692" duration="2241000" />
       <workItem from="1537634670901" duration="307000" />
-      <workItem from="1537634992253" duration="5488000" />
+      <workItem from="1537634992253" duration="7462000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32747000" />
+    <option name="totallyTimeSpent" value="34721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="900" extended-state="6" />
@@ -1121,17 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/pricesCourses/_index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="e#16#74#0" expanded="false" />
-            <element signature="e#157#187#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/pricesCourses/create.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1273,14 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/mongodb/priceCourses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/mongodb/promotionCourses.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1310,7 +614,7 @@
         <state relative-caret-position="240">
           <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1336,7 +640,7 @@
         <state relative-caret-position="360">
           <caret line="30" column="13" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="30" selection-end-column="13" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1346,7 +650,7 @@
         <state relative-caret-position="30">
           <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1356,7 +660,7 @@
         <state relative-caret-position="105">
           <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1366,7 +670,7 @@
         <state relative-caret-position="90">
           <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1376,7 +680,7 @@
         <state relative-caret-position="105">
           <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1386,7 +690,7 @@
         <state relative-caret-position="105">
           <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1396,7 +700,7 @@
         <state relative-caret-position="90">
           <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1409,14 +713,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/mongodb/priceCourses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/pricesCourses/_index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/rates/_index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="e#16#74#0" expanded="true" />
-            <element signature="e#157#187#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
