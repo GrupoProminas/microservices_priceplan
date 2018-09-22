@@ -7,9 +7,31 @@ export default (req, res, next) => {
     Joi
         .object(
             {
+                _productTypeAlias: Joi.string().required(),
                 name: Joi.string().required(),
                 alias: Joi.string().required(),
-                active: Joi.boolean().allow('').optional()
+                amount: Joi.number().required(),
+                metadata: Joi.any(),
+                shipping: Joi.object({
+                    packing: Joi.string(),
+                    _codePacking: Joi.string(),
+                    description: Joi.string(),
+                    notes: Joi.string(),
+                    weight: Joi.number(),
+                    cubage: Joi.number(),
+                    dimension: Joi.object({
+                        width: Joi.number(),
+                        length: Joi.number(),
+                        height: Joi.number(),
+                        diameter: Joi.number()
+                    }),
+                    additionalService: {
+                        ownHand: Joi.number(),
+                        receiptNotice: Joi.number(),
+                        declaredValue: Joi.number()
+                    }
+                }),
+                isActive: Joi.boolean().allow('').optional()
             }
         )
         .validate(req.body, err => {

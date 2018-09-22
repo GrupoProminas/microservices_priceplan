@@ -1,15 +1,10 @@
 export default {
-    collection: 'ProductTypes',
+    collection: 'PriceCourses',
     fields    :   {
-        name: {
-            type        : String,
+        amount: {
+            type        : Number,
             required    : true,
             index       : true
-        },
-        alias: {
-          type: String,
-          required: true,
-          unique: true
         },
         isActive: {
             type        : Boolean,

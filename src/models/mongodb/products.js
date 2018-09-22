@@ -1,6 +1,12 @@
+import mongoose from 'mongoose';
+
 export default {
     collection: 'Products',
     fields    :   {
+        _productTypeAlias: {
+           type: String,
+           required: true
+        },
         name: {
             type        : String,
             required    : true,
@@ -11,7 +17,33 @@ export default {
             unique      : true,
             required    : true
         },
-        active: {
+        amount: {
+          type: Number,
+          required: true
+        },
+        metadata: {
+          type: mongoose.SchemaTypes.Mixed
+        },
+        shipping: {
+          packing: String,
+          _codePacking: String,
+          description: String,
+          notes: String,
+          weight: Number,
+          cubage: Number,
+          dimension: {
+              width: Number,
+              length: Number,
+              height: Number,
+              diamenter: Number
+          },
+            additionalService: {
+                ownHand: Number,
+                receiptNotice: Number,
+                declaredValue: Number
+            }
+        },
+        isActive: {
             type        : Boolean,
             required    : true,
             default     : true,

@@ -1,14 +1,11 @@
 import Joi from 'joi';
 
 export default (req, res, next) => {
+
     Joi
         .object(
             {
-                installments: Joi.array().items(Joi.object().keys({
-                    installment: Joi.number().required(),
-                    percent: Joi.number().required(),
-                    amount: Joi.number().required(),
-                })),
+                amount: Joi.number().required(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )

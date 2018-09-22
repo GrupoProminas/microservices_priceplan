@@ -1,4 +1,3 @@
-
 export default {
     collection: 'Plans',
     fields    :   {
@@ -19,7 +18,7 @@ export default {
                 index: true
             },
         }],
-        active: {
+        isActive: {
             type: Boolean,
             required: true,
             default: true,

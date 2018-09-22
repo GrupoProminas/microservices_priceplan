@@ -43,25 +43,33 @@ module.exports = {
      * All configurations to connect in databases should go here
      */
     databases: {
-        mongo: {
-            servers: [
+        MongoDBAtlas: {
+            servers       : [
                 {
-                    host: 'localhost',
+                    host: 'homologacao-shard-00-00-dyz6u.gcp.mongodb.net',
                     port: 27017
                 },
-                // ...
+                {
+                    host: 'homologacao-shard-00-01-dyz6u.gcp.mongodb.net',
+                    port: 27017
+                },
+                {
+                    host: 'homologacao-shard-00-02-dyz6u.gcp.mongodb.net',
+                    port: 27017
+                }
             ],
-            replicaSet  : '',
-            authSource  : 'admin',
-            ssl         : false,
-            user        : 'root',
-            pass        : 'root',
-            name        : 'microservice-price-and-plans',
-            dialect     : 'mongodb',
-            charset     : 'utf8',
-            logging     : true,
-            enabled     : true,
-            configWith  : 'mongoose'
+            replicaSet    : 'homologacao-shard-0',
+            authSource    : 'admin',
+            auto_reconnect: true,
+            ssl           : true,
+            user          : 'homologacao',
+            pass          : '0LXpkVYwis8fH65J',
+            name          : 'microservice_priceplan',
+            dialect       : 'mongodb',
+            charset       : 'utf8',
+            logging       : false,
+            enabled       : true,
+            configWith    : 'mongoose'
         },
     },
 

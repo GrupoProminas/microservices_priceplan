@@ -1,13 +1,21 @@
 import Joi from 'joi';
 import {models} from 'mongoose';
-const {ProductTypes} = models;
+const {Rates} = models;
 
 export default (req, res, next) => {
     Joi
         .object(
             {
-                name: Joi.string().required(),
-                alias: Joi.string().required(),
+                _planId: Joi.string(),
+                name: Joi.string(),
+                alias: Joi.string(),
+                typeRate: Joi.string().valid([
+                    'declaration',
+                    'enrolment',
+                    'others'
+                ]),
+                amount: Joi.number(),
+                metadata: Joi.any(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )
@@ -15,7 +23,7 @@ export default (req, res, next) => {
             if (err) {
                 return res.api.send(err.message, res.api.codes.UNPROCESSABLE_ENTITY);
             } else {
-                ProductTypes
+                Rates
                     .findOne(
                         {"alias": req.body.alias}
                     )
@@ -29,5 +37,6 @@ export default (req, res, next) => {
                         return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
                     })
             }
+
         });
 }
