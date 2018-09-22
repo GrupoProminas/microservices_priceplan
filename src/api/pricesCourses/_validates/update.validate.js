@@ -5,7 +5,7 @@ export default (req, res, next) => {
     Joi
         .object(
             {
-                amount: Joi.number().required(),
+                amount: Joi.number(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )
