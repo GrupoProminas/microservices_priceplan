@@ -6,10 +6,10 @@ import mongoose from 'mongoose';
  * @type {{limit: number, page: number, project: Object}}
  */
 const defaults = {
-    limit   : 100,
-    page    : 1,
-    project : {
-        __v : false
+    limit  : 100,
+    page   : 1,
+    project: {
+        __v: false
     }
 };
 
@@ -22,7 +22,7 @@ class RequestQuery {
      * @param res
      * @param next
      */
-    parseQuery (req, res, next) {
+    parseQuery(req, res, next) {
 
         // Set default project (is overridden if exist 'select' in req.query)
         req.query.project = defaults.project;
@@ -32,10 +32,10 @@ class RequestQuery {
         if ('select' in req.query) {
 
             // Mount array of select query fields
-            req.query.select    = req.query.select.split(',');
+            req.query.select = req.query.select.split(',');
 
             // Clear project object to insert same fields of select
-            req.query.project   = {};
+            req.query.project = {};
 
             // Increment project object with select fields
             req.query.select.forEach(item => {
@@ -76,7 +76,17 @@ class RequestQuery {
         // Usage: ?offset=20
         req.query.offset = 'offset' in req.query
             ? parseInt(req.query.offset, Infinity)
-            : req.query.limit *  (req.query.page - 1);
+            : req.query.limit * (req.query.page - 1);
+
+        req.query.aggregate = 'aggregate' in req.query ? JSON.parse(req.query.aggregate) : [];
+
+        if (!req.query.aggregate.find(pipeline => Object.keys(pipeline)[0] === '$match'))
+            req.query.aggregate.unshift({$match: {}});
+
+        req.query.populate = 'populate' in req.query ? JSON.parse(req.query.populate) : {};
+
+        if (Object.keys(req.query.populate).length === 0)
+            req.query.populate = '';
 
         // Continue...
         next();

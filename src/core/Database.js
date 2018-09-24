@@ -6,7 +6,7 @@ import {
     defaultSchemaOptions
 }                     from '../config/mongoose/mongoose.conf';
 import SequelizeConf  from '../config/sequelize/sequelize.conf';
-import fs             from 'fs'
+import fs             from 'fs';
 import path           from 'path';
 import paginate       from './Paginate';
 import beautifyUnique from 'mongoose-beautiful-unique-validation';
@@ -24,7 +24,7 @@ export default class Database {
             CHARSET: 'utf8',
             DIALECT: 'mysql',
             LOGGING: null
-        }
+        };
     }
 
     /**
@@ -59,7 +59,7 @@ export default class Database {
                         throw Error('unknown database configuration agent.');
                 }
             });
-            setTimeout(resolve, 2000)
+            setTimeout(resolve, 2000);
         });
     }
 
@@ -110,13 +110,17 @@ export default class Database {
                 // Register pre hooks
                 if ('pre' in schemaDef)
                     Object.keys(schemaDef.pre).forEach(hook => {
-                        schema.pre(hook, schemaDef.pre[hook]);
+                        if (Array.isArray(schemaDef.pre[hook]))
+                            schemaDef.pre[hook].forEach(hookFunction => schema.pre(hook, hookFunction));
+                        else schema.pre(hook, schemaDef.pre[hook]);
                     });
 
                 // Register post hooks
                 if ('post' in schemaDef)
                     Object.keys(schemaDef.post).forEach(hook => {
-                        schema.post(hook, schemaDef.post[hook]);
+                        if (Array.isArray(schemaDef.pre[hook]))
+                            schemaDef.post[hook].forEach(hookFunction => schema.post(hook, hookFunction));
+                        else schema.post(hook, schemaDef.pre[hook]);
                     });
 
                 // Register schema indexes
@@ -130,7 +134,7 @@ export default class Database {
             });
 
         // Return mongo connection
-        return mongoose.connection.openUri(this._createMongooseUri('mongodb', databaseConfig));
+        return mongoose.connection.openUri(this._createMongooseUri('mongodb', databaseConfig), {useNewUrlParser: true});
     }
 
     /**
@@ -242,7 +246,7 @@ export default class Database {
 
         // Finish, concat the servers string to final URI string
         return config.user.length
-            ? `${driver}://${config.user}:${config.pass}@${servers}/${config.name}?${options}`
+            ? `${driver}://${encodeURIComponent(config.user)}:${encodeURIComponent(config.pass)}@${servers}/${config.name}?${options}`
             : `${driver}://${config.servers}/${config.name}?${options}`;
     }
 
@@ -285,6 +289,6 @@ export default class Database {
      * @param localeObject
      */
     setMongooseLocale(localeObject) {
-        mongoose.Error.messages = localeObject
+        mongoose.Error.messages = localeObject;
     }
 }

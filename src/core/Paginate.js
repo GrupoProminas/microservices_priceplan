@@ -1,3 +1,4 @@
+/* eslint-disable array-element-newline */
 class Paginate {
 
     /**
@@ -50,8 +51,8 @@ class Paginate {
                 paginateObject = Paginate.getPaginateObject(limit, page, total);
 
                 // Define options complements
-                options.limit   = paginateObject.limit;
-                options.offset  = paginateObject.offset;
+                options.limit = paginateObject.limit;
+                options.offset = paginateObject.offset;
 
                 // Find registers with options
                 return this.findAll(options)
@@ -82,11 +83,10 @@ class Paginate {
         // Initialize paginate object
         let paginateObject = {};
 
-        return this.count()
-            .then(total => {
-
+        return this.aggregate(options.concat([{$count: 'total'}]))
+            .then(result => {
                 // Set paginate result
-                paginateObject = Paginate.getPaginateObject(limit, page, total);
+                paginateObject = Paginate.getPaginateObject(limit, page, result[0] && 'total' in result[0] ? result[0].total : 0);
 
                 // Find registers with options
                 return this.aggregate(options)
@@ -104,7 +104,7 @@ class Paginate {
             .catch(err => {
                 // Reject promise returning errors
                 throw err;
-            })
+            });
     }
 }
 

@@ -57,10 +57,12 @@ export default class Routers {
         /**
          * Route Not Found Error
          */
+        app.options('*', function (req, res) {
+            return res.send(null);
+        });
+
         app.use('*', function (req, res) {
-            return req.method === 'OPTIONS'
-                ? res.api.send(null, res.api.codes.OK, null)
-                : res.api.send(null, res.api.codes.NOT_FOUND, null, 'route_not_found');
+            return res.api.send(null, res.api.codes.NOT_FOUND, null, 'route_not_found');
         });
 
         /**
