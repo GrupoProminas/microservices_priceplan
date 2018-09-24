@@ -6,6 +6,7 @@ export default {
             required    : true,
             index       : true
         },
+        tags: [String],
         isActive: {
             type        : Boolean,
             required    : true,

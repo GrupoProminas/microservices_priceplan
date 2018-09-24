@@ -18,6 +18,7 @@ export default {
                 index: true
             },
         }],
+        tags: [String],
         isActive: {
             type: Boolean,
             required: true,
