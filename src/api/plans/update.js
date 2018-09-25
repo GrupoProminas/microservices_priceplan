@@ -5,7 +5,12 @@ const {Plans} = models;
 
 const updatePlans = (req, res) => {
 
-    // Create new plans by req.body data
+    if(req.body.installments.length > 0) {
+        for (let i = 0; req.body.installments.length > i; i++) {
+            req.body.installments[i].amount *= 100;
+        }
+    }
+
     Plans
         .update(
             {
