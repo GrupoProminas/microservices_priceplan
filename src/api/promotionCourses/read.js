@@ -12,6 +12,20 @@ const listPromotions = (req, res) => {
             [
                 {
                     $match: req.query.where
+                },
+                {
+                    $sort: {_id: -1}
+                },
+                {
+                    $lookup: {
+                        from: 'PriceCourses',
+                        localField: 'priceCourse_id',
+                        foreignField: '_id',
+                        as: 'priceCourse'
+                    }
+                },
+                {
+                    $unwind: '$priceCourse'
                 }
             ],
             req.query.limit,
