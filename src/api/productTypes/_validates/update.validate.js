@@ -1,12 +1,14 @@
 import Joi from 'joi';
+import {models} from 'mongoose';
+const {ProductTypes} = models;
 
 export default (req, res, next) => {
 
     Joi
         .object(
             {
-                name: Joi.string().required(),
-                alias: Joi.string().required(),
+                name: Joi.string(),
+                alias: Joi.string(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )

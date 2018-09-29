@@ -2,7 +2,7 @@
 import {models} from 'mongoose';
 const {ProductTypes} = models;
 
-const updatePoductTypes = (req, res) => {
+const updateProductTypes = (req, res) => {
 
     // Create new object by req.body data
     ProductTypes
@@ -22,4 +22,4 @@ const updatePoductTypes = (req, res) => {
         })
 };
 
-export default updatePoductTypes;
+export default updateProductTypes;

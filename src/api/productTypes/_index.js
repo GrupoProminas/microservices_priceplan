@@ -8,7 +8,7 @@ import read from './read';
 import readOne from './readOne';
 import update from './update';
 
-let resources = '/productTypes';
+let resources = '/product_types';
 
 export default (route) => {
 
