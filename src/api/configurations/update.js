@@ -5,12 +5,6 @@ const {Configurations} = models;
 
 const updateConfigurations = (req, res) => {
 
-    if(req.body.installments !== undefined) {
-        for (let i = 0; req.body.installments.length > i; i++) {
-            req.body.installments[i].amount *= 100;
-        }
-    }
-
     Configurations
         .update(
             {
