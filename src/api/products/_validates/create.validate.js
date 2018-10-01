@@ -21,14 +21,14 @@ export default (req, res, next) => {
                     cubage: Joi.number(),
                     dimension: Joi.object({
                         width: Joi.number(),
-                        length: Joi.number(),
+                        longitude: Joi.number(),
                         height: Joi.number(),
                         diameter: Joi.number()
                     }),
                     additionalService: {
-                        ownHand: Joi.number(),
-                        receiptNotice: Joi.number(),
-                        declaredValue: Joi.number()
+                        ownHand: Joi.boolean(),
+                        receiptNotice: Joi.boolean(),
+                        declaredValue: Joi.boolean()
                     }
                 }),
                 isActive: Joi.boolean().allow('').optional()

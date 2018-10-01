@@ -33,14 +33,14 @@ export default {
           cubage: Number,
           dimension: {
               width: Number,
-              length: Number,
+              longitude: Number,
               height: Number,
-              diamenter: Number
+              diameter: Number
           },
             additionalService: {
-                ownHand: Number,
-                receiptNotice: Number,
-                declaredValue: Number
+                ownHand: Boolean,
+                receiptNotice: Boolean,
+                declaredValue: Boolean
             }
         },
         isActive: {
