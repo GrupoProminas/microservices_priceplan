@@ -6,7 +6,7 @@ export default (req, res, next) => {
     Joi
         .object(
             {
-                _planId: Joi.string().required(),
+                _planId: Joi.string(),
                 name: Joi.string().required(),
                 alias: Joi.string().required(),
                 typeRate: Joi.string().valid([

@@ -5,7 +5,7 @@ export default {
     fields: {
         _planId: {
             type: mongoose.SchemaTypes.ObjectId,
-            required: true
+            default: null
         },
         name: {
             type: String,
@@ -23,6 +23,10 @@ export default {
                 'enrolment',
                 'others'
             ]
+        },
+        amount: {
+          type: Number,
+          required: true
         },
         metadata: {
             type: mongoose.SchemaTypes.Mixed

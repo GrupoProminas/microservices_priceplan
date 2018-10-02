@@ -8,6 +8,7 @@ export default (req, res, next) => {
             {
                 name: Joi.string(),
                 value: Joi.string(),
+                description: Joi.string(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )

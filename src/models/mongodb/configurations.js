@@ -11,6 +11,7 @@ export default {
             type: String,
             required: true
         },
+        description: String,
         isActive: {
             type: Boolean,
             required: true,
