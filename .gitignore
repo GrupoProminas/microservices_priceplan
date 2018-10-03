@@ -1,0 +1,12 @@
+.idea
+.conf
+.config
+.log
+.DS_Store
+package-lock.json
+dist
+releases
+node_modules/
+storage/logs
+src/config/env/*
+!src/config/env/production.env.js

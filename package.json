@@ -2,7 +2,7 @@
   "name": "ms-price-and-plans",
   "version": "1.0.0",
   "description": "Base for REST API using NodeJS/ExpressJS, with Docker or PM2 deployment.",
-  "author": "Tales Luna <tales.ferreira.luna@gmail.com>",
+  "author": "Ti Prominas <desenvolvimento@ucamprominas.com.br>",
   "license": "MIT",
   "main": "src/app.js",
   "scripts": {

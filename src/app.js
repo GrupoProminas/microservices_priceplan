@@ -35,6 +35,8 @@ const response      = new Response();
 const locales       = new Locales(environment.app.locale);
 const validator     = new Validator();
 
+process.env.TZ = environment.app.timezone;
+
 // Set express app in Response class
 response.setApp(app);
 

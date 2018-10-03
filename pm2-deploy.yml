@@ -1,6 +1,6 @@
 apps:
   - script      : dist/app.js
-    name        : api_name
+    name        : api_priceplan
     instances   : 2
     exec_mode   : cluster
     watch       : true
