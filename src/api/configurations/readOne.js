@@ -1,12 +1,9 @@
-/* eslint-disable id-length,new-cap */
 import {models} from 'mongoose';
+
 const {Configurations} = models;
 
-const getConfigurations = (req, res) => {
+const getConfiguration = (req, res) => {
 
-    /**
-     * Find all registers of Model collection
-     */
     Configurations
         .findById(req.params._id, req.query.project)
         .populate(req.query.populate)
@@ -17,7 +14,7 @@ const getConfigurations = (req, res) => {
         })
         .catch(err => {
             return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
+        });
 };
 
-export default getConfigurations;
+export default getConfiguration;

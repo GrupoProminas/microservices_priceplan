@@ -1,12 +1,9 @@
-/* eslint-disable id-length,new-cap */
 import {models} from 'mongoose';
+
 const {Products} = models;
 
-const getProducts = (req, res) => {
+const getProduct = (req, res) => {
 
-    /**
-     * Find all registers of Products collection
-     */
     Products
         .findById(req.params._id, req.query.project)
         .populate(req.query.populate)
@@ -17,7 +14,7 @@ const getProducts = (req, res) => {
         })
         .catch(err => {
             return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
+        });
 };
 
-export default getProducts;
+export default getProduct;

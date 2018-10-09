@@ -1,8 +1,8 @@
-/* eslint-disable id-length */
 import {models} from 'mongoose';
+
 const {Configurations} = models;
 
-const createConfigurations = (req, res) => {
+const createConfiguration = (req, res) => {
 
     Configurations
         .create(req.body)
@@ -11,7 +11,7 @@ const createConfigurations = (req, res) => {
         })
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
+        });
 };
 
-export default createConfigurations;
+export default createConfiguration;

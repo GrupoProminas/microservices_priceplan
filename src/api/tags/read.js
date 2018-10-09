@@ -1,12 +1,9 @@
-/* eslint-disable id-length */
 import {models} from 'mongoose';
+
 const {Tags} = models;
 
 const listTags = (req, res) => {
 
-    /**
-     * Find all registers of Model collection
-     */
     Tags
         .paginate(req.query.aggregate, req.query.limit, req.query.page)
         .then(result => {
@@ -16,8 +13,7 @@ const listTags = (req, res) => {
         })
         .catch(err => {
             return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
-
+        });
 };
 
 export default listTags;
