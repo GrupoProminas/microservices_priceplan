@@ -1,23 +1,25 @@
 export default {
     collection: 'Plans',
     fields    :   {
-        installments: [{
-            installment: {
-                type: Number,
-                required: true,
-                index: true
-            },
-            percent: {
-                type: Number,
-                required: true,
-                index: true
-            },
-            amount: {
-                type: Number,
-                required: true,
-                index: true
-            },
-        }],
+        installments: [
+            {
+                installment: {
+                    type: Number,
+                    required: true,
+                    index: true
+                },
+                percent: {
+                    type: Number,
+                    required: true,
+                    index: true
+                },
+                amount: {
+                    type: Number,
+                    required: true,
+                    index: true
+                }
+            }
+        ],
         tags: [String],
         isActive: {
             type: Boolean,
@@ -26,7 +28,7 @@ export default {
             index: true
         }
     },
-    options   : { // Opcional
+    options   : {
         timestamps: true
     }
-};
+}

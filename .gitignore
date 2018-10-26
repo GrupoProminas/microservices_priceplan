@@ -10,3 +10,4 @@ node_modules/
 storage/logs
 src/config/env/*
 !src/config/env/production.env.js
+.idea/

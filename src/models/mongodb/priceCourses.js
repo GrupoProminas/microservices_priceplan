@@ -14,7 +14,7 @@ export default {
             index       : true
         }
     },
-    options   : { // Opcional
+    options   : {
         timestamps: true
     }
 };
