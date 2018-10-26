@@ -1,10 +1,9 @@
-/* eslint-disable id-length */
 import {models} from 'mongoose';
+
 const {Rates} = models;
 
-const createRates = (req, res) => {
+const createRate = (req, res) => {
 
-    // Create new rates by req.body data
     Rates
         .create(req.body)
         .then(prices => {
@@ -12,7 +11,7 @@ const createRates = (req, res) => {
         })
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
+        });
 };
 
-export default createRates;
+export default createRate;

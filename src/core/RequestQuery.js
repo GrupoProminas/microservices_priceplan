@@ -1,8 +1,6 @@
 /* eslint-disable multiline-ternary,new-cap,max-statements */
 import mongoose from 'mongoose';
 
-const {ObjectId} = mongoose.Types;
-
 /**
  * Default values to use in express middleware
  * @type {{limit: number, page: number, project: Object}}
@@ -13,24 +11,6 @@ const defaults = {
     project: {
         __v: false
     }
-};
-
-const mongoReplaceObjs = (target) => {
-
-    if (Array.isArray(target)) return target.map(item => mongoReplaceObjs(item));
-
-    if (target instanceof Object) {
-        if ('$oid' in target) return ObjectId(target.$oid);
-        if ('$date' in target) return new Date(target.$date);
-
-        const newTarget = Object.create(target);
-
-        for (const key in target) newTarget[key] = mongoReplaceObjs(target[key]);
-
-        return newTarget;
-    }
-
-    return target;
 };
 
 class RequestQuery {
@@ -59,7 +39,7 @@ class RequestQuery {
 
             // Increment project object with select fields
             req.query.select.forEach(item => {
-                req.query.project[item] = true;
+                req.query.project[item] = true
             });
         }
 
@@ -73,7 +53,7 @@ class RequestQuery {
         // Detect ObjectID in where (for MongoDB)
         Object.keys(req.query.where).forEach(item => {
             if (mongoose.Types.ObjectId.isValid(req.query.where[item])) {
-                req.query.where[item] = mongoose.Types.ObjectId(req.query.where[item]);
+                req.query.where[item] = mongoose.Types.ObjectId(req.query.where[item])
             }
         });
 
@@ -98,7 +78,7 @@ class RequestQuery {
             ? parseInt(req.query.offset, Infinity)
             : req.query.limit * (req.query.page - 1);
 
-        req.query.aggregate = 'aggregate' in req.query ? mongoReplaceObjs(JSON.parse(req.query.aggregate)) : [];
+        req.query.aggregate = 'aggregate' in req.query ? JSON.parse(req.query.aggregate) : [];
 
         if (!req.query.aggregate.find(pipeline => Object.keys(pipeline)[0] === '$match'))
             req.query.aggregate.unshift({$match: {}});
@@ -113,4 +93,4 @@ class RequestQuery {
     }
 }
 
-export default RequestQuery;
+export default RequestQuery

@@ -1,12 +1,9 @@
-/* eslint-disable id-length */
 import {models} from 'mongoose';
+
 const {PriceCourses} = models;
 
-const listPrices = (req, res) => {
+const listCoursePrices = (req, res) => {
 
-    /**
-     * Find all registers of Prices collection
-     */
     PriceCourses
         .paginate(req.query.aggregate, req.query.limit, req.query.page)
         .then(result => {
@@ -16,8 +13,7 @@ const listPrices = (req, res) => {
         })
         .catch(err => {
             return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
-
+        });
 };
 
-export default listPrices;
+export default listCoursePrices;

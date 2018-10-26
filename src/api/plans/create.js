@@ -1,13 +1,17 @@
-/* eslint-disable id-length */
 import {models} from 'mongoose';
+
 const {Plans} = models;
 
-const createPlans = (req, res) => {
+const createPlan = (req, res) => {
 
-    if(req.body.installments.length > 0) {
-        for (let i = 0; req.body.installments.length > i; i++) {
-            req.body.installments[i].amount *= 100;
-        }
+    if (req.body.installments.length > 0) {
+        req.body.installments = req.body.installments.map(planInstallment => {
+            return {
+                installment: planInstallment.installment,
+                percent    : planInstallment.percent,
+                amount     : planInstallment.percent * 100
+            };
+        });
     }
 
     Plans
@@ -17,7 +21,7 @@ const createPlans = (req, res) => {
         })
         .catch(err => {
             return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
+        });
 };
 
-export default createPlans;
+export default createPlan;
