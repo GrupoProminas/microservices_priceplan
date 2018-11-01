@@ -9,8 +9,10 @@ export default {
             type: String,
             enum: [
                 'partner',
-                'employee'
-            ]
+                'employee',
+                'system'
+            ],
+            required: true
         },
         cpf: String,
         voucherType: {

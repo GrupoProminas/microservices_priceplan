@@ -4,10 +4,11 @@ export default (req, res, next) => {
     Joi
         .object(
             {
-                code: Joi.string().required(),
+                code: Joi.string(),
                 userType: Joi.string().valid([
                     'partner',
-                    'employee'
+                    'employee',
+                    'system'
                 ]).required(),
                 cpf: Joi.string(),
                 voucherType: Joi.string().valid([
