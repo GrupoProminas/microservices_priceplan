@@ -16,7 +16,12 @@
     "stop": "pm2 stop pm2-deploy.yml",
     "reatrt": "pm2 restart pm2-deploy.yml",
     "start-docker": "sudo docker-compose up -d ; sudo docker ps",
-    "stop-docker": "sudo docker-compose stop"
+    "stop-docker": "sudo docker-compose stop",
+    "build-homo": "export NODE_ENV=homologation && npm run clean-homo && babel src --ignore test.js --out-dir ./dist-homo --copy-files",
+    "clean-homo": "rm -rf dist-homo && mkdir dist-homo",
+    "start-homo": "pm2 start pm2-deploy-homo.yml",
+    "stop-homo": "pm2 stop pm2-deploy-homo.yml",
+    "restart-homo": "pm2 restart pm2-deploy-homo.yml"
   },
   "devDependencies": {
     "assert": "^1.4.1",
