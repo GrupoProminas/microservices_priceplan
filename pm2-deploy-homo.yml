@@ -1,8 +1,8 @@
 apps:
-  - script      : dist/app.js
-    name        : api_name_homo
-    instances   : 2
-    exec_mode   : cluster
+  - script      : dist-homo/app.js
+    name        : api_priceplan_homo
+    instances   : 1
+    exec_mode   : fork
     watch       : true
     env         :
       NODE_ENV  : homologation
