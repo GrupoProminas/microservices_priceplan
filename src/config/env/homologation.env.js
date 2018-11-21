@@ -1,51 +1,45 @@
+/* eslint-disable camelcase */
 module.exports = {
 
-
-    /**
-     * APPLICATION CONFIGS
-     * All configurations for express App instance
-     */
     app: {
-        name    : 'microservice_priceplan',
-        version : '2.0.0',
-        locale  : 'pt_BR'
+        name            : 'MICROSERVICE PRICEPLAN - HOMO MODE',
+        version         : '1.0.0',
+        locale          : 'pt_BR',
+        timezone        : 'America/Sao_Paulo',
+        adminEmail      : 'desenvolvimento@ucamprominas.com.br',
+        sendEmailErrors : true
     },
 
-
-    /**
-     * EXPRESS SERVER CONFIGS
-     * All configurations for expressJS HTTP Server should gop here
-     */
-    server: {
-        secure  : false,
-        host    : '127.0.0.1',
-        port    : 3001,
-        cors    : {
-            'Access-Control-Allow-Origin'   : '*',
-            'Access-Control-Allow-Methods'  : 'GET, POST, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers'  : 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    mail: {
+        host: 'smtplw.com.br',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'Prominassigesp',
+            pass: 'zJfFMHdg8398'
         },
-        ssl: {
-            // SSL Private Key path
-            privateKey  : '',
+        sender: 'no-reply@ucamprominas.com.br'
+    },
 
-            // SSL Certificate path
-            certificate : '',
-
-            // Key HPKP
-            hpkpKeys    : []
+    server: {
+        secure: false,
+        host  : '10.138.0.3',
+        port  : 3020,
+        cors  : {
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+        },
+        ssl   : {
+            privateKey : '',
+            certificate: '',
+            hpkpKeys   : []
         }
     },
 
-
-    /**
-     * DATABASES CONFIG
-     * All configurations to connect in databases should go here
-     */
     databases: {
-
-        MongoDBAtlas: {
-            servers       : [
+        microservice_name: {
+            servers: [
                 {
                     host: 'homologacao-shard-00-00-dyz6u.gcp.mongodb.net',
                     port: 27017
@@ -74,18 +68,12 @@ module.exports = {
         }
     },
 
-    /**
-     * APIs CONFIGS
-     * All configurations for another apis go here
-     */
+    gateway: 'http://localhost/',
+
     apis: {
-        apiKey: '',
-        accounts: {
-            uri: 'https://api-accounts.institutoprominas.com.br'
-        },
-        storage: {
-            uri: 'https://api-storage.institutoprominas.com.br',
-            bucket: ''
+        users: {
+            mode   : 'direct',
+            baseUrl: 'http://10.138.0.6:3000/'
         }
     }
 };
