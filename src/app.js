@@ -21,6 +21,7 @@ import Security     from './core/Security';
 import Response     from './core/Response';
 import Locales      from './core/Locales';
 import Validator    from './core/Validator';
+import LogsManager  from './core/LogsManager';
 
 
 // Classes & app
@@ -34,10 +35,14 @@ const security      = new Security();
 const response      = new Response();
 const locales       = new Locales(environment.app.locale);
 const validator     = new Validator();
+const logsManager   = new LogsManager(environment);
+
+process.env.TZ = environment.app.timezone;
+
+process.prependListener('uncaughtException', error => logsManager.log(error.stack));
 
 // Set express app in Response class
 response.setApp(app);
-
 
 /**
  * Setup validator with Joi

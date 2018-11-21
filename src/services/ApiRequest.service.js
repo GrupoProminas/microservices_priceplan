@@ -49,7 +49,7 @@ class ApiRequestService {
         // Request options
         const options = {
             method : method.toUpperCase(),
-            json   : body,
+            json   : method.toUpperCase() === 'GET' ? true : body,
             uri    : url,
             headers: headers
         };

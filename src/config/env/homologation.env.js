@@ -2,7 +2,7 @@
 module.exports = {
 
     app: {
-        name            : 'MICROSERVICE PRICEPLAN - PROD MODE',
+        name            : 'MICROSERVICE PRICEPLAN - HOMO MODE',
         version         : '1.0.0',
         locale          : 'pt_BR',
         timezone        : 'America/Sao_Paulo',
@@ -39,27 +39,27 @@ module.exports = {
 
     databases: {
         microservice_name: {
-            servers       : [
+            servers: [
                 {
-                    host: 'erp-geral1-shard-00-00-dyz6u.gcp.mongodb.net',
+                    host: 'homologacao-shard-00-00-dyz6u.gcp.mongodb.net',
                     port: 27017
                 },
                 {
-                    host: 'erp-geral1-shard-00-01-dyz6u.gcp.mongodb.net',
+                    host: 'homologacao-shard-00-01-dyz6u.gcp.mongodb.net',
                     port: 27017
                 },
                 {
-                    host: 'erp-geral1-shard-00-02-dyz6u.gcp.mongodb.net',
+                    host: 'homologacao-shard-00-02-dyz6u.gcp.mongodb.net',
                     port: 27017
                 }
             ],
-            replicaSet    : 'erp-geral1-shard-0',
+            replicaSet    : 'homologacao-shard-0',
             authSource    : 'admin',
             auto_reconnect: true,
             ssl           : true,
-            user          : 'microservice_priceplan',
-            pass          : '1Ae1eUVQbGues15g',
-            name          : 'microservice_name',
+            user          : 'homologacao',
+            pass          : '0LXpkVYwis8fH65J',
+            name          : 'microservice_priceplan',
             dialect       : 'mongodb',
             charset       : 'utf8',
             logging       : false,

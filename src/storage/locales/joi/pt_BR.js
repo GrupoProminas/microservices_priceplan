@@ -31,5 +31,8 @@ export const pt_BR = {
     object: {
         base        : 'deve ser um objeto',
         allowUnknown: '{{child}} nāo é permitido'
+    },
+    data  : {
+        base: 'deve ser uma data'
     }
 };
