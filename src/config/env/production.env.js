@@ -2,16 +2,29 @@
 module.exports = {
 
     app: {
-        name    : 'MICROSERVICE PRICEPLAN - PROD MODE',
-        version : '1.0.0',
-        locale  : 'pt_BR',
-        timezone: 'America/Sao_Paulo'
+        name            : 'MICROSERVICE PRICEPLAN - PROD MODE',
+        version         : '1.0.0',
+        locale          : 'pt_BR',
+        timezone        : 'America/Sao_Paulo',
+        adminEmail      : 'desenvolvimento@ucamprominas.com.br',
+        sendEmailErrors : true
+    },
+
+    mail: {
+        host: 'smtplw.com.br',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'Prominassigesp',
+            pass: 'zJfFMHdg8398'
+        },
+        sender: 'no-reply@ucamprominas.com.br'
     },
 
     server: {
         secure: false,
         host  : '10.138.0.3',
-        port  : 3012,
+        port  : 3020,
         cors  : {
             'Access-Control-Allow-Origin' : '*',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
@@ -25,7 +38,7 @@ module.exports = {
     },
 
     databases: {
-        microservice_priceplan: {
+        microservice_name: {
             servers       : [
                 {
                     host: 'erp-geral1-shard-00-00-dyz6u.gcp.mongodb.net',
@@ -45,8 +58,8 @@ module.exports = {
             auto_reconnect: true,
             ssl           : true,
             user          : 'microservice_priceplan',
-            pass          : 'vNkTHtI7lweH5Mun',
-            name          : 'microservice_priceplan',
+            pass          : '1Ae1eUVQbGues15g',
+            name          : 'microservice_name',
             dialect       : 'mongodb',
             charset       : 'utf8',
             logging       : false,
