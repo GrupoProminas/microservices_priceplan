@@ -1,3 +1,4 @@
+/* eslint-disable array-element-newline */
 import 'joi-i18n';
 import Joi               from 'joi';
 import {defaultSettings} from '../config/joi/joi.conf';
@@ -6,6 +7,7 @@ export default class Validator {
 
     constructor() {
         this.setCustomRegexes();
+        this.setConsts();
     }
 
 
@@ -23,11 +25,22 @@ export default class Validator {
         this.locale = locale;
     }
 
+    setConsts() {
+        Joi.consts = {
+            states: [
+                'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA',
+                'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RO', 'RS', 'RR', 'SC', 'SE', 'SP', 'TO'
+            ]
+        };
+    }
+
     setCustomRegexes() {
         Joi.regexes = {
             objectId: /^[a-f\d]{24}$/i,
             alias   : /^[\w-]{4,50}$/,
+            phone   : /^\d{10,11}$/,
             noSpace : /^[^-\s]+$/,
+            cpf     : /^\d{11}$/,
             number  : /^\d+$/
         };
     }

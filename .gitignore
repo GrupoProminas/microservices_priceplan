@@ -5,9 +5,10 @@
 .DS_Store
 package-lock.json
 dist
+dist-homo
 releases
 node_modules/
 storage/logs
 src/config/env/*
 !src/config/env/production.env.js
-.idea/
+!src/config/env/homologation.env.js
