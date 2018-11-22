@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "src/app.js",
   "scripts": {
+    "update": "sh update.sh",
     "dev": "export NODE_ENV='development' && nodemon --exec babel-node src/app.js --use_strict --presets es2015",
     "test": "export NODE_ENV='test' && mocha --timeout 10000 src/tests/ --compilers js:babel-core/register --recursive",
     "build": "export NODE_ENV='production' && npm run clean && babel src --ignore test.js --out-dir ./dist --copy-files",
@@ -14,7 +15,7 @@
     "prod": "npm run buildTwo && export NODE_ENV='production' && pm2 start --name 'ei-api-data' dist/app.js",
     "start": "pm2 start pm2-deploy.yml",
     "stop": "pm2 stop pm2-deploy.yml",
-    "reatrt": "pm2 restart pm2-deploy.yml",
+    "restart": "pm2 restart pm2-deploy.yml",
     "start-docker": "sudo docker-compose up -d ; sudo docker ps",
     "stop-docker": "sudo docker-compose stop",
     "build-homo": "export NODE_ENV=homologation && npm run clean-homo && babel src --ignore test.js --out-dir ./dist-homo --copy-files",
