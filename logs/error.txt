@@ -17,3 +17,22 @@ Error: listen EADDRNOTAVAIL 10.138.0.3:3020
     at bootstrap_node.js:625:3
 ###########################################################
 
+######### Mon Dec 10 2018 08:41:38 GMT-0200 (-02) #########
+Error: listen EADDRINUSE 127.0.0.1:3020
+    at Server.setupListenHandle [as _listen2] (net.js:1360:14)
+    at listenInCluster (net.js:1401:12)
+    at doListen (net.js:1510:7)
+    at _combinedTickCallback (internal/process/next_tick.js:142:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:219:9)
+    at Function.Module.runMain (module.js:696:11)
+    at Object.<anonymous> (/Users/usuario/Arquivos/PROJETOS/NEW_SYSTEM_PROMINAS/BACK/microservice_priceplan/node_modules/babel-cli/lib/_babel-node.js:154:22)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Function.Module.runMain (module.js:694:10)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+###########################################################
+
