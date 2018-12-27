@@ -23,8 +23,8 @@ module.exports = {
 
     server: {
         secure: false,
-        host  : '10.138.0.3',
-        port  : 3020,
+        host  : '127.0.0.1',
+        port  : 3003,
         cors  : {
             'Access-Control-Allow-Origin' : '*',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
@@ -38,7 +38,7 @@ module.exports = {
     },
 
     databases: {
-        microservice_name: {
+        microservice_priceplan: {
             servers: [
                 {
                     host: 'homologacao-shard-00-00-dyz6u.gcp.mongodb.net',
@@ -68,12 +68,12 @@ module.exports = {
         }
     },
 
-    gateway: 'http://localhost/',
+    gateway: 'https://homologacao.institutoprominas.com.br/',
 
     apis: {
         users: {
             mode   : 'direct',
-            baseUrl: 'http://10.138.0.6:3000/'
+            baseUrl: 'http://127.0.0,1:3000/'
         }
     }
 };

@@ -142,7 +142,9 @@ if ! grep -q -i '"restart-homo"' ${project}/package.json; then
   sed -i '' 's/"scripts": {/"scripts": {"restart-homo": "pm2 restart pm2-deploy-homo.yml",/' ${project}/package.json
 fi
 
-sed -i '' 's/"reatrt"/"restart"/g' ${project}/package.json
+if ! grep -q -i '"mongoose": "^5.3.13"' ${project}/package.json; then
+  npm remove mongoose && npm install --save mongoose
+fi
 
 #atualiza pacotes
 
