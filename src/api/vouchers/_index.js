@@ -1,3 +1,4 @@
+/* eslint-disable array-bracket-newline */
 // Joi Validate
 import createValidade from './_validates/create.validate';
 import updateValidade from './_validates/update.validate';
@@ -8,6 +9,7 @@ import read from './read';
 import readAll from './readAll';
 import readOne from './readOne';
 import update from './update';
+import updateUsage from './updateUsage';
 
 let resources = '/vouchers';
 
@@ -23,6 +25,10 @@ export default (route) => {
     route.put(resources + '/:_id', [
         updateValidade,
         update
+    ]);
+
+    route.put('/vouchers_usage/:_id', [
+        updateUsage
     ]);
 
     // Route to read all music

@@ -3,7 +3,7 @@ import {models} from 'mongoose';
 
 const {Vouchers} = models;
 
-const updateVouchers = (req, res) => {
+const updateUsage = (req, res) => {
 
     Vouchers
         .update(
@@ -11,7 +11,7 @@ const updateVouchers = (req, res) => {
                 _id: req.params._id
             },
             {
-                $set: req.body
+                $inc: {usage: -1}
             }
         )
         .then(update => {
@@ -22,4 +22,4 @@ const updateVouchers = (req, res) => {
         })
 };
 
-export default updateVouchers;
+export default updateUsage;
