@@ -3,6 +3,7 @@ export default {
     fields    :   {
         installments: [
             {
+                _id        : false,
                 installment: {
                     type: Number,
                     required: true,
