@@ -146,8 +146,6 @@ if ! grep -q -i '"mongoose": "^5.3.13"' ${project}/package.json; then
   npm remove mongoose && npm install --save mongoose
 fi
 
-sed -i '' 's/"reatrt"/"restart"/g' ${project}/package.json
-
 #atualiza pacotes
 
 if [ -f ${project}/package-lock.json ]; then
