@@ -24,7 +24,7 @@ module.exports = {
     server: {
         secure: false,
         host  : '10.138.0.3',
-        port  : 3020,
+        port  : 3012,
         cors  : {
             'Access-Control-Allow-Origin' : '*',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
