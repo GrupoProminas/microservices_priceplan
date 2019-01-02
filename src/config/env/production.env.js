@@ -38,7 +38,7 @@ module.exports = {
     },
 
     databases: {
-        microservice_name: {
+        microservice_priceplan: {
             servers       : [
                 {
                     host: 'erp-geral1-shard-00-00-dyz6u.gcp.mongodb.net',
@@ -59,7 +59,7 @@ module.exports = {
             ssl           : true,
             user          : 'db_master',
             pass          : 'fPOHVjdnmA1F7sfx',
-            name          : 'microservice_name',
+            name          : 'microservice_priceplan',
             dialect       : 'mongodb',
             charset       : 'utf8',
             logging       : false,
