@@ -32,7 +32,7 @@ class ApiRequestService {
     }
 
     put(api, path, body, query = {}, headers = {}) {
-        return this._requestApi('POST', api, path, query, body, headers);
+        return this._requestApi('PUT', api, path, query, body, headers);
     }
 
     get(api, path, query = {}, headers = {}) {
