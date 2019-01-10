@@ -118,9 +118,9 @@ export default class Database {
                 // Register post hooks
                 if ('post' in schemaDef)
                     Object.keys(schemaDef.post).forEach(hook => {
-                        if (Array.isArray(schemaDef.pre[hook]))
+                        if (Array.isArray(schemaDef.post[hook]))
                             schemaDef.post[hook].forEach(hookFunction => schema.post(hook, hookFunction));
-                        else schema.post(hook, schemaDef.pre[hook]);
+                        else schema.post(hook, schemaDef.post[hook]);
                     });
 
                 // Register schema indexes

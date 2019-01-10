@@ -3,6 +3,7 @@ set -e
 clear
 
 #variaveis
+OS=`uname`
 project=$PWD
 repository="$project/.base"
 messages=''
@@ -32,6 +33,10 @@ fi
 echo '\nCopiando arquivos...'
 
 cp -r ${repository}/.gitignore ${project}/.gitignore
+cp -r ${repository}/.babelrc ${project}/.babelrc
+cp -r ${repository}/.dockerignore ${project}/.dockerignore
+cp -r ${repository}/.eslintignore ${project}/.eslintignore
+cp -r ${repository}/.eslintrc.js ${project}/.eslintrc.js
 
 rm -rf ${project}/src/core/*
 cp -r ${repository}/src/core/* ${project}/src/core
@@ -119,31 +124,65 @@ else
 fi
 
 if ! grep -q -i '"update"' ${project}/package.json; then
- sed -i '' 's/"scripts": {/"scripts": {"update": "sh update.sh",/' ${project}/package.json
+ if [ "$OS" == 'Darwin' ]; then
+  sed -i '' 's/"scripts": {/"scripts": {"update": "sh update.sh",/' ${project}/package.json
+ else
+  sed -i'' -e 's/"scripts": {/"scripts": {"update": "sh update.sh",/' ${project}/package.json
+ fi
 fi
 
 if ! grep -q -i '"build-homo"' ${project}/package.json; then
+ if [ "$OS" == 'Darwin' ]; then
   sed -i '' 's/"scripts": {/"scripts": {"build-homo": "export NODE_ENV=homologation \&\& npm run clean-homo \&\& babel src --ignore test.js --out-dir .\/dist-homo --copy-files",/' ${project}/package.json
+ else
+  sed -i'' -e 's/"scripts": {/"scripts": {"build-homo": "export NODE_ENV=homologation \&\& npm run clean-homo \&\& babel src --ignore test.js --out-dir .\/dist-homo --copy-files",/' ${project}/package.json
+ fi
 fi
 
 if ! grep -q -i '"clean-homo"' ${project}/package.json; then
+ if [ "$OS" == 'Darwin' ]; then
   sed -i '' 's/"scripts": {/"scripts": {"clean-homo": "rm -rf dist-homo \&\& mkdir dist-homo",/' ${project}/package.json
+ else
+  sed -i'' -e 's/"scripts": {/"scripts": {"clean-homo": "rm -rf dist-homo \&\& mkdir dist-homo",/' ${project}/package.json
+ fi
 fi
 
 if ! grep -q -i '"start-homo"' ${project}/package.json; then
+ if [ "$OS" == 'Darwin' ]; then
   sed -i '' 's/"scripts": {/"scripts": {"start-homo": "pm2 start pm2-deploy-homo.yml",/' ${project}/package.json
+ else
+  sed -i'' -e 's/"scripts": {/"scripts": {"start-homo": "pm2 start pm2-deploy-homo.yml",/' ${project}/package.json
+ fi
 fi
 
 if ! grep -q -i '"stop-homo"' ${project}/package.json; then
+ if [ "$OS" == 'Darwin' ]; then
   sed -i '' 's/"scripts": {/"scripts": {"stop-homo": "pm2 stop pm2-deploy-homo.yml",/' ${project}/package.json
+ else
+  sed -i'' -e 's/"scripts": {/"scripts": {"stop-homo": "pm2 stop pm2-deploy-homo.yml",/' ${project}/package.json
+ fi
 fi
 
 if ! grep -q -i '"restart-homo"' ${project}/package.json; then
+ if [ "$OS" == 'Darwin' ]; then
   sed -i '' 's/"scripts": {/"scripts": {"restart-homo": "pm2 restart pm2-deploy-homo.yml",/' ${project}/package.json
+ else
+  sed -i'' -e 's/"scripts": {/"scripts": {"restart-homo": "pm2 restart pm2-deploy-homo.yml",/' ${project}/package.json
+ fi
 fi
 
 if ! grep -q -i '"mongoose": "^5.3.13"' ${project}/package.json; then
   npm remove mongoose && npm install --save mongoose
+fi
+
+if [ "$OS" == 'Darwin' ]; then
+  sed -i '' 's/"reatrt"/"restart"/g' ${project}/package.json
+  sed -i '' 's/"watch       : true"/"watch       : false"/g' ${project}/pm2-deploy.yml
+  sed -i '' 's/"watch       : true"/"watch       : false"/g' ${project}/pm2-deploy-homo.yml
+ else
+  sed -i'' -e 's/"reatrt"/"restart"/g' ${project}/package.json
+  sed -i'' -e 's/"watch       : true"/"watch       : false"/g' ${project}/pm2-deploy.yml
+  sed -i'' -e 's/"watch       : true"/"watch       : false"/g' ${project}/pm2-deploy-homo.yml
 fi
 
 #atualiza pacotes
