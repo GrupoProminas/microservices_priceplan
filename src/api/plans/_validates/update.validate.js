@@ -10,7 +10,7 @@ export default (req, res, next) => {
                     percent: Joi.number().required(),
                     amount: Joi.number().required(),
                 })).allow('').optional(),
-                tags: Joi.array(),
+                alias: Joi.string(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )
