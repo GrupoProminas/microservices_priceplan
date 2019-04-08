@@ -1,27 +1,32 @@
 /* eslint-disable array-bracket-newline */
 // Joi Validate
 import createValidade from './_validates/create.validate';
+import createEmployeeValidade from './_validates/createEmployee.validate';
 import updateValidade from './_validates/update.validate';
 
 // Example Middleware
 import create from './create';
+import createEmployee from './createEmployee';
 import read from './read';
 import readAll from './readAll';
 import readOne from './readOne';
 import update from './update';
 import updateUsage from './updateUsage';
 
-let resources = '/vouchers';
+const resources = '/vouchers';
 
 export default (route) => {
 
-    // Route to create new music
+    route.post('/voucher_employee', [
+        createEmployeeValidade,
+        createEmployee
+    ]);
+
     route.post(resources, [
         createValidade,
         create
     ]);
 
-    // Route to update existent music
     route.put(resources + '/:_id', [
         updateValidade,
         update
