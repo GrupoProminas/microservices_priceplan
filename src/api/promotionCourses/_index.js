@@ -8,7 +8,7 @@ import read from './read';
 import readOne from './readOne';
 import update from './update';
 
-let resources = '/promotions';
+const resources = '/promotions';
 
 export default (route) => {
 

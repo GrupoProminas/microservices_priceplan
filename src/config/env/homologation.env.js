@@ -59,7 +59,7 @@ module.exports = {
             ssl           : true,
             user          : 'homologacao',
             pass          : '0LXpkVYwis8fH65J',
-            name          : 'microservice_priceplan',
+            name          : 'database_piaget',
             dialect       : 'mongodb',
             charset       : 'utf8',
             logging       : false,

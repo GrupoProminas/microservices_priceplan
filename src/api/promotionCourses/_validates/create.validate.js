@@ -1,15 +1,16 @@
+/* eslint-disable newline-per-chained-call */
 import Joi from 'joi';
 
 export default (req, res, next) => {
     Joi
         .object(
             {
-                priceCourse_id: Joi.string().required(),
                 name: Joi.string().required(),
-                amount: Joi.number().required(),
+                discountPercentage: Joi.number().required(),
                 regulation: Joi.string().required(),
-                date_start: Joi.date().required(),
-                date_end: Joi.date().required(),
+                tags: Joi.array().items(Joi.string()).required(),
+                dateStart: Joi.date().required(),
+                dateEnd: Joi.date().required(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )
