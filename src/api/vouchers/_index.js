@@ -9,6 +9,7 @@ import create from './create';
 import createEmployee from './createEmployee';
 import read from './read';
 import readAll from './readAll';
+import readAllEmployee from './readAllEmployee';
 import readOne from './readOne';
 import update from './update';
 import updateUsage from './updateUsage';
@@ -36,12 +37,11 @@ export default (route) => {
         updateUsage
     ]);
 
-    // Route to read all music
     route.get(resources, read);
 
-    // Route to read all music
     route.get('/vouchers_all', readAll);
 
-    // Route to read specific music
+    route.get('/voucher_employee', readAllEmployee);
+
     route.get(resources + '/:_id', readOne);
 };
