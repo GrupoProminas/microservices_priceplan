@@ -1,3 +1,4 @@
+/* eslint-disable newline-per-chained-call */
 import Joi from 'joi';
 
 export default (req, res, next) => {
@@ -7,7 +8,7 @@ export default (req, res, next) => {
                 code: Joi.string(),
                 voucherType: Joi.string().valid([
                     'enrolment',
-                    'course',
+                    'course'
                 ]).required(),
                 tags: Joi.array(),
                 amountType: Joi.string().valid([
