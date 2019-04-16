@@ -4,7 +4,7 @@ class VoucherUserService {
 
     constructor(req) {
         this._userId = '5c62ac258036571ae6646d90';
-        this._userType = 'employee';
+        this._userType = 'employer';
 
         if ('_userid' in req.headers) {
             this._userId = req.headers._userid;
