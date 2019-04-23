@@ -24,7 +24,7 @@ module.exports = {
     server: {
         secure: false,
         host  : '10.138.0.3',
-        port  : 3012,
+        port  : 3003,
         cors  : {
             'Access-Control-Allow-Origin' : '*',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
@@ -57,9 +57,9 @@ module.exports = {
             authSource    : 'admin',
             auto_reconnect: true,
             ssl           : true,
-            user          : 'db_master',
-            pass          : 'fPOHVjdnmA1F7sfx',
-            name          : 'microservice_priceplan',
+            user          : 'piaget',
+            pass          : 'LCGOK4lHXFcFD3io',
+            name          : 'database_piaget',
             dialect       : 'mongodb',
             charset       : 'utf8',
             logging       : false,
@@ -68,7 +68,7 @@ module.exports = {
         }
     },
 
-    gateway: 'http://localhost/',
+    gateway: 'https://api-gateway.institutoprominas.com.br/',
 
     apis: {
         users: {
