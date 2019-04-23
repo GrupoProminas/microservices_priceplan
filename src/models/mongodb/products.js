@@ -33,7 +33,7 @@ export default {
           cubage: Number,
           dimension: {
               width: Number,
-              longitude: Number,
+              length: Number,
               height: Number,
               diameter: Number
           },

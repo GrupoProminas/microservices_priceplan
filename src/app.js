@@ -1,45 +1,48 @@
 /* eslint-disable no-console,no-undef*/
-import express      from 'express';
-import bodyParser   from 'body-parser';
-import compression  from 'compression';
-import morgan       from 'morgan';
+import express from 'express';
+import bodyParser from 'body-parser';
+import compression from 'compression';
+import morgan from 'morgan';
 
 // Config
-import ApiConfig    from './config/api.conf';
+import ApiConfig from './config/api.conf';
 
 // Define environment object
-const config        = new ApiConfig();
-const environment   = config.getEnv();
+const config = new ApiConfig();
+const environment = config.getEnv();
 
 // Core
-import Cors         from './core/Cors';
-import Routers      from './core/Routers';
-import Database     from './core/Database';
+import Cors from './core/Cors';
+import Routers from './core/Routers';
+import Database from './core/Database';
 import RequestQuery from './core/RequestQuery';
-import SSL          from './core/SSL';
-import Security     from './core/Security';
-import Response     from './core/Response';
-import Locales      from './core/Locales';
-import Validator    from './core/Validator';
-import LogsManager  from './core/LogsManager';
+import SSL from './core/SSL';
+import Security from './core/Security';
+import Response from './core/Response';
+import Locales from './core/Locales';
+import Validator from './core/Validator';
+import LogsManager from './core/LogsManager';
 
 
 // Classes & app
-const app           = express();
-const cors          = new Cors();
-const routers       = new Routers();
-const database      = new Database();
-const requestQuery  = new RequestQuery();
-const ssl           = new SSL();
-const security      = new Security();
-const response      = new Response();
-const locales       = new Locales(environment.app.locale);
-const validator     = new Validator();
-const logsManager   = new LogsManager(environment);
+const app = express();
+const cors = new Cors();
+const routers = new Routers();
+const database = new Database();
+const requestQuery = new RequestQuery();
+const ssl = new SSL();
+const security = new Security();
+const response = new Response();
+const locales = new Locales(environment.app.locale);
+const validator = new Validator();
+const logsManager = new LogsManager(environment);
 
 process.env.TZ = environment.app.timezone;
 
-process.prependListener('uncaughtException', error => logsManager.log(error.stack));
+process.prependListener('uncaughtException', error => {
+    if (config.getEnvName() === 'development') throw error;
+    else logsManager.log(error.stack);
+});
 
 // Set express app in Response class
 response.setApp(app);
@@ -140,13 +143,13 @@ const _listenSuccess = () => {
 
 // No use logs in test environment!
 if (config.getEnvName() !== 'test') {
-    app.use(morgan(config.getEnvName() === 'development'? 'dev' : 'combined'));
+    app.use(morgan(config.getEnvName() === 'development' ? 'dev' : 'combined'));
 }
 
 // Express global usages and middlewares
 app.use(bodyParser.json());
 app.use(requestQuery.parseQuery);
-app.use(compression({threshold : 100}));
+app.use(compression({threshold: 100}));
 
 // Security middlewares with helmet
 security.makeSecure(app, environment.server.ssl.hpkpKeys);

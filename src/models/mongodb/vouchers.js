@@ -9,7 +9,7 @@ export default {
             type: String,
             enum: [
                 'partner',
-                'employee',
+                'employer',
                 'system'
             ],
             required: true

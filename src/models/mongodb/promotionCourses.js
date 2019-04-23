@@ -1,19 +1,11 @@
-import mongoose from 'mongoose';
-
 export default {
     collection: 'PromotionCourses',
     fields    :    {
-        priceCourse_id: {
-            type: mongoose.SchemaTypes.ObjectId,
-            required: true,
-            index: true,
-            ref: 'prices._id'
-        },
         name: {
           type: String,
           required: true
         },
-        amount: {
+        discountPercentage: {
             type: Number,
             allowNull: false
         },
@@ -21,11 +13,15 @@ export default {
             type: String,
             allowNull: false
         },
-        date_start: {
+        tags: {
+           type: [String],
+            required: true
+        },
+        dateStart: {
             type: Date,
             allowNull: false
         },
-        date_end: {
+        dateEnd: {
             type: Date,
             allowNull: false
         },
@@ -35,7 +31,7 @@ export default {
             allowNull: false
         }
     },
-    options   : { // Opcional
+    options   : {
         timestamps: true
     }
 };

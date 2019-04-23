@@ -4,14 +4,17 @@ const {Plans} = models;
 
 const createPlan = (req, res) => {
 
-    if (req.body.installments.length > 0) {
-        req.body.installments = req.body.installments.map(planInstallment => {
-            return {
-                installment: planInstallment.installment,
-                percent    : planInstallment.percent,
-                amount     : planInstallment.percent * 100
-            };
-        });
+    if (req.body.installments) {
+
+        if (req.body.installments.length > 0) {
+            req.body.installments = req.body.installments.map(planInstallment => {
+                return {
+                    installment: planInstallment.installment,
+                    percent    : planInstallment.percent,
+                    amount     : planInstallment.percent * 100
+                };
+            });
+        }
     }
 
     Plans

@@ -5,12 +5,12 @@ export default (req, res, next) => {
     Joi
         .object(
             {
-                priceCourse_id: Joi.string().allow('').optional(),
-                name: Joi.string().allow('').optional(),
-                amount: Joi.number().allow('').optional(),
-                regulation: Joi.string().allow('').optional(),
-                date_start: Joi.date().allow('').optional(),
-                date_end: Joi.date().allow('').optional(),
+                name: Joi.string(),
+                discountPercentage: Joi.number(),
+                regulation: Joi.string(),
+                tags: Joi.array().items(Joi.string()),
+                dateStart: Joi.date(),
+                dateEnd: Joi.date(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )
