@@ -3,6 +3,6 @@ apps:
     name        : api_priceplan
     instances   : 2
     exec_mode   : cluster
-    watch       : true
+    watch       : false
     env         :
       NODE_ENV  : production
