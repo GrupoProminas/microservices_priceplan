@@ -76,8 +76,8 @@ module.exports = {
             baseUrl: 'http://127.0.0,1:3000/'
         },
         students: {
-            mode : 'direct',
-            baseUrl: 'http://10.138.0.3:3014/'
+            mode   : 'direct',
+            baseUrl: 'http://localhost:3014/'
         }
     }
 };
