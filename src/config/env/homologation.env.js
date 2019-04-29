@@ -74,6 +74,10 @@ module.exports = {
         users: {
             mode   : 'direct',
             baseUrl: 'http://127.0.0,1:3000/'
+        },
+        students: {
+            mode : 'direct',
+            baseUrl: 'http://127.0.0,1:3014/'
         }
     }
 };
