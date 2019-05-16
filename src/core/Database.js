@@ -1,4 +1,4 @@
-/* eslint-disable no-console,multiline-ternary */
+/* eslint-disable no-console,multiline-ternary,no-process-exit,max-lines */
 import mongoose       from 'mongoose';
 import Sequelize      from 'sequelize';
 import {
@@ -129,12 +129,24 @@ export default class Database {
                         schema.index(schemaDef.indexes[index].fields, schemaDef.indexes[index].options);
                     });
 
+                // Register virtuals
+                if ('virtual' in schemaDef)
+                    Object.keys(schemaDef.virtual).forEach(name => {
+                        schema.virtual(name).get(schemaDef.virtual[name]);
+                    });
+
+                schema.set('toJSON', {virtuals: true});
+
                 // Create mongoose model from schema
                 mongoose.model(schemaDef.collection, schema);
             });
 
         // Return mongo connection
-        return mongoose.connection.openUri(this._createMongooseUri('mongodb', databaseConfig), {useNewUrlParser: true});
+        return mongoose.connection.openUri(this._createMongooseUri('mongodb', databaseConfig), {
+            useNewUrlParser : true,
+            useFindAndModify: false,
+            useCreateIndex  : true
+        });
     }
 
     /**
