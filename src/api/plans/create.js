@@ -11,7 +11,7 @@ const createPlan = (req, res) => {
                 return {
                     installment: planInstallment.installment,
                     percent    : planInstallment.percent,
-                    amount     : planInstallment.percent * 100
+                    amount     : planInstallment.amount * 100
                 };
             });
         }
