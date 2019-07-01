@@ -1,6 +1,11 @@
 export default {
     collection: 'Plans',
     fields    :   {
+         discount    : {
+            type    : Number,
+            required: false,
+            default : 0
+        },
         installments: [
             {
                 _id        : false,
