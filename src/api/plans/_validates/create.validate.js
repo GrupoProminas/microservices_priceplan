@@ -4,6 +4,7 @@ export default (req, res, next) => {
     Joi
         .object(
             {
+                discount: Joi.number(),
                 installments: Joi.array().items(Joi.object().keys({
                     installment: Joi.number().required(),
                     percent: Joi.number().required(),
