@@ -1,33 +1,37 @@
+import {SchemaTypes} from 'mongoose';
+
 export default {
     collection: 'PromotionCourses',
-    fields    :    {
-        name: {
-          type: String,
-          required: true
-        },
-        discountPercentage: {
-            type: Number,
-            allowNull: false
-        },
-        regulation: {
-            type: String,
-            allowNull: false
-        },
-        tags: {
-           type: [String],
+    fields    : {
+        name      : {
+            type    : String,
             required: true
         },
-        dateStart: {
-            type: Date,
+        regulation: {
+            type     : String,
             allowNull: false
         },
-        dateEnd: {
-            type: Date,
+        tags      : {
+            type    : [String],
+            required: false,
+            default : []
+        },
+        _coursesId: {
+            type    : [SchemaTypes.ObjectId],
+            required: false,
+            default : []
+        },
+        dateStart : {
+            type     : Date,
             allowNull: false
         },
-        isActive: {
-            type: Boolean,
-            default: true,
+        dateEnd   : {
+            type     : Date,
+            allowNull: false
+        },
+        isActive  : {
+            type     : Boolean,
+            default  : true,
             allowNull: false
         }
     },
