@@ -21,6 +21,47 @@ export default {
             required: false,
             default : []
         },
+        paymentPlan         : {
+            creditCard: [
+                {
+                    _id        : false,
+                    installment: {
+                        type    : Number,
+                        required: true
+                    },
+                    value      : {
+                        type    : Number,
+                        required: true
+                    }
+                }
+            ],
+            debitCard : [
+                {
+                    _id        : false,
+                    installment: {
+                        type    : Number,
+                        required: true
+                    },
+                    value      : {
+                        type    : Number,
+                        required: true
+                    }
+                }
+            ],
+            boleto    : [
+                {
+                    _id        : false,
+                    installment: {
+                        type    : Number,
+                        required: true
+                    },
+                    value      : {
+                        type    : Number,
+                        required: true
+                    }
+                }
+            ]
+        },
         dateStart : {
             type     : Date,
             allowNull: false
