@@ -6,16 +6,22 @@ export default (req, res, next) => {
     Joi
         .object(
             {
-                _planId: Joi.string(),
-                name: Joi.string().required(),
-                alias: Joi.string().required(),
-                typeRate: Joi.string().valid([
-                    'declaration',
-                    'enrolment',
-                    'others'
-                ]).required(),
-                amount: Joi.number().required(),
-                metadata: Joi.any(),
+                _certifierName: Joi.string(),
+                _typeName: Joi.string(),
+                paymentPlan: Joi.object({
+                    creditCard: Joi.array().items(Joi.object().keys({
+                        installment: Joi.number(),
+                        value: Joi.number()
+                    })),
+                    debitCard: Joi.array().items(Joi.object().keys({
+                        installment: Joi.number(),
+                        value: Joi.number()
+                    })),
+                    boleto: Joi.array().items(Joi.object().keys({
+                        installment: Joi.number(),
+                        value: Joi.number()
+                    }))
+                }),
                 isActive: Joi.boolean().allow('').optional()
             }
         )
