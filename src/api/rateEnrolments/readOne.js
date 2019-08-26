@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {RatesEnrolments} = models;
+const {RateEnrolments} = models;
 
 const getRate = (req, res) => {
 
-    RatesEnrolments
+    RateEnrolments
         .findById(req.params._id, req.query.project)
         .populate(req.query.populate)
         .then(result => {

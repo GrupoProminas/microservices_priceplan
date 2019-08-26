@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {RatesEnrolments} = models;
+const {RateEnrolments} = models;
 
 const listRates = (req, res) => {
 
-    RatesEnrolments
+    RateEnrolments
         .paginate(req.query.aggregate, req.query.limit, req.query.page)
         .then(result => {
             if (!result.data.length) return res.api.send(null, res.api.codes.NOT_FOUND);

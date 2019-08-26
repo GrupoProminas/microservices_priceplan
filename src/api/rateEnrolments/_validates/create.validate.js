@@ -1,5 +1,4 @@
 import Joi from 'joi';
-import {models} from 'mongoose';
 
 export default (req, res, next) => {
     Joi

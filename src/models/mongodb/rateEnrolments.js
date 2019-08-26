@@ -1,5 +1,5 @@
 export default {
-    collection: 'RatesEnrolments',
+    collection: 'RateEnrolments',
     fields: {
         _certifierName: {
             type: String,
