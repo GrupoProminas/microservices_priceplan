@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {Rates} = models;
+const {RatesEnrolments} = models;
 
 const createRate = (req, res) => {
 
-    Rates
+    RatesEnrolments
         .create(req.body)
         .then(prices => {
             return res.api.send(prices, res.api.codes.CREATED);
