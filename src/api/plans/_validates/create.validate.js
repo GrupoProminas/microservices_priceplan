@@ -4,13 +4,22 @@ export default (req, res, next) => {
     Joi
         .object(
             {
-                discount: Joi.number(),
-                installments: Joi.array().items(Joi.object().keys({
+                name: Joi.string().required(),
+                creditCard: Joi.array().items(Joi.object().keys({
                     installment: Joi.number().required(),
-                    percent: Joi.number().required(),
-                    amount: Joi.number().required(),
-                })),
-                alias: Joi.string().required(),
+                    value: Joi.number().required()
+                }))
+                    .required(),
+                debitCard: Joi.array().items(Joi.object().keys({
+                    installment: Joi.number().required(),
+                    value: Joi.number().required()
+                }))
+                    .required(),
+                boleto: Joi.array().items(Joi.object().keys({
+                    installment: Joi.number().required(),
+                    value: Joi.number().required()
+                }))
+                    .required(),
                 isActive: Joi.boolean().allow('').optional()
             }
         )
