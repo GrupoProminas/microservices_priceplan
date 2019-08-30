@@ -1,35 +1,49 @@
 export default {
     collection: 'Plans',
     fields    :   {
-         discount    : {
-            type    : Number,
-            required: false,
-            default : 0
-        },
-        installments: [
-            {
-                _id        : false,
-                installment: {
-                    type: Number,
-                    required: true,
-                    index: true
-                },
-                percent: {
-                    type: Number,
-                    required: true,
-                    index: true
-                },
-                amount: {
-                    type: Number,
-                    required: true,
-                    index: true
-                }
-            }
-        ],
-        alias: {
+        name: {
             type: String,
             required: true
         },
+        creditCard: [
+            {
+                _id        : false,
+                installment: {
+                    type    : Number,
+                    required: true
+                },
+                value      : {
+                    type    : Number,
+                    required: true
+                }
+            }
+        ],
+        debitCard : [
+            {
+                _id        : false,
+                installment: {
+                    type    : Number,
+                    required: true
+                },
+                value      : {
+                    type    : Number,
+                    required: true
+                }
+            }
+        ],
+        boleto    : [
+            {
+                _id        : false,
+                installment: {
+                    type    : Number,
+                    required: true
+                },
+                value      : {
+                    type    : Number,
+                    required: true
+                }
+            }
+        ],
         isActive: {
             type: Boolean,
             required: true,

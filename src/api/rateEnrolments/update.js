@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {Rates} = models;
+const {RateEnrolments} = models;
 
 const updateRate = (req, res) => {
 
-    Rates
+    RateEnrolments
         .findOneAndUpdate(
             {_id: req.params._id},
             {$set: req.body},

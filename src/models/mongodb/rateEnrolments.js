@@ -1,27 +1,15 @@
-import {SchemaTypes} from 'mongoose';
-
 export default {
-    collection: 'PromotionCourses',
-    fields    : {
-        name      : {
-            type    : String,
+    collection: 'RateEnrolments',
+    fields: {
+        _certifierName: {
+            type: String,
             required: true
         },
-        regulation: {
-            type     : String,
-            allowNull: false
+        _typeName: {
+          type: String,
+          required: true
         },
-        tags      : {
-            type    : [String],
-            required: false,
-            default : []
-        },
-        _coursesId: {
-            type    : [SchemaTypes.ObjectId],
-            required: false,
-            default : []
-        },
-        paymentPlan         : {
+        paymentPlan: {
             creditCard: [
                 {
                     _id        : false,
@@ -62,21 +50,11 @@ export default {
                 }
             ]
         },
-        dateStart : {
-            type     : Date,
-            allowNull: false
-        },
-        dateEnd   : {
-            type     : Date,
-            allowNull: false
-        },
-        isActive  : {
-            type     : Boolean,
-            default  : true,
-            allowNull: false
+        isActive: {
+            type: Boolean,
+            required    : true,
+            default     : true,
+            index       : true
         }
-    },
-    options   : {
-        timestamps: true
     }
-};
+}
