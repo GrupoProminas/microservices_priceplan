@@ -1,27 +1,39 @@
+/* eslint-disable id-length,no-confusing-arrow */
 import {SchemaTypes} from 'mongoose';
+
+const sortPaymentPlans = (promotion) => {
+
+    const sortFn = (a, b) => a.installment === b.installment ? 0 : +(a.installment > b.installment) || -1;
+
+    promotion.paymentPlan.boleto = promotion.paymentPlan.boleto.sort(sortFn);
+    promotion.paymentPlan.creditCard = promotion.paymentPlan.creditCard.sort(sortFn);
+    promotion.paymentPlan.debitCard = promotion.paymentPlan.debitCard.sort(sortFn);
+
+    promotion.save();
+};
 
 export default {
     collection: 'PromotionCourses',
     fields    : {
-        name      : {
+        name       : {
             type    : String,
             required: true
         },
-        regulation: {
+        regulation : {
             type     : String,
             allowNull: false
         },
-        tags      : {
+        tags       : {
             type    : [String],
             required: false,
             default : []
         },
-        _coursesId: {
+        _coursesId : {
             type    : [SchemaTypes.ObjectId],
             required: false,
             default : []
         },
-        paymentPlan         : {
+        paymentPlan: {
             creditCard: [
                 {
                     _id        : false,
@@ -62,21 +74,23 @@ export default {
                 }
             ]
         },
-        dateStart : {
+        dateStart  : {
             type     : Date,
             allowNull: false
         },
-        dateEnd   : {
+        dateEnd    : {
             type     : Date,
             allowNull: false
         },
-        isActive  : {
+        isActive   : {
             type     : Boolean,
             default  : true,
             allowNull: false
         }
     },
-    options   : {
-        timestamps: true
+    post      : {
+        save            : sortPaymentPlans,
+        findOneAndUpdate: sortPaymentPlans,
+        update          : sortPaymentPlans
     }
 };
