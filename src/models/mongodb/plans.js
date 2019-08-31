@@ -1,8 +1,20 @@
+/* eslint-disable id-length,no-confusing-arrow */
+const sortPaymentPlans = (plan) => {
+
+    const sortFn = (a, b) => a.installment === b.installment ? 0 : +(a.installment > b.installment) || -1;
+
+    plan.boleto = plan.boleto.sort(sortFn);
+    plan.creditCard = plan.creditCard.sort(sortFn);
+    plan.debitCard = plan.debitCard.sort(sortFn);
+
+    plan.save();
+};
+
 export default {
     collection: 'Plans',
-    fields    :   {
-        name: {
-            type: String,
+    fields    : {
+        name      : {
+            type    : String,
             required: true
         },
         creditCard: [
@@ -44,14 +56,16 @@ export default {
                 }
             }
         ],
-        isActive: {
-            type: Boolean,
+        isActive  : {
+            type    : Boolean,
             required: true,
-            default: true,
-            index: true
+            default : true,
+            index   : true
         }
     },
-    options   : {
-        timestamps: true
+    post      : {
+        save            : sortPaymentPlans,
+        findOneAndUpdate: sortPaymentPlans,
+        update          : sortPaymentPlans
     }
-}
+};
