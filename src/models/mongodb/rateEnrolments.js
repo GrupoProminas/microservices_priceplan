@@ -7,7 +7,7 @@ const sortPaymentPlans = (rate) => {
     rate.paymentPlan.creditCard = rate.paymentPlan.creditCard.sort(sortFn);
     rate.paymentPlan.debitCard = rate.paymentPlan.debitCard.sort(sortFn);
 
-    rate.save();
+    return rate.save();
 };
 
 export default {
@@ -70,8 +70,6 @@ export default {
         }
     },
     post      : {
-        save            : sortPaymentPlans,
-        findOneAndUpdate: sortPaymentPlans,
-        update          : sortPaymentPlans
+        findOneAndUpdate: sortPaymentPlans
     }
 };
