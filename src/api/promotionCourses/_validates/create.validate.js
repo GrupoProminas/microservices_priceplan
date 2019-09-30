@@ -9,7 +9,7 @@ export default (req, res, next) => {
             {
                 name: Joi.string().required(),
                 regulation: Joi.string().required(),
-                tags: Joi.array().items(Joi.string()),
+                tags: Joi.array().items(Joi.any()),
                 _coursesId: Joi.array().items(Joi.string().regex(objectIdRegex)),
                 paymentPlan: Joi.object({
                     creditCard: Joi.array().items(Joi.object().keys({
