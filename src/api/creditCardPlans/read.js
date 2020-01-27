@@ -2,7 +2,7 @@ import {models} from 'mongoose';
 
 const {Plans} = models;
 
-const listPlans = (req, res) => {
+const listCreditCardPlans = (req, res) => {
 
     Plans
         .paginate(req.query.aggregate, req.query.limit, req.query.page)
@@ -16,4 +16,4 @@ const listPlans = (req, res) => {
         });
 };
 
-export default listPlans;
+export default listCreditCardPlans;

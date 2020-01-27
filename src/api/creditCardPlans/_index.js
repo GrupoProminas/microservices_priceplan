@@ -8,7 +8,7 @@ import read from './read';
 import readOne from './readOne';
 import update from './update';
 
-let resources = '/plans';
+const resources = '/credit_card_plan';
 
 export default (route) => {
 

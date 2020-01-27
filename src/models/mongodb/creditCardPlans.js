@@ -3,21 +3,23 @@ const sortPaymentPlans = (plan) => {
 
     const sortFn = (a, b) => a.installment === b.installment ? 0 : +(a.installment > b.installment) || -1;
 
-    plan.boleto = plan.boleto.sort(sortFn);
-    plan.creditCard = plan.creditCard.sort(sortFn);
-    plan.debitCard = plan.debitCard.sort(sortFn);
+    plan.paymentPlan = plan.paymentPlan.sort(sortFn);
 
     plan.save();
 };
 
 export default {
-    collection: 'Plans',
+    collection: 'CreditCardPlans',
     fields    : {
-        name      : {
+        _certifierName: {
             type    : String,
             required: true
         },
-        creditCard: [
+        _typeName     : {
+            type    : String,
+            required: true
+        },
+        paymentPlan: [
             {
                 _id        : false,
                 installment: {
@@ -27,38 +29,15 @@ export default {
                 value      : {
                     type    : Number,
                     required: true
-                }
-            }
-        ],
-        debitCard : [
-            {
-                _id        : false,
-                installment: {
-                    type    : Number,
-                    required: true
                 },
-                value      : {
+                percent: {
                     type    : Number,
-                    required: true
+                    default: 0
                 }
             }
         ],
-        boleto    : [
-            {
-                _id        : false,
-                installment: {
-                    type    : Number,
-                    required: true
-                },
-                value      : {
-                    type    : Number,
-                    required: true
-                }
-            }
-        ],
-        isActive  : {
+        isActive      : {
             type    : Boolean,
-            required: true,
             default : true,
             index   : true
         }

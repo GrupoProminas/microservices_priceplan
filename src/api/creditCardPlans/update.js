@@ -2,20 +2,7 @@ import {models} from 'mongoose';
 
 const {Plans} = models;
 
-const updatePlan = (req, res) => {
-
-    if (req.body.installments) {
-
-        if (req.body.installments.length > 0) {
-            req.body.installments = req.body.installments.map(planInstallment => {
-                return {
-                    installment: planInstallment.installment,
-                    percent: planInstallment.percent,
-                    amount: planInstallment.amount * 100
-                };
-            });
-        }
-    }
+const updateCreditCardPlan = (req, res) => {
 
     Plans
         .findOneAndUpdate(
@@ -33,4 +20,4 @@ const updatePlan = (req, res) => {
         });
 };
 
-export default updatePlan;
+export default updateCreditCardPlan;
