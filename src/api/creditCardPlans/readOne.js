@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {Plans} = models;
+const {CreditCardPlans} = models;
 
 const getCreditCardPlan = (req, res) => {
 
-    Plans
+    CreditCardPlans
         .findById(req.params._id, req.query.project)
         .populate(req.query.populate)
         .then(result => {

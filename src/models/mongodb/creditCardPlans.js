@@ -1,12 +1,25 @@
 /* eslint-disable id-length,no-confusing-arrow */
-const sortPaymentPlans = (plan) => {
+const sortPaymentPlans = function(next) {
 
     const sortFn = (a, b) => a.installment === b.installment ? 0 : +(a.installment > b.installment) || -1;
 
-    plan.paymentPlan = plan.paymentPlan.sort(sortFn);
+    this.paymentPlan = this.paymentPlan.sort(sortFn);
 
-    plan.save();
+    next();
 };
+
+
+const sortPaymentPlansonUpdate = function(next) {
+
+    if (this._update.$set.paymentPlan && this._update.$set.paymentPlan.length > 0){
+        const sortFn = (a, b) => a.installment === b.installment ? 0 : +(a.installment > b.installment) || -1;
+
+        this._update.$set.paymentPlan = this._update.$set.paymentPlan.sort(sortFn);
+    }
+
+    next();
+};
+
 
 export default {
     collection: 'CreditCardPlans',
@@ -42,9 +55,9 @@ export default {
             index   : true
         }
     },
-    post      : {
+    pre      : {
         save            : sortPaymentPlans,
-        findOneAndUpdate: sortPaymentPlans,
-        update          : sortPaymentPlans
+        findOneAndUpdate: sortPaymentPlansonUpdate,
+        update          : sortPaymentPlansonUpdate
     }
 };

@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {Plans} = models;
+const {CreditCardPlans} = models;
 
 const createCreditCardPlan = (req, res) => {
 
-    Plans
+    CreditCardPlans
         .create(req.body)
         .then(plans => {
             return res.api.send(plans, res.api.codes.CREATED);

@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {Plans} = models;
+const {CreditCardPlans} = models;
 
 const updateCreditCardPlan = (req, res) => {
 
-    Plans
+    CreditCardPlans
         .findOneAndUpdate(
             {_id: req.params._id},
             {$set: req.body},
@@ -16,6 +16,7 @@ const updateCreditCardPlan = (req, res) => {
             return res.api.send(updated, res.api.codes.OK);
         })
         .catch(err => {
+            console.log(err);
             return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
         });
 };

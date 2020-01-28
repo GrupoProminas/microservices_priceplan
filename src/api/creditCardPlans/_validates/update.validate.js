@@ -7,7 +7,7 @@ export default (req, res, next) => {
             {
                 _certifierName: Joi.string(),
                 _typeName: Joi.string(),
-                paymentPlan: Joi.array.items(Joi.object.keys({
+                paymentPlan: Joi.array().items(Joi.object({
                     installment: Joi.number(),
                     value: Joi.number(),
                     percent: Joi.number()
