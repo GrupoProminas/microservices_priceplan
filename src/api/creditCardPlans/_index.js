@@ -7,6 +7,7 @@ import create from './create';
 import read from './read';
 import readOne from './readOne';
 import update from './update';
+import readByCertifier from './readbyCertifier';
 
 const resources = '/credit_card_plan';
 
@@ -26,6 +27,9 @@ export default (route) => {
 
     // Rota para ler todos os planos de cartão de crédito
     route.get(resources, read);
+
+    // Rota para ler todos os planos de cartão de crédito
+    route.get(`${resources}/readByCertifiers/:certifier/:_typeName/:total`, readByCertifier);
 
     // Rota para ler um plano de cartão de crédito
     route.get(resources + '/:_id', readOne);
