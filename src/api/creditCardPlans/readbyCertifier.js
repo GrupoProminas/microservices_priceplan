@@ -17,7 +17,7 @@ const readByCertifier = (req, res) => {
         })
         .then(installmentArray => {
 
-            let result = installmentArray.paymentPlan.filter(installment => installment.value <= req.params.total/2);
+            let result = installmentArray.paymentPlan.filter(installment => installment.value <= req.params.total);
 
             result = result.map(installment => {
                 return {
