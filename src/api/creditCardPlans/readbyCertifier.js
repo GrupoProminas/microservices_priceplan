@@ -1,4 +1,5 @@
 import {models} from 'mongoose';
+import CreditCardPlansService from '../../services/CREDITCARDPLANS/CreditCardPlans.service';
 
 const {CreditCardPlans} = models;
 
@@ -17,14 +18,8 @@ const readByCertifier = (req, res) => {
         })
         .then(installmentArray => {
 
-            let result = installmentArray.paymentPlan.filter(installment => installment.value <= req.params.total);
+            const result = CreditCardPlansService.calcCardPlanforPayment(installmentArray, req.params.total);
 
-            result = result.map(installment => {
-                return {
-                    installment: installment.installment,
-                    value: (req.params.total / installment.installment) * (1 + (installment.percent/100))
-                }
-            })
 
             if (!result) return res.api.send(null, res.api.codes.NOT_FOUND);
 
