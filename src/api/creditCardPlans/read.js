@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {Plans} = models;
+const {CreditCardPlans} = models;
 
-const listPlans = (req, res) => {
+const listCreditCardPlans = (req, res) => {
 
-    Plans
+    CreditCardPlans
         .paginate(req.query.aggregate, req.query.limit, req.query.page)
         .then(result => {
             if (!result.data.length) return res.api.send(null, res.api.codes.NOT_FOUND);
@@ -16,4 +16,4 @@ const listPlans = (req, res) => {
         });
 };
 
-export default listPlans;
+export default listCreditCardPlans;

@@ -7,26 +7,30 @@ import create from './create';
 import read from './read';
 import readOne from './readOne';
 import update from './update';
+import readByCertifier from './readbyCertifier';
 
-let resources = '/plans';
+const resources = '/credit_card_plan';
 
 export default (route) => {
 
-    // Route to create new music
+    // Rota para criar novo plano de cartão de crédito
     route.post(resources, [
         createValidade,
         create
     ]);
 
-    // Route to update existent music
+    // Rota para atualizar plano de cartão de crédito
     route.put(resources + '/:_id', [
         updateValidade,
         update
     ]);
 
-    // Route to read all music
+    // Rota para ler todos os planos de cartão de crédito
     route.get(resources, read);
 
-    // Route to read specific music
+    // Rota para ler todos os planos de cartão de crédito
+    route.get(`${resources}/readByCertifiers/:certifier/:_typeName/:total`, readByCertifier);
+
+    // Rota para ler um plano de cartão de crédito
     route.get(resources + '/:_id', readOne);
 };

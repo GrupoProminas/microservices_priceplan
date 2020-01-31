@@ -1,10 +1,10 @@
 import {models} from 'mongoose';
 
-const {Plans} = models;
+const {CreditCardPlans} = models;
 
-const getPlan = (req, res) => {
+const getCreditCardPlan = (req, res) => {
 
-    Plans
+    CreditCardPlans
         .findById(req.params._id, req.query.project)
         .populate(req.query.populate)
         .then(result => {
@@ -17,4 +17,4 @@ const getPlan = (req, res) => {
         });
 };
 
-export default getPlan;
+export default getCreditCardPlan;
