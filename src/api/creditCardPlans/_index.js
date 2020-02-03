@@ -29,7 +29,7 @@ export default (route) => {
     route.get(resources, read);
 
     // Rota para ler todos os planos de cartão de crédito
-    route.get(`${resources}/readByCertifiers/:certifier/:_typeName/:total`, readByCertifier);
+    route.get(`${resources}/readbycertifiers/:certifier/:_typeName/:total`, readByCertifier);
 
     // Rota para ler um plano de cartão de crédito
     route.get(resources + '/:_id', readOne);
