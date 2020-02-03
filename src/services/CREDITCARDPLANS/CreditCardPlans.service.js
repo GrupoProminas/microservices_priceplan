@@ -14,14 +14,12 @@ class CreditCardPlansService {
     }
 
     calcCardPlanforPayment(installmentArray, total) {
-        let result = installmentArray.paymentPlan.filter(installment => installment.value <= total);
-
-        return result.map(installment => {
-            return {
+        return installmentArray.paymentPlan
+            .filter(installment => installment.value <= total/installment.installment)
+            .map(installment => ({
                 installment: installment.installment,
                 value: (total / installment.installment) * (1 + (installment.percent/100))
-            }
-        })
+            }))
     }
 }
 
