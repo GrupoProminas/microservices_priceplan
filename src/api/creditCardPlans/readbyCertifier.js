@@ -10,10 +10,10 @@ const readByCertifier = (req, res) => {
             _certifierName: decodeURIComponent(req.params.certifier),
             _typeName: decodeURIComponent(req.params._typeName),
             isActive: true,
-            $or:[
-                    {isProduct:false},
-                    {isProduct:{$exists:false}}
-                ]
+            isProduct: {$in: [
+                false,
+                null
+            ]}
         },
         {
             paymentPlan: 1,
