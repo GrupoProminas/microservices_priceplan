@@ -32,10 +32,6 @@ export default {
             type    : String,
             required: true
         },
-        isProduct   : {
-            type    : Boolean,
-            required: false
-        },
         paymentPlan: [
             {
                 _id        : false,
