@@ -7,10 +7,8 @@ const readByCertifier = (req, res) => {
 
     CreditCardPlans
         .findOne({
-            _certifierName: decodeURIComponent(req.params.certifier),
-            _typeName: decodeURIComponent(req.params._typeName),
-            isActive: true,
-            isProduct: {$ne: true}
+            isProduct: true,
+            isActive: true
         },
         {
             paymentPlan: 1,
@@ -18,10 +16,7 @@ const readByCertifier = (req, res) => {
         })
         .then(installmentArray => {
 
-            if (!installmentArray) return res.api.send(null, res.api.codes.NOT_FOUND);
-
             const result = CreditCardPlansService.calcCardPlanforPayment(installmentArray, req.params.total);
-
 
             if (!result) return res.api.send(null, res.api.codes.NOT_FOUND);
 
