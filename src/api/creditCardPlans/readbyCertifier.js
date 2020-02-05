@@ -10,13 +10,18 @@ const readByCertifier = (req, res) => {
             _certifierName: decodeURIComponent(req.params.certifier),
             _typeName: decodeURIComponent(req.params._typeName),
             isActive: true,
-            isProduct: false
+            $or:[
+                    {isProduct:false},
+                    {isProduct:{$exists:false}}
+                ]
         },
         {
             paymentPlan: 1,
             _id: 0
         })
         .then(installmentArray => {
+
+            if (!installmentArray) return res.api.send(null, res.api.codes.NOT_FOUND);
 
             const result = CreditCardPlansService.calcCardPlanforPayment(installmentArray, req.params.total);
 
