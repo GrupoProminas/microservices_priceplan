@@ -15,8 +15,6 @@ const createVouchers = (req, res) => {
         .then(result => {
             req.body.code = result;
 
-            console.log('>>>', req.body);
-
             return Vouchers.create(req.body);
         })
         .then(result => {

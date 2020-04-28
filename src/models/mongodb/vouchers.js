@@ -27,59 +27,55 @@ export default {
         usage: Number,
         dateStart: Date,
         dateEnd: Date,
+        enrolment   : {
+            amountType: {
+                type    : String,
+                enum    : [
+                    'percentage',
+                    'value'
+                ],
+            },
+            amount    : {
+                type    : Number
+            }
+        },
+        course      : {
+            amountType: {
+                type    : String,
+                enum    : [
+                    'percentage',
+                    'value'
+                ]
+            },
+            amount    : {
+                type    : Number
+            }
+        },
         isActive: {
             type: Boolean,
             required: true,
             default: true
-        }
-    },
-    enrolment   : {
+        },
+        // Campos antigos mantidos POR ENQUANTO para manter compatibilidade
+        voucherType: {
+            type: String,
+            enum: [
+                'enrolment',
+                'course',
+                'courseware',
+                'store'
+            ]
+        },
         amountType: {
-            type    : String,
-            enum    : [
+            type: String,
+            enum: [
                 'percentage',
                 'value'
-            ],
-            required: true
+            ]
         },
-        amount    : {
-            type    : Number,
-            required: true
+        amount: {
+            type: Number
         }
-    },
-    course      : {
-        amountType: {
-            type    : String,
-            enum    : [
-                'percentage',
-                'value'
-            ],
-            required: true
-        },
-        amount    : {
-            type    : Number,
-            required: true
-        }
-    },
-    // Campos antigos mantidos POR ENQUANTO para manter compatibilidade
-    voucherType: {
-        type: String,
-        enum: [
-            'enrolment',
-            'course',
-            'courseware',
-            'store'
-        ]
-    },
-    amountType: {
-        type: String,
-        enum: [
-            'percentage',
-            'value'
-        ]
-    },
-    amount: {
-        type: Number
     },
     options   : {
         timestamps: true
