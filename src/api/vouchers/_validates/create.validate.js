@@ -11,18 +11,7 @@ export default (req, res, next) => {
                     'system'
                 ]).required(),
                 cpf: Joi.string(),
-                voucherType: Joi.string().valid([
-                    'enrolment',
-                    'course',
-                    'courseware',
-                    'store'
-                ]).required(),
                 tags: Joi.array(),
-                amountType: Joi.string().valid([
-                    'percentage',
-                    'value'
-                ]).required(),
-                amount: Joi.number().required(),
                 validateType: Joi.string().valid([
                     'period',
                     'usage'
@@ -30,7 +19,33 @@ export default (req, res, next) => {
                 usage: Joi.number(),
                 dateStart: Joi.string(),
                 dateEnd: Joi.string(),
-                isActive: Joi.boolean().allow('').optional()
+                isActive: Joi.boolean().allow('').optional(),
+                enrolment: Joi.object({
+                    amountType: Joi.string().valid([
+                        'percentage',
+                        'value'
+                    ]).required(),
+                    amount: Joi.number().required()
+                }),
+                course: Joi.object({
+                    amountType: Joi.string().valid([
+                        'percentage',
+                        'value'
+                    ]).required(),
+                    amount: Joi.number().required()
+                }),
+                // Campos antigos mantidos POR ENQUANTO para manter compatibilidade
+                voucherType: Joi.string().valid([
+                    'enrolment',
+                    'course',
+                    'courseware',
+                    'store'
+                ]),
+                amountType: Joi.string().valid([
+                    'percentage',
+                    'value'
+                ]),
+                amount: Joi.number()
             }
         )
         .validate(req.body, err => {
