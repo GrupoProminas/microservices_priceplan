@@ -10,7 +10,8 @@ export default {
             enum: [
                 'partner',
                 'employer',
-                'system'
+                'system',
+                'student'
             ],
             required: true
         },

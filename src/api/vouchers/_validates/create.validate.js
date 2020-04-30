@@ -8,7 +8,8 @@ export default (req, res, next) => {
                 userType: Joi.string().valid([
                     'partner',
                     'employee',
-                    'system'
+                    'system',
+                    'student'
                 ]).required(),
                 cpf: Joi.string(),
                 tags: Joi.array(),
