@@ -16,6 +16,10 @@ export default {
             default: 1,
             required: true
         },
+        courseType: {
+            type    : String,
+            required: true
+        },
         certifier: [
             {
                 _id        : false,
