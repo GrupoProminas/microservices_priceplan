@@ -2,7 +2,8 @@ export default {
     collection: 'VouchersConfigs',
     fields: {
         isActive: {
-            type: Boolean
+            type: Boolean,
+            default: true
         },
         maximunWorkload: {
             type: Number,
