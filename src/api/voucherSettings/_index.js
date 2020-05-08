@@ -1,6 +1,9 @@
 import create from './create';
 import createValidate from './_validate/create.validate';
 import reader from './reader';
+import readOne from './readOne';
+import updateValidade from './_validate/update.validade';
+import updateVoucherSettings from './update';
 
 const resources = '/vouchersettings';
 
@@ -12,5 +15,12 @@ export default (route) => {
     ]);
     route.get(resources, [
         reader
+    ]);
+    route.get(`${resources}/:_id`, [
+        readOne
+    ]);
+    route.put(`${resources}/:_id`, [
+        updateValidade,
+        updateVoucherSettings
     ]);
 }
