@@ -11,15 +11,17 @@ export default {
         validationDate: {
             type: Date
         },
-        MaximunQuantity: {
+        maximunQuantity: {
             type: Number,
             default: 1,
             required: true
         },
-        courseType: {
-            type    : String,
-            required: true
-        },
+        courseType: [
+            {
+                type    : String,
+                required: true
+            }
+        ],
         certifier: [
             {
                 _id        : false,

@@ -10,8 +10,8 @@ export default (req, res, next) => {
                     name: Joi.string().required(),
                     description: Joi.string().required()
                 })),
-                MaximunQuantity: Joi.number().required(),
-                courseType: Joi.string().required(),
+                maximunQuantity: Joi.number().required(),
+                courseType: Joi.array().items(Joi.string().required()).min(1).required(),
                 isActive: Joi.boolean()
             }
         )
