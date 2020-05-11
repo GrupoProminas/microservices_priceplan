@@ -59,7 +59,7 @@ const createVoucher = async (req, res) => {
             metadata: {
                 isFree: vouchersConfigs.isFree, 
                 _enrolmentId: Types.ObjectId(req.params._id), 
-                description: messages}
+                description: messages[0]}
             })
         }
 
