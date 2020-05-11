@@ -23,6 +23,10 @@ export default {
                 required: true
             }
         ],
+        isFree: {
+            type    : Boolean,
+            required: true
+        },
         certifier: [
             {
                 _id        : false,

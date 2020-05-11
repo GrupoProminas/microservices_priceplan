@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 export default {
     collection: 'Vouchers',
     fields: {
@@ -10,7 +12,8 @@ export default {
             enum: [
                 'partner',
                 'employer',
-                'system'
+                'system',
+                'student'
             ],
             required: true
         },
@@ -53,6 +56,9 @@ export default {
             type: Boolean,
             required: true,
             default: true
+        },
+        metadata: {
+            type: mongoose.SchemaTypes.Mixed
         }
     },
     options   : {
