@@ -4,8 +4,6 @@ const {Vouchers, Enrolments, VouchersConfigs} = models;
 
 const createVoucher = async (req, res) => {
 
-    console.log(req)
-
     try {
 
         const enrolment = await Enrolments.findById(req.params._id);
@@ -23,6 +21,8 @@ const createVoucher = async (req, res) => {
         );
 
         if(!vouchersConfigs) return res.api.send([], res.api.codes.NO_CONTENT);
+
+        const messages = vouchersConfigs.certifier.filter(_c => _c.name === enrolment.registryCourse.course._certifierName,).map(_c => _c.description);
 
 
         let voucher = await Vouchers
@@ -56,8 +56,11 @@ const createVoucher = async (req, res) => {
             code: 'Prominas' + Math.random().toString(36).substring(7),
             userType: 'student',
             cpf: enrolment.cpf,
-            metadata: {isFree: vouchersConfigs.isFree, enrolment: Types.ObjectId(req.params._id)}
-                })
+            metadata: {
+                isFree: vouchersConfigs.isFree, 
+                _enrolmentId: Types.ObjectId(req.params._id), 
+                description: messages}
+            })
         }
 
         if(!voucher.isActive || voucher.usage <= 0) 
