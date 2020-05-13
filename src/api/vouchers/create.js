@@ -15,7 +15,8 @@ const createVouchers = (req, res) => {
         .then(result => {
             req.body.code = result;
 
-            return Vouchers.create(req.body);
+            return Vouchers
+                    .create(req.body);
         })
         .then(result => {
             return res.api.send(result, res.api.codes.CREATED);
