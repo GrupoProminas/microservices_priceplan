@@ -13,6 +13,7 @@ import readAllEmployee from './readAllEmployee';
 import readOne from './readOne';
 import update from './update';
 import updateUsage from './updateUsage';
+import toggleStatus from "./toggleStatus";
 
 const resources = '/vouchers';
 
@@ -31,6 +32,11 @@ export default (route) => {
     route.put(resources + '/:_id', [
         updateValidade,
         update
+    ]);
+
+    // Rota para alterar status de um voucher
+    route.put(`${resources}/:_id/toggle_status`, [
+        toggleStatus
     ]);
 
     route.put('/vouchers_usage/:_id', [
