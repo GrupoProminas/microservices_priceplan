@@ -3,23 +3,19 @@ import {models} from 'mongoose';
 
 const {Vouchers} = models;
 
-const updateVouchers = (req, res) => {
+const updateVouchers = async (req, res) => {
 
-    Vouchers
-        .update(
-            {
-                _id: req.params._id
-            },
-            {
-                $set: req.body
-            }
-        )
-        .then(update => {
-            return res.api.send(update, res.api.codes.OK);
-        })
-        .catch(err => {
-            return res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
-        })
+    try {
+        const voucher = await Vouchers.findById(req.params._id);
+
+        voucher.overwrite(req.body);
+        await voucher.save();
+
+        return res.api.send(voucher, res.api.codes.OK);
+
+    } catch (err) {
+        return res.api.send(err.stack, res.api.codes.INTERNAL_SERVER_ERROR);
+    }
 };
 
 export default updateVouchers;
