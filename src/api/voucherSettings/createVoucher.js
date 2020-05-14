@@ -44,7 +44,7 @@ const createVoucher = async (req, res) => {
             tags: [
                 'Extensaão',
                 'Faculdade Prominas',
-                vouchersConfigs.maximunWorkload
+                vouchersConfigs.maximunWorkload.toString()
             ],
             isActive: true,
             voucherType: 'course',
