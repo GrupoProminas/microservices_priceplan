@@ -15,8 +15,7 @@ const createVoucher = async (req, res) => {
                     isActive: true,
                     validationDate: {$gte: new Date()},
                     courseType: enrolment.registryCourse.course._typeName,
-                    "certifier.name": enrolment.registryCourse.course._certifierName,
-                    maximunWorkload: {$lte: enrolment.registryCourse.course.workload}
+                    "certifier.name": enrolment.registryCourse.course._certifierName
             }
         );
 
@@ -45,7 +44,7 @@ const createVoucher = async (req, res) => {
             tags: [
                 'Extensaão',
                 'Faculdade Prominas',
-                '60'
+                vouchersConfigs.maximunWorkload
             ],
             isActive: true,
             voucherType: 'course',
