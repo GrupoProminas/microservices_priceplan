@@ -42,7 +42,7 @@ const createVoucher = async (req, res) => {
         if(!voucher){
             voucher = await Vouchers.create({
             tags: [
-                'Extensaão',
+                'Extensão',
                 'Faculdade Prominas',
                 vouchersConfigs.maximunWorkload.toString()
             ],
