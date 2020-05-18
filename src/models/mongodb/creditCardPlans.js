@@ -36,6 +36,10 @@ export default {
             type    : Boolean,
             required: false
         },
+        _type       : {
+            type    : String,
+            required: false
+        },
         paymentPlan: [
             {
                 _id        : false,
