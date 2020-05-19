@@ -38,33 +38,33 @@ module.exports = {
     },
 
     databases: {
-        microservice_priceplan: {
+        database_piaget: {
             servers: [
                 {
-                    host: 'homologacao-shard-00-00-dyz6u.gcp.mongodb.net',
-                    port: 27017
+                  host: 'erp-homologation-shard-00-00.cm4wf.gcp.mongodb.net',
+                  port: 27017
                 },
                 {
-                    host: 'homologacao-shard-00-01-dyz6u.gcp.mongodb.net',
-                    port: 27017
+                  host: 'erp-homologation-shard-00-01.cm4wf.gcp.mongodb.net',
+                  port: 27017
                 },
                 {
-                    host: 'homologacao-shard-00-02-dyz6u.gcp.mongodb.net',
-                    port: 27017
+                  host: 'erp-homologation-shard-00-02.cm4wf.gcp.mongodb.net',
+                  port: 27017
                 }
-            ],
-            replicaSet    : 'homologacao-shard-0',
-            authSource    : 'admin',
-            auto_reconnect: true,
-            ssl           : true,
-            user          : 'homologacao',
-            pass          : '0LXpkVYwis8fH65J',
-            name          : 'database_piaget',
-            dialect       : 'mongodb',
-            charset       : 'utf8',
-            logging       : false,
-            enabled       : true,
-            configWith    : 'mongoose'
+              ],
+              replicaSet: 'erp-homologation-shard-0',
+              authSource: 'admin',
+              auto_reconnect: true,
+              ssl: true,
+              user: 'user-admin',
+              pass: 'nJSMZurYGw490ohY',
+              name: 'database_piaget',
+              dialect: 'mongodb',
+              charset: 'utf8',
+              logging: false,
+              enabled: true,
+              configWith: 'mongoose'
         }
     },
 
