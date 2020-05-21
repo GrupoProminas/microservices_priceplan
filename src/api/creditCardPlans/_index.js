@@ -9,6 +9,7 @@ import readOne from './readOne';
 import update from './update';
 import readByCertifier from './readbyCertifier';
 import readProduct from './readProduct';
+import readByType from './readByType';
 
 const resources = '/credit_card_plan';
 
@@ -34,6 +35,8 @@ export default (route) => {
 
     //Rota para ler todos os planos de produtos
     route.get(`${resources}/readproduct/:total`, readProduct);
+
+    route.get(`${resources}/readbytype/:certifier/:_typeName/:_type/:total`, readByType)
 
     // Rota para ler um plano de cartão de crédito
     route.get(resources + '/:_id', readOne);
