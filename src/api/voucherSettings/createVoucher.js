@@ -1,4 +1,5 @@
 import {models, Types} from 'mongoose';
+import CodeVoucherService from '../../services/CodeVoucher.service';
 
 const {Vouchers, Enrolments, VouchersConfigs} = models;
 
@@ -32,8 +33,8 @@ const createVoucher = async (req, res) => {
                 cpf: enrolment.cpf,
                 userType: 'student',
                 voucherType: 'course',
-                amountType: 'percentage',
-                amount: 100
+                'enrolment.amountType': 'percentage',
+                'enrolment.amount': 100
             },
             {
                 _id: 0,
@@ -46,13 +47,14 @@ const createVoucher = async (req, res) => {
             tags: vouchersConfigs.tags,
             isActive: true,
             voucherType: 'course',
-            amountType: 'percentage',
-            amount: 100,
             validateType: vouchersConfigs.validateType,
             usage: vouchersConfigs.limit,
-            code: 'Prominas' + Math.random().toString(36).substring(7),
             userType: 'student',
             cpf: enrolment.cpf,
+            enrolment: {
+                amountType: 'percentage',
+                amount: 100,
+            },
             metadata: {
                 isFree: vouchersConfigs.isFree, 
                 _enrolmentId: Types.ObjectId(req.params._id), 
@@ -64,7 +66,11 @@ const createVoucher = async (req, res) => {
         }
         
         if(!voucher){
-            voucher = await Vouchers.create(voucherElement);
+            voucher = await CodeVoucherService.generateVoucher(6)
+            .then(code => {
+                voucherElement.code = code;
+                return Vouchers.create(voucherElement);
+            })
         }
 
         if(!voucher.isActive || voucher.usage <= 0) 

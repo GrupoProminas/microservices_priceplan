@@ -36,7 +36,7 @@ export default {
                 enum    : [
                     'percentage',
                     'value'
-                ],
+                ]
             },
             amount    : {
                 type    : Number
