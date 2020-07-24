@@ -5,7 +5,8 @@ export default {
     fields: {
         code: {
             type: String,
-            required: true
+            required: true,
+            uppercase: true
         },
         userType: {
             type: String,
