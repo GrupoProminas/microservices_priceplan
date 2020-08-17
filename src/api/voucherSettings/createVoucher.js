@@ -49,16 +49,21 @@ const createVoucher = async (req, res) => {
             voucherType: 'course',
             validateType: vouchersConfigs.validateType,
             usage: vouchersConfigs.limit,
-            userType: 'student',
+            userType: 'student',  
             cpf: enrolment.cpf,
             enrolment: {
+                amountType: 'percentage',
+                amount: 100,
+            },
+            course: {  
                 amountType: 'percentage',
                 amount: 100,
             },
             metadata: {
                 isFree: vouchersConfigs.isFree, 
                 _enrolmentId: Types.ObjectId(req.params._id), 
-                description: messages[0]}
+                description: messages[0]
+            }
         }
 
         if(voucherElement.validateType === "period"){
