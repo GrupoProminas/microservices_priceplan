@@ -14,81 +14,94 @@ const sortPaymentPlans = (promotion) => {
 
 export default {
     collection: 'PromotionCourses',
-    fields    : {
-        name       : {
-            type    : String,
+    fields: {
+        name: {
+            type: String,
             required: true
         },
-        regulation : {
-            type     : String,
+        regulation: {
+            type: String,
             allowNull: false
         },
-        tags       : {
-            type    : [String],
+        tags: {
+            type: [String],
             required: false,
-            default : []
+            default: []
         },
-        _coursesId : {
-            type    : [SchemaTypes.ObjectId],
+        _coursesId: {
+            type: [SchemaTypes.ObjectId],
             required: false,
-            default : []
+            default: []
         },
         paymentPlan: {
             creditCard: [
                 {
-                    _id        : false,
+                    _id: false,
                     installment: {
-                        type    : Number,
+                        type: Number,
                         required: true
                     },
-                    value      : {
-                        type    : Number,
+                    value: {
+                        type: Number,
                         required: true
                     }
                 }
             ],
-            debitCard : [
+            debitCard: [
                 {
-                    _id        : false,
+                    _id: false,
                     installment: {
-                        type    : Number,
+                        type: Number,
                         required: true
                     },
-                    value      : {
-                        type    : Number,
+                    value: {
+                        type: Number,
                         required: true
                     }
                 }
             ],
-            boleto    : [
+            boleto: [
                 {
-                    _id        : false,
+                    _id: false,
                     installment: {
-                        type    : Number,
+                        type: Number,
                         required: true
                     },
-                    value      : {
-                        type    : Number,
+                    value: {
+                        type: Number,
+                        required: true
+                    }
+                }
+            ],
+            cardRecurrence: [
+                {
+                    _id: false,
+                    installment: {
+                        type: Number,
+                        required: true
+                    },
+                    value: {
+                        type: Number,
                         required: true
                     }
                 }
             ]
         },
-        dateStart  : {
-            type     : Date,
+        dateStart: {
+            type: Date,
             allowNull: false
         },
-        dateEnd    : {
-            type     : Date,
+        dateEnd: {
+            type: Date,
             allowNull: false
         },
-        isActive   : {
-            type     : Boolean,
-            default  : true,
+        isActive: {
+            type: Boolean,
+            default: true,
             allowNull: false
         }
     },
-    post      : {
+    post: {
         findOneAndUpdate: sortPaymentPlans
     }
 };

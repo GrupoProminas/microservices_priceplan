@@ -1,3 +1,4 @@
+/* eslint-disable newline-per-chained-call */
 import Joi from 'joi';
 
 export default (req, res, next) => {
@@ -18,6 +19,10 @@ export default (req, res, next) => {
                     boleto: Joi.array().items(Joi.object().keys({
                         installment: Joi.number(),
                         value: Joi.number()
+                    })),
+                    cardRecurrence: Joi.array().items(Joi.object().keys({
+                        installment: Joi.number().required(),
+                        value: Joi.number().required()
                     }))
                 }),
                 isActive: Joi.boolean().allow('').optional()

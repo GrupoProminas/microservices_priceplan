@@ -23,11 +23,16 @@ export default (req, res, next) => {
                     boleto: Joi.array().items(Joi.object().keys({
                         installment: Joi.number(),
                         value: Joi.number()
+                    })),
+                    cardRecurrence: Joi.array().items(Joi.object().keys({
+                        installment: Joi.number(),
+                        value: Joi.number()
                     }))
                 }),
                 dateStart: Joi.date(),
                 dateEnd: Joi.date(),
-                isActive: Joi.boolean().allow('').optional()
+                isActive: Joi.boolean().allow('')
+                    .optional()
             }
         )
         .validate(req.body, err => {

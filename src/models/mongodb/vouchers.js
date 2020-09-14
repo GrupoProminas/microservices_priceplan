@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import {SchemaTypes} from 'mongoose';
 
 export default {
     collection: 'Vouchers',
@@ -20,6 +20,7 @@ export default {
         },
         cpf: String,
         tags: [String],
+        _courseId: SchemaTypes.ObjectId,
         validateType: {
             type: String,
             enum: [
@@ -31,28 +32,52 @@ export default {
         usage: Number,
         dateStart: Date,
         dateEnd: Date,
-        enrolment   : {
+        enrolment: {
             amountType: {
-                type    : String,
-                enum    : [
+                type: String,
+                enum: [
                     'percentage',
-                    'value'
+                    'value',
+                    ''
                 ]
             },
-            amount    : {
-                type    : Number
+            amount: {
+                boleto: {
+                    type: Number
+                },
+                creditCard: {
+                    type: Number
+                },
+                debitCard: {
+                    type: Number
+                },
+                cardRecurrence: {
+                    type: Number
+                }
             }
         },
-        course      : {
+        course: {
             amountType: {
-                type    : String,
-                enum    : [
+                type: String,
+                enum: [
                     'percentage',
-                    'value'
+                    'value',
+                    ''
                 ]
             },
-            amount    : {
-                type    : Number
+            amount: {
+                boleto: {
+                    type: Number
+                },
+                creditCard: {
+                    type: Number
+                },
+                debitCard: {
+                    type: Number
+                },
+                cardRecurrence: {
+                    type: Number
+                }
             }
         },
         isActive: {
@@ -61,30 +86,7 @@ export default {
             default: true
         },
         metadata: {
-          type: mongoose.SchemaTypes.Mixed
-        },
-        // Campos antigos mantidos POR ENQUANTO para manter compatibilidade
-        voucherType: {
-            type: String,
-            enum: [
-                'enrolment',
-                'course',
-                'courseware',
-                'store'
-            ]
-        },
-        amountType: {
-            type: String,
-            enum: [
-                'percentage',
-                'value'
-            ]
-        },
-        amount: {
-            type: Number
+            type: SchemaTypes.Mixed
         }
-    },
-    options   : {
-        timestamps: true
     }
 }
