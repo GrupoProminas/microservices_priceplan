@@ -6,13 +6,71 @@ export default {
             default: true
         },
         dateEnd: Date,
+        enrolment: {
+            amountType: {
+                type: String,
+                enum: [
+                    'percentage',
+                    'value',
+                    ''
+                ],
+                required: true
+            },
+            amount: {
+                boleto: {
+                    type: Number,
+                    required: true
+                },
+                creditCard: {
+                    type: Number,
+                    required: true
+                },
+                debitCard: {
+                    type: Number,
+                    required: true
+                },
+                cardRecurrence: {
+                    type: Number,
+                    required: true
+                }
+            }
+        },
+        course: {
+            amountType: {
+                type: String,
+                enum: [
+                    'percentage',
+                    'value',
+                    ''
+                ],
+                required: true
+            },
+            amount: {
+                boleto: {
+                    type: Number,
+                    required: true
+                },
+                creditCard: {
+                    type: Number,
+                    required: true
+                },
+                debitCard: {
+                    type: Number,
+                    required: true
+                },
+                cardRecurrence: {
+                    type: Number,
+                    required: true
+                }
+            }
+        },
         limit: {
             type: Number,
             default: 1,
             required: true
         },
         isFree: {
-            type    : Boolean,
+            type: Boolean,
             required: true
         },
         validateType: {
@@ -26,18 +84,18 @@ export default {
         tags: [String],
         certifier: [
             {
-                _id        : false,
+                _id: false,
                 name: {
-                    type    : String,
+                    type: String,
                     required: true
                 },
                 description: {
-                    type    : String,
+                    type: String,
                     required: true
                 },
                 courseType: [
                     {
-                        type    : String,
+                        type: String,
                         required: true
                     }
                 ]
