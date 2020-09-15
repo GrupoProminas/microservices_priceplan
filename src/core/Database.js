@@ -1,14 +1,14 @@
 /* eslint-disable no-console,multiline-ternary,no-process-exit,max-lines */
-import mongoose       from 'mongoose';
-import Sequelize      from 'sequelize';
+import mongoose from 'mongoose';
+import Sequelize from 'sequelize';
 import {
     defaultMongooseOptions,
     defaultSchemaOptions
-}                     from '../config/mongoose/mongoose.conf';
-import SequelizeConf  from '../config/sequelize/sequelize.conf';
-import fs             from 'fs';
-import path           from 'path';
-import paginate       from './Paginate';
+} from '../config/mongoose/mongoose.conf';
+import SequelizeConf from '../config/sequelize/sequelize.conf';
+import fs from 'fs';
+import path from 'path';
+import paginate from './Paginate';
 import beautifyUnique from 'mongoose-beautiful-unique-validation';
 
 /**
@@ -143,9 +143,10 @@ export default class Database {
 
         // Return mongo connection
         return mongoose.connection.openUri(this._createMongooseUri('mongodb', databaseConfig), {
-            useNewUrlParser : true,
+            useNewUrlParser: true,
             useFindAndModify: false,
-            useCreateIndex  : true
+            useCreateIndex: true,
+            useUnifiedTopology: true
         });
     }
 
@@ -169,7 +170,7 @@ export default class Database {
         // Create dialect object
         SequelizeConf[dialect] = {
             sequelize: null,
-            DB       : []
+            DB: []
         };
 
         // Inject paginate in sequelize Model
@@ -180,8 +181,8 @@ export default class Database {
             this._createSequelizeUri(dialect, databaseConfig),
             {
                 operatorsAliases: Sequelize.Op.Aliases,
-                charset         : charset,
-                logging         : logging
+                charset: charset,
+                logging: logging
             }
         );
 
@@ -213,7 +214,7 @@ export default class Database {
         // Sync models to database
         return SequelizeConf[dialect].sequelize.sync(
             {
-                force  : false,
+                force: false,
                 logging: false
             }
         );

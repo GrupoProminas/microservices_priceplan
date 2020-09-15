@@ -6,70 +6,84 @@ const sortPaymentPlans = (rate) => {
     rate.paymentPlan.boleto = rate.paymentPlan.boleto.sort(sortFn);
     rate.paymentPlan.creditCard = rate.paymentPlan.creditCard.sort(sortFn);
     rate.paymentPlan.debitCard = rate.paymentPlan.debitCard.sort(sortFn);
+    rate.paymentPlan.cardRecurrence = rate.paymentPlan.cardRecurrence.sort(sortFn);
 
     return rate.save();
 };
 
 export default {
     collection: 'RateEnrolments',
-    fields    : {
+    fields: {
         _certifierName: {
-            type    : String,
+            type: String,
             required: true
         },
-        _typeName     : {
-            type    : String,
+        _typeName: {
+            type: String,
             required: true
         },
-        paymentPlan   : {
+        paymentPlan: {
             creditCard: [
                 {
-                    _id        : false,
+                    _id: false,
                     installment: {
-                        type    : Number,
+                        type: Number,
                         required: true
                     },
-                    value      : {
-                        type    : Number,
+                    value: {
+                        type: Number,
                         required: true
                     }
                 }
             ],
-            debitCard : [
+            debitCard: [
                 {
-                    _id        : false,
+                    _id: false,
                     installment: {
-                        type    : Number,
+                        type: Number,
                         required: true
                     },
-                    value      : {
-                        type    : Number,
+                    value: {
+                        type: Number,
                         required: true
                     }
                 }
             ],
-            boleto    : [
+            boleto: [
                 {
-                    _id        : false,
+                    _id: false,
                     installment: {
-                        type    : Number,
+                        type: Number,
                         required: true
                     },
-                    value      : {
-                        type    : Number,
+                    value: {
+                        type: Number,
+                        required: true
+                    }
+                }
+            ],
+            cardRecurrence: [
+                {
+                    _id: false,
+                    installment: {
+                        type: Number,
+                        required: true
+                    },
+                    value: {
+                        type: Number,
                         required: true
                     }
                 }
             ]
         },
-        isActive      : {
-            type    : Boolean,
+        isActive: {
+            type: Boolean,
             required: true,
-            default : true,
-            index   : true
+            default: true,
+            index: true
         }
     },
-    post      : {
+    post: {
         findOneAndUpdate: sortPaymentPlans
     }
 };
