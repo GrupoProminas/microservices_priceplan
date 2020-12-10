@@ -1,3 +1,4 @@
+/* eslint-disable newline-per-chained-call */
 import Joi from 'joi';
 
 export default (req, res, next) => {
@@ -7,30 +8,45 @@ export default (req, res, next) => {
                 code: Joi.string(),
                 userType: Joi.string().valid([
                     'partner',
-                    'employee',
-                    'system'
-                ]),
+                    'employer',
+                    'system',
+                    'student'
+                ]).required(),
                 cpf: Joi.string(),
-                voucherType: Joi.string().valid([
-                    'enrolment',
-                    'course',
-                    'courseware',
-                    'store'
-                ]),
                 tags: Joi.array(),
-                amountType: Joi.string().valid([
-                    'percentage',
-                    'value'
-                ]),
-                amount: Joi.number(),
+                _courseId: Joi.string().regex(Joi.regexes.objectId),
                 validateType: Joi.string().valid([
                     'period',
                     'usage'
-                ]),
+                ]).required(),
                 usage: Joi.number(),
                 dateStart: Joi.string(),
                 dateEnd: Joi.string(),
-                isActive: Joi.boolean().allow('').optional()
+                isActive: Joi.boolean().allow('').optional(),
+                enrolment: Joi.object({
+                    amountType: Joi.string().valid([
+                        'percentage',
+                        'value'
+                    ]).required(),
+                    amount: Joi.object({
+                        boleto: Joi.number().required(),
+                        creditCard: Joi.number().required(),
+                        debitCard: Joi.number().required(),
+                        cardRecurrence: Joi.number().required()
+                    }).required()
+                }),
+                course: Joi.object({
+                    amountType: Joi.string().valid([
+                        'percentage',
+                        'value'
+                    ]).required(),
+                    amount: Joi.object({
+                        boleto: Joi.number().required(),
+                        creditCard: Joi.number().required(),
+                        debitCard: Joi.number().required(),
+                        cardRecurrence: Joi.number().required()
+                    }).required()
+                })
             }
         )
         .validate(req.body, err => {

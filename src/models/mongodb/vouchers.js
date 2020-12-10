@@ -1,43 +1,26 @@
+import {SchemaTypes} from 'mongoose';
+
 export default {
     collection: 'Vouchers',
     fields: {
         code: {
             type: String,
-            required: true
+            required: true,
+            uppercase: true
         },
         userType: {
             type: String,
             enum: [
                 'partner',
                 'employer',
-                'system'
+                'system',
+                'student'
             ],
             required: true
         },
         cpf: String,
-        voucherType: {
-            type: String,
-            enum: [
-                'enrolment',
-                'course',
-                'courseware',
-                'store'
-            ],
-            required: true
-        },
         tags: [String],
-        amountType: {
-            type: String,
-            enum: [
-                'percentage',
-                'value'
-            ],
-            required: true
-        },
-        amount: {
-            type: Number,
-            required: true
-        },
+        _courseId: SchemaTypes.ObjectId,
         validateType: {
             type: String,
             enum: [
@@ -49,13 +32,61 @@ export default {
         usage: Number,
         dateStart: Date,
         dateEnd: Date,
+        enrolment: {
+            amountType: {
+                type: String,
+                enum: [
+                    'percentage',
+                    'value',
+                    ''
+                ]
+            },
+            amount: {
+                boleto: {
+                    type: Number
+                },
+                creditCard: {
+                    type: Number
+                },
+                debitCard: {
+                    type: Number
+                },
+                cardRecurrence: {
+                    type: Number
+                }
+            }
+        },
+        course: {
+            amountType: {
+                type: String,
+                enum: [
+                    'percentage',
+                    'value',
+                    ''
+                ]
+            },
+            amount: {
+                boleto: {
+                    type: Number
+                },
+                creditCard: {
+                    type: Number
+                },
+                debitCard: {
+                    type: Number
+                },
+                cardRecurrence: {
+                    type: Number
+                }
+            }
+        },
         isActive: {
             type: Boolean,
             required: true,
             default: true
+        },
+        metadata: {
+            type: SchemaTypes.Mixed
         }
-    },
-    options   : {
-        timestamps: true
     }
 }

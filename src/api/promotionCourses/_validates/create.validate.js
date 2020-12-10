@@ -23,6 +23,10 @@ export default (req, res, next) => {
                     boleto: Joi.array().items(Joi.object().keys({
                         installment: Joi.number().required(),
                         value: Joi.number().required()
+                    })),
+                    cardRecurrence: Joi.array().items(Joi.object().keys({
+                        installment: Joi.number().required(),
+                        value: Joi.number().required()
                     }))
                 }).required(),
                 dateStart: Joi.date().required(),

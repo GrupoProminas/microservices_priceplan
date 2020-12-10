@@ -7,30 +7,52 @@ export default (req, res, next) => {
                 code: Joi.string(),
                 userType: Joi.string().valid([
                     'partner',
-                    'employee',
-                    'system'
-                ]).required(),
+                    'employer',
+                    'system',
+                    'student'
+                ])
+                    .required(),
                 cpf: Joi.string(),
-                voucherType: Joi.string().valid([
-                    'enrolment',
-                    'course',
-                    'courseware',
-                    'store'
-                ]).required(),
                 tags: Joi.array(),
-                amountType: Joi.string().valid([
-                    'percentage',
-                    'value'
-                ]).required(),
-                amount: Joi.number().required(),
+                _courseId: Joi.string().regex(Joi.regexes.objectId),
                 validateType: Joi.string().valid([
                     'period',
                     'usage'
-                ]).required(),
+                ])
+                    .required(),
                 usage: Joi.number(),
                 dateStart: Joi.string(),
                 dateEnd: Joi.string(),
-                isActive: Joi.boolean().allow('').optional()
+                isActive: Joi.boolean().allow('')
+                    .optional(),
+                enrolment: Joi.object({
+                    amountType: Joi.string().valid([
+                        'percentage',
+                        'value',
+                        ''
+                    ])
+                        .required(),
+                    amount: Joi.object({
+                        boleto: Joi.number().required(),
+                        creditCard: Joi.number().required(),
+                        debitCard: Joi.number().required(),
+                        cardRecurrence: Joi.number().required()
+                    }).required()
+                }).required(),
+                course: Joi.object({
+                    amountType: Joi.string().valid([
+                        'percentage',
+                        'value',
+                        ''
+                    ])
+                        .required(),
+                    amount: Joi.object({
+                        boleto: Joi.number().required(),
+                        creditCard: Joi.number().required(),
+                        debitCard: Joi.number().required(),
+                        cardRecurrence: Joi.number().required()
+                    }).required()
+                })
             }
         )
         .validate(req.body, err => {
