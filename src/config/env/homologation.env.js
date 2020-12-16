@@ -68,7 +68,7 @@ module.exports = {
         }
     },
 
-    gateway: 'https://homo-api-gateway.institutoprominas.com.br:8080/'
+    gateway: 'https://homo-api-gateway.institutoprominas.com.br:8080/',
 
     apis: {
         users: {
