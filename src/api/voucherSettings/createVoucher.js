@@ -38,6 +38,8 @@ const callGenerate = async (enrolment, vouchersConfigs) => {
 
 const createVoucher = async (req, res) => {
 
+    const QTD_COMBO_VOUCHERS = 3;
+
     try {
 
         const enrolment = await Enrolments.findById(req.params._id);
@@ -74,7 +76,7 @@ const createVoucher = async (req, res) => {
         if (!voucher) {
             let voucherPromise = [];
             if (enrolment.metadata && enrolment.metadata.combo) {
-                for (let index = 0; index < 3; index++) {
+                for (let index = 0; index < QTD_COMBO_VOUCHERS; index++) {
                     voucherPromise.push(callGenerate(enrolment, vouchersConfigs));
                     
                 }
