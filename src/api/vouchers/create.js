@@ -5,13 +5,9 @@ const {Vouchers} = models;
 
 const createVouchers = (req, res) => {
 
-    let code = null;
+    let {code, cpf} = req.body;
 
-    if ('code' in req.body) {
-        code = req.body.code;
-    }
-
-    CodeVoucherService.generateVoucher(6, code)
+    CodeVoucherService.generateVoucher(6, code, cpf)
         .then(result => {
             req.body.code = result;
 

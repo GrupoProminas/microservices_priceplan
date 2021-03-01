@@ -41,39 +41,39 @@ module.exports = {
         database_piaget: {
             servers: [
                 {
-                  host: 'erp-homologation-shard-00-00.cm4wf.gcp.mongodb.net',
-                  port: 27017
+                    host: 'erp-homologation2-shard-00-00.cm4wf.gcp.mongodb.net',
+                    port: 27017
                 },
                 {
-                  host: 'erp-homologation-shard-00-01.cm4wf.gcp.mongodb.net',
-                  port: 27017
+                    host: 'erp-homologation2-shard-00-01.cm4wf.gcp.mongodb.net',
+                    port: 27017
                 },
                 {
-                  host: 'erp-homologation-shard-00-02.cm4wf.gcp.mongodb.net',
-                  port: 27017
+                    host: 'erp-homologation2-shard-00-02.cm4wf.gcp.mongodb.net',
+                    port: 27017
                 }
-              ],
-              replicaSet: 'erp-homologation-shard-0',
-              authSource: 'admin',
-              auto_reconnect: true,
-              ssl: true,
-              user: 'user-admin',
-              pass: 'nJSMZurYGw490ohY',
-              name: 'database_piaget',
-              dialect: 'mongodb',
-              charset: 'utf8',
-              logging: false,
-              enabled: true,
-              configWith: 'mongoose'
+            ],
+            replicaSet: 'atlas-h1jpc3-shard-0',
+            authSource: 'admin',
+            auto_reconnect: true,
+            ssl: true,
+            user: 'user-admin',
+            pass: 'nJSMZurYGw490ohY',
+            name: 'database_piaget',
+            dialect: 'mongodb',
+            charset: 'utf8',
+            logging: false,
+            enabled: true,
+            configWith: 'mongoose'
         }
     },
 
-    gateway: 'https://homologacao.institutoprominas.com.br/',
+    gateway: 'https://homo-api-gateway.institutoprominas.com.br:8080/',
 
     apis: {
         users: {
             mode   : 'direct',
-            baseUrl: 'http://127.0.0,1:3000/'
+            baseUrl: 'http://127.0.0.1:3000/'
         },
         students: {
             mode   : 'direct',
