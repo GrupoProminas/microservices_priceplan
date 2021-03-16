@@ -13,7 +13,7 @@ const callGenerate = async (enrolment, vouchersConfigs, validCourse = null) => {
             tags: vouchersConfigs.tags,
             isActive: true,
             validateType: vouchersConfigs.validateType,
-            usage: vouchersConfigs.limit,
+            usage: vouchersConfigs.maximunQuantity,
             userType: 'student',
             cpf: enrolment.cpf,
             enrolment: vouchersConfigs.enrolment,
