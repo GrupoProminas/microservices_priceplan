@@ -26,7 +26,7 @@ const callGenerate = async (enrolment, vouchersConfigs, validCourse = null) => {
         }
 
         if(validCourse)  {
-            voucherElement._courseId = validCourse._id;
+            voucherElement._courseId = validCourse._courseId;
             voucherElement.metadata._courseName = validCourse.name;
         }
 
