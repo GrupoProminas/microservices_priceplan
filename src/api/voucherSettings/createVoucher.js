@@ -85,7 +85,6 @@ const createVoucher = async (req, res) => {
             if (enrolment.metadata && enrolment.metadata.combo) {
                 
                 for (let index = 0; index < QTD_COMBO_VOUCHERS; index++) {
-                    console.log('certifierCoursesCombo[index] :>> ', certifierCoursesCombo.courses);
                     const courseVoucher = certifierCoursesCombo.courses[index];
                     voucherPromise.push(callGenerate(enrolment, vouchersConfigs, courseVoucher));
                     
