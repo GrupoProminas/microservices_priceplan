@@ -79,11 +79,14 @@ const createVoucher = async (req, res) => {
                     isActive: 1
                 });
 
+        const certifierCoursesCombo = vouchersConfigs.comboCourses.find(_co => _co.certifier === enrolment.registryCourse.course._certifierName);
         if (!voucher) {
             let voucherPromise = [];
             if (enrolment.metadata && enrolment.metadata.combo) {
+                
                 for (let index = 0; index < QTD_COMBO_VOUCHERS; index++) {
-                    const courseVoucher = vouchersConfigs.comboCourses[index];
+                    console.log('certifierCoursesCombo[index] :>> ', certifierCoursesCombo.courses);
+                    const courseVoucher = certifierCoursesCombo.courses[index];
                     voucherPromise.push(callGenerate(enrolment, vouchersConfigs, courseVoucher));
                     
                 }
