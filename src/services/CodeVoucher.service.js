@@ -4,7 +4,7 @@ const {Vouchers} = models;
 
 class CodeVoucherService {
 
-    static generateVoucher(charNumber, code = null) {
+    static generateVoucher(charNumber, code = null, cpf = null) {
         this.code = code;
         this.charNumber = charNumber;
 
@@ -12,7 +12,7 @@ class CodeVoucherService {
             return this.getCode();
         }
 
-        return this.verifyDup(this.code);
+        return this.verifyDup(this.code, cpf);
     }
 
     static getCode() {
@@ -26,11 +26,17 @@ class CodeVoucherService {
         return this.verifyDup(code);
     }
 
-    static verifyDup(code) {
+    static verifyDup(code, cpf) {
+        const agg = {
+            code: code
+        }
+
+        if(cpf) {
+            Object.assign(agg, {cpf: cpf, userType: "partner"});
+        }
+
         return Vouchers
-            .findOne({
-                code: code
-            })
+            .findOne(agg)
             .then(result => {
 
                 if (result !== null) {
@@ -43,6 +49,7 @@ class CodeVoucherService {
                 return code;
             })
             .catch(err => {
+                console.log(err);
                 throw new Error(err.message);
             });
     }
