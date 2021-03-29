@@ -5,7 +5,7 @@ import CodeVoucherService from '../../services/CodeVoucher.service';
 const {Vouchers, Enrolments, VouchersConfigs} = models;
 
 
-const callGenerate = async (enrolment, vouchersConfigs) => {
+const callGenerate = async (enrolment, vouchersConfigs, validCourse = null) => {
 
         const messages = vouchersConfigs.certifier.filter(_c => _c.name === enrolment.registryCourse.course._certifierName).map(_c => _c.description);
 
@@ -13,7 +13,7 @@ const callGenerate = async (enrolment, vouchersConfigs) => {
             tags: vouchersConfigs.tags,
             isActive: true,
             validateType: vouchersConfigs.validateType,
-            usage: vouchersConfigs.limit,
+            usage: vouchersConfigs.maximunQuantity,
             userType: 'student',
             cpf: enrolment.cpf,
             enrolment: vouchersConfigs.enrolment,
@@ -24,6 +24,12 @@ const callGenerate = async (enrolment, vouchersConfigs) => {
                 description: messages[0]
             }
         }
+
+        if(validCourse)  {
+            voucherElement._courseId = validCourse._courseId;
+            voucherElement.metadata._courseName = validCourse.name;
+        }
+
 
         if (voucherElement.validateType === "period") {
             voucherElement.dateEnd = vouchersConfigs.dateEnd;
@@ -42,7 +48,7 @@ const createVoucher = async (req, res) => {
 
     try {
 
-        const enrolment = await Enrolments.findById(req.params._id);
+        const enrolment = await Enrolments.findById(req.params._id).lean();
 
         if (!enrolment) return res.api.send("Aluno não está devidamente matriculado", res.api.codes.NO_CONTENT);
 
@@ -50,7 +56,7 @@ const createVoucher = async (req, res) => {
             {
                 isActive: true
             }
-        );
+        ).lean();
 
         if (!vouchersConfigs) return res.api.send([], res.api.codes.NO_CONTENT);
 
@@ -60,7 +66,7 @@ const createVoucher = async (req, res) => {
 
         if (!voucherType || !voucherType[0]) return res.api.send([], res.api.codes.NO_CONTENT);
 
-
+        
         let voucher = await Vouchers
             .findOne({
                     cpf: enrolment.cpf,
@@ -72,12 +78,15 @@ const createVoucher = async (req, res) => {
                     code: 1,
                     isActive: 1
                 });
-            
+
+        const certifierCoursesCombo = vouchersConfigs.comboCourses.find(_co => _co.certifier === enrolment.registryCourse.course._certifierName);
         if (!voucher) {
             let voucherPromise = [];
             if (enrolment.metadata && enrolment.metadata.combo) {
+                
                 for (let index = 0; index < QTD_COMBO_VOUCHERS; index++) {
-                    voucherPromise.push(callGenerate(enrolment, vouchersConfigs));
+                    const courseVoucher = certifierCoursesCombo.courses[index];
+                    voucherPromise.push(callGenerate(enrolment, vouchersConfigs, courseVoucher));
                     
                 }
             } else voucherPromise.push(callGenerate(enrolment, vouchersConfigs));
