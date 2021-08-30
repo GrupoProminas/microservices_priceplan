@@ -41,19 +41,19 @@ module.exports = {
         microservice_priceplan: {
             servers       : [
                 {
-                    host: 'erp-geral1-shard-00-00-dyz6u.gcp.mongodb.net',
+                    host: 'erp-lyratec-shard-00-00.dyz6u.mongodb.net',
                     port: 27017
                 },
                 {
-                    host: 'erp-geral1-shard-00-01-dyz6u.gcp.mongodb.net',
+                    host: 'erp-lyratec-shard-00-01.dyz6u.mongodb.net',
                     port: 27017
                 },
                 {
-                    host: 'erp-geral1-shard-00-02-dyz6u.gcp.mongodb.net',
+                    host: 'erp-lyratec-shard-00-02.dyz6u.mongodb.net',
                     port: 27017
                 }
             ],
-            replicaSet    : 'erp-geral1-shard-0',
+            replicaSet    : 'atlas-t55wyk-shard-0',
             authSource    : 'admin',
             auto_reconnect: true,
             ssl           : true,

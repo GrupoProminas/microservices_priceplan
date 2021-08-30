@@ -41,15 +41,15 @@ module.exports = {
         database_piaget: {
             servers: [
                 {
-                    host: 'erp-homologation2-shard-00-00.cm4wf.gcp.mongodb.net',
+                    host: 'erp-homologation2-shard-00-00.cm4wf.mongodb.net',
                     port: 27017
                 },
                 {
-                    host: 'erp-homologation2-shard-00-01.cm4wf.gcp.mongodb.net',
+                    host: 'erp-homologation2-shard-00-00.cm4wf.mongodb.net',
                     port: 27017
                 },
                 {
-                    host: 'erp-homologation2-shard-00-02.cm4wf.gcp.mongodb.net',
+                    host: 'erp-homologation2-shard-00-00.cm4wf.mongodb.net',
                     port: 27017
                 }
             ],
