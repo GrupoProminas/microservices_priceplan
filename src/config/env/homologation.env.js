@@ -58,7 +58,7 @@ module.exports = {
             auto_reconnect: true,
             ssl: true,
             user: 'user-admin',
-            pass: 'nJSMZurYGw490ohY',
+            pass: 'sRAezX1laYL2lWWc',
             name: 'database_piaget',
             dialect: 'mongodb',
             charset: 'utf8',
