@@ -26,7 +26,8 @@ export default (req, res, next) => {
                 enrolment: Joi.object({
                     amountType: Joi.string().valid([
                         'percentage',
-                        'value'
+                        'value',
+                        ''
                     ]).required(),
                     amount: Joi.object({
                         boleto: Joi.number().required(),
