@@ -33,6 +33,7 @@ export default (req, res, next) => {
                     ])
                         .required(),
                     amount: Joi.object({
+                        pix: Joi.number().required(),
                         boleto: Joi.number().required(),
                         creditCard: Joi.number().required(),
                         debitCard: Joi.number().required(),
@@ -47,6 +48,7 @@ export default (req, res, next) => {
                     ])
                         .required(),
                     amount: Joi.object({
+                        pix: Joi.number().required(),
                         boleto: Joi.number().required(),
                         creditCard: Joi.number().required(),
                         debitCard: Joi.number().required(),

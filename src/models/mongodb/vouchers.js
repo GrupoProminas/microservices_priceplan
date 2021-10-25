@@ -42,6 +42,9 @@ export default {
                 ]
             },
             amount: {
+                pix: {
+                    type: Number
+                },
                 boleto: {
                     type: Number
                 },
@@ -66,6 +69,9 @@ export default {
                 ]
             },
             amount: {
+                pix: {
+                    type: Number
+                },
                 boleto: {
                     type: Number
                 },
