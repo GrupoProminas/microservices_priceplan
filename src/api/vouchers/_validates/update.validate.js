@@ -26,9 +26,11 @@ export default (req, res, next) => {
                 enrolment: Joi.object({
                     amountType: Joi.string().valid([
                         'percentage',
-                        'value'
+                        'value',
+                        ''
                     ]).required(),
                     amount: Joi.object({
+                        pix: Joi.number().required(),
                         boleto: Joi.number().required(),
                         creditCard: Joi.number().required(),
                         debitCard: Joi.number().required(),
@@ -41,6 +43,7 @@ export default (req, res, next) => {
                         'value'
                     ]).required(),
                     amount: Joi.object({
+                        pix: Joi.number().required(),
                         boleto: Joi.number().required(),
                         creditCard: Joi.number().required(),
                         debitCard: Joi.number().required(),
