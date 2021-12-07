@@ -146,25 +146,44 @@ export default {
         },
         indication    : [
             {
-                level              : {
+                _id: false,
+                level: {
                     type: String,
-                    index: true,
                     enum: [
                         'master',
                         'level1',
-                        'level2'
+                        'level2',
+                        'indicator'
+                    ],
+                    required: true
+                },
+                cpf: {
+                    type: String,
+                    required: true
+                },
+                userType: {
+                    type: String,
+                    required: true
+                },
+                commissionMonthly: {
+                    type: Number,
+                    required: false,
+                    default: 0
+                },
+                commissionEnrolment: {
+                    type: Number,
+                    required: false,
+                    default: 0
+                },
+                commissionType: {
+                    type: String,
+                    required: false,
+                    default: 'percentage',
+                    valid:[
+                        'value',
+                        'percentage'
                     ]
-                },
-                cpf                : {
-                    type: String,
-                    index: true
-                },
-                userType           : {
-                    type: String,
-                    index: true
-                },
-                commissionMonthly  : Number,
-                commissionEnrolment: Number
+                }
             }
         ],
         contract      : {
