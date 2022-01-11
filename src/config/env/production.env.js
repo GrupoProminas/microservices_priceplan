@@ -23,7 +23,7 @@ module.exports = {
 
     server: {
         secure: false,
-        host  : '10.138.0.3',
+        host  : '0.0.0.0',
         port  : 3003,
         cors  : {
             'Access-Control-Allow-Origin' : '*',
