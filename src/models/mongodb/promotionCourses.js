@@ -8,6 +8,8 @@ const sortPaymentPlans = (promotion) => {
     promotion.paymentPlan.boleto = promotion.paymentPlan.boleto.sort(sortFn);
     promotion.paymentPlan.creditCard = promotion.paymentPlan.creditCard.sort(sortFn);
     promotion.paymentPlan.debitCard = promotion.paymentPlan.debitCard.sort(sortFn);
+    promotion.paymentPlan.cardRecurrence = promotion.paymentPlan.cardRecurrence.sort(sortFn);
+    promotion.paymentPlan.pix = promotion.paymentPlan.pix.sort(sortFn);
 
     return promotion.save();
 };
@@ -74,6 +76,19 @@ export default {
                 }
             ],
             cardRecurrence: [
+                {
+                    _id: false,
+                    installment: {
+                        type: Number,
+                        required: true
+                    },
+                    value: {
+                        type: Number,
+                        required: true
+                    }
+                }
+            ],
+            pix: [
                 {
                     _id: false,
                     installment: {
