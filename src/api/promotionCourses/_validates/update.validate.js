@@ -27,6 +27,10 @@ export default (req, res, next) => {
                     cardRecurrence: Joi.array().items(Joi.object().keys({
                         installment: Joi.number(),
                         value: Joi.number()
+                    })),
+                    pix: Joi.array().items(Joi.object().keys({
+                        installment: Joi.number(),
+                        value: Joi.number()
                     }))
                 }),
                 dateStart: Joi.date(),
