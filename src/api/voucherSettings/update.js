@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {VouchersConfigs} = models;
 
 const updateVoucherSettings = (req, res) => {
+
+const {VouchersConfigs} = req.models;
+
 
     VouchersConfigs
         .findOneAndUpdate(

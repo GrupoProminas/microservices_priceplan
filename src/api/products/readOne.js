@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {Products} = models;
 
 const getProduct = (req, res) => {
+
+const {Products} = req.models;
+
 
     Products
         .findById(req.params._id, req.query.project)

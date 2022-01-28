@@ -1,8 +1,9 @@
 import Joi from 'joi';
-import {models} from 'mongoose';
-const {ProductTypes} = models;
 
 export default (req, res, next) => {
+
+const {ProductTypes} = req.models;
+
     Joi
         .object(
             {

@@ -1,13 +1,14 @@
 /* eslint-disable id-length,quotes,prefer-destructuring */
-import {models} from 'mongoose';
 import CodeVoucherService from "../../services/CodeVoucher.service";
-const {Vouchers} = models;
 
 const createVouchers = (req, res) => {
 
+const {Vouchers} = req.models;
+
+
     let {code, cpf} = req.body;
 
-    CodeVoucherService.generateVoucher(6, code, cpf)
+    CodeVoucherService.generateVoucher(6, code, cpf, req.models)
         .then(result => {
             req.body.code = result;
 

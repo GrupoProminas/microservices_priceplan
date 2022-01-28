@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {Vouchers} = models;
 
 const listAllVoucher = (req, res) => {
+
+const {Vouchers} = req.models;
+
 
     Vouchers
         .paginate(req.query.aggregate, req.query.limit, req.query.page)

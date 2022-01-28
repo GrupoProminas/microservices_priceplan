@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {CreditCardPlans} = models;
 
 const listCreditCardPlans = (req, res) => {
+
+const {CreditCardPlans} = req.models;
+
 
     CreditCardPlans
         .paginate(req.query.aggregate, req.query.limit, req.query.page)

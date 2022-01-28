@@ -1,8 +1,9 @@
 /* eslint-disable id-length */
-import {models} from 'mongoose';
-const {Vouchers} = models;
 
 const listVouchers = (req, res) => {
+
+const {Vouchers} = req.models;
+
 
     const aggregate = {
         $match: {

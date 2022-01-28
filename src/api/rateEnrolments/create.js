@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {RateEnrolments} = models;
 
 const createRate = (req, res) => {
+
+const {RateEnrolments} = req.models;
+
 
     RateEnrolments
         .create(req.body)

@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {RateEnrolments} = models;
 
 const getRate = (req, res) => {
+
+const {RateEnrolments} = req.models;
+
 
     RateEnrolments
         .findById(req.params._id, req.query.project)

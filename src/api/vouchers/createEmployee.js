@@ -1,10 +1,10 @@
 /* eslint-disable id-length,quotes,prefer-destructuring */
-import {models} from 'mongoose';
 import CodeVoucherService from "../../services/CodeVoucher.service";
 import VoucherUserService from "../../services/VOUCHER/VoucherUser.service";
-const {Vouchers} = models;
 
 const createVoucherEmployee = (req, res) => {
+
+const {Vouchers} = req.models;
 
     let code = null;
 
@@ -14,7 +14,7 @@ const createVoucherEmployee = (req, res) => {
 
     const voucherUserService = new VoucherUserService(req);
 
-    return CodeVoucherService.generateVoucher(6, code)
+    return CodeVoucherService.generateVoucher(6, code, null, req.models)
         .then(generateCode => {
             req.body.code = generateCode;
 

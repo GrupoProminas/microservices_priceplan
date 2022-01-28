@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {PromotionCourses} = models;
 
 const listPromotions = (req, res) => {
+
+const {PromotionCourses} = req.models;
+
 
     PromotionCourses
         .paginate(req.query.aggregate, req.query.limit, req.query.page)

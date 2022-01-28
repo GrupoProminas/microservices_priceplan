@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {Products} = models;
 
 const listProducts = (req, res) => {
+
+const {Products} = req.models;
+
 
     Products
         .paginate(req.query.aggregate, req.query.limit, req.query.page)

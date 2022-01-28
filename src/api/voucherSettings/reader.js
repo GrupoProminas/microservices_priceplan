@@ -1,9 +1,7 @@
-import {models} from 'mongoose';
 
-const {VouchersConfigs} = models;
 
 export default (req, res) => {
-    
+    const {VouchersConfigs} = req.models;
     VouchersConfigs
         .paginate(req.query.aggregate, req.query.limit, req.query.page)
         .then(result => {
