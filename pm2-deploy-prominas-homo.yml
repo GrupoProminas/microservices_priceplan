@@ -1,0 +1,9 @@
+apps:
+  - script      : dist-homo/app.js
+    name        : api_priceplan_homo
+    instances   : 1
+    exec_mode   : fork
+    watch       : false
+    env         :
+      NODE_ENV  : homologation
+      WORKSPACE : prominas

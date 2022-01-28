@@ -20,8 +20,6 @@ class StorageService extends ApiRequest {
 
     upload(file, name, bucket, path, isPublic = false) {
 
-        console.log(bucket, path);
-
         let uploadData = null;
 
         return this.getSignedUrl(name, bucket, path, isPublic)

@@ -32,6 +32,8 @@ fi
 #copia arquivos do core
 echo '\nCopiando arquivos...'
 
+[ -d ${project}/src/routines ] || mkdir ${project}/src/routines
+
 cp -r ${repository}/.gitignore ${project}/.gitignore
 cp -r ${repository}/.babelrc ${project}/.babelrc
 cp -r ${repository}/.dockerignore ${project}/.dockerignore
@@ -85,42 +87,18 @@ cp -r ${repository}/src/services/* ${project}/src/services
 rm -rf ${project}/src/storage/locales/*
 cp -r ${repository}/src/storage/locales/* ${project}/src/storage/locales
 
-if [ ! -f ${project}/pm2-deploy-homo.yml ]; then
-  cp ${repository}/pm2-deploy-homo.yml ${project}/pm2-deploy-homo.yml
-fi
-
 #pacotes
 
 if ! grep -q -i 'nodemailer' ${project}/package.json; then
   npm install --save nodemailer
 fi
 
-#atualizações especiais
-
-if [ ! -f ${project}/src/config/env/production.env.js ]; then
-  cp ${repository}/src/config/env/production.env.js ${project}/src/config/env/production.env.js
-    messages="${messages}${WAR}"
-    messages="${messages}  Seu arquivo environment de produção foi criado, porém precisa ser configurado, por favor confira '/src/config/env/production.env.js':\n"
-    messages="${messages}${NC}"
-else
-  if ! grep -q -i 'sendEmailErrors' ${project}/src/config/env/production.env.js; then #ultima alteracao feita
-    messages="${messages}${DAN}"
-    messages="${messages}  Seu arquivo environment de produção está desatualizado, confira "/src/config/env/sample-production.env.js":\n"
-    messages="${messages}${NC}"
-  fi
+if ! grep -q -i 'node-cron' ${project}/package.json; then
+  npm install --save node-cron
 fi
 
-if [ ! -f ${project}/src/config/env/homologation.env.js ]; then
-  cp ${repository}/src/config/env/homologation.env.js ${project}/src/config/env/homologation.env.js
-    messages="${messages}${WAR}"
-    messages="${messages}  Seu arquivo environment de homologação foi criado, porém precisa ser configurado, por favor confira '/src/config/env/homologation.env.js':\n"
-    messages="${messages}${NC}"
-else
-  if ! grep -q -i 'sendEmailErrors' ${project}/src/config/env/homologation.env.js; then #ultima alteracao feita
-    messages="${messages}${DAN}"
-    messages="${messages}  Seu arquivo environment de homologação está desatualizado, confira "/src/config/env/sample-homologation.env.js":\n"
-    messages="${messages}${NC}"
-  fi
+if ! grep -q -i 'bluebird' ${project}/package.json; then
+  npm install --save bluebird
 fi
 
 if ! grep -q -i '"update"' ${project}/package.json; then
@@ -131,71 +109,34 @@ if ! grep -q -i '"update"' ${project}/package.json; then
  fi
 fi
 
-if ! grep -q -i '"build-homo"' ${project}/package.json; then
- if [ "$OS" == 'Darwin' ]; then
-  sed -i '' 's/"scripts": {/"scripts": {"build-homo": "export NODE_ENV=homologation \&\& npm run clean-homo \&\& babel src --ignore test.js --out-dir .\/dist-homo --copy-files",/' ${project}/package.json
- else
-  sed -i'' -e 's/"scripts": {/"scripts": {"build-homo": "export NODE_ENV=homologation \&\& npm run clean-homo \&\& babel src --ignore test.js --out-dir .\/dist-homo --copy-files",/' ${project}/package.json
- fi
-fi
-
-if ! grep -q -i '"clean-homo"' ${project}/package.json; then
- if [ "$OS" == 'Darwin' ]; then
-  sed -i '' 's/"scripts": {/"scripts": {"clean-homo": "rm -rf dist-homo \&\& mkdir dist-homo",/' ${project}/package.json
- else
-  sed -i'' -e 's/"scripts": {/"scripts": {"clean-homo": "rm -rf dist-homo \&\& mkdir dist-homo",/' ${project}/package.json
- fi
-fi
-
-if ! grep -q -i '"start-homo"' ${project}/package.json; then
- if [ "$OS" == 'Darwin' ]; then
-  sed -i '' 's/"scripts": {/"scripts": {"start-homo": "pm2 start pm2-deploy-homo.yml",/' ${project}/package.json
- else
-  sed -i'' -e 's/"scripts": {/"scripts": {"start-homo": "pm2 start pm2-deploy-homo.yml",/' ${project}/package.json
- fi
-fi
-
-if ! grep -q -i '"stop-homo"' ${project}/package.json; then
- if [ "$OS" == 'Darwin' ]; then
-  sed -i '' 's/"scripts": {/"scripts": {"stop-homo": "pm2 stop pm2-deploy-homo.yml",/' ${project}/package.json
- else
-  sed -i'' -e 's/"scripts": {/"scripts": {"stop-homo": "pm2 stop pm2-deploy-homo.yml",/' ${project}/package.json
- fi
-fi
-
-if ! grep -q -i '"restart-homo"' ${project}/package.json; then
- if [ "$OS" == 'Darwin' ]; then
-  sed -i '' 's/"scripts": {/"scripts": {"restart-homo": "pm2 restart pm2-deploy-homo.yml",/' ${project}/package.json
- else
-  sed -i'' -e 's/"scripts": {/"scripts": {"restart-homo": "pm2 restart pm2-deploy-homo.yml",/' ${project}/package.json
- fi
-fi
-
 if ! grep -q -i '"mongoose": "^5.3.13"' ${project}/package.json; then
-  npm remove mongoose && npm install --save mongoose
+  npm remove mongoose && npm install --save mongoose@5.3.13
 fi
 
 if [ "$OS" == 'Darwin' ]; then
   sed -i '' 's/"reatrt"/"restart"/g' ${project}/package.json
-  sed -i '' 's/"watch       : true"/"watch       : false"/g' ${project}/pm2-deploy.yml
-  sed -i '' 's/"watch       : true"/"watch       : false"/g' ${project}/pm2-deploy-homo.yml
+  sed -i '' 's/"watch       : true"/"watch       : false"/g' ${project}/pm2*.yml
  else
   sed -i'' -e 's/"reatrt"/"restart"/g' ${project}/package.json
-  sed -i'' -e 's/"watch       : true"/"watch       : false"/g' ${project}/pm2-deploy.yml
-  sed -i'' -e 's/"watch       : true"/"watch       : false"/g' ${project}/pm2-deploy-homo.yml
+  sed -i'' -e 's/"watch       : true"/"watch       : false"/g' ${project}/pm2*.yml
 fi
 
 #atualiza pacotes
-
-if [ -f ${project}/package-lock.json ]; then
-  rm ${project}/package-lock.json
-fi
-
 echo 'Atualizando pacotes...\n'
 npm update -s && npm install -s
 
+#scripts node
+cp -r ${repository}/update-scripts ${project}
+
+node ${project}/update-scripts/package.json.js
+node ${project}/update-scripts/pm2-deploy.js
+node ${project}/update-scripts/env.js
+
 #deleta a pasta do repositorio
 rm -rf ${repository}
+
+#deleta a pasta dos scripts
+rm -rf ${project}/update-scripts
 
 #finaliza atualizacao
 

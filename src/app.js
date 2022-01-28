@@ -3,6 +3,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import morgan from 'morgan';
+import mongoose from 'mongoose';
+import bluebird from 'bluebird';
+
+global.Promise = bluebird.Promise;
 
 // Config
 import ApiConfig from './config/api.conf';
@@ -22,6 +26,7 @@ import Response from './core/Response';
 import Locales from './core/Locales';
 import Validator from './core/Validator';
 import LogsManager from './core/LogsManager';
+import Routines from './core/Routines';
 
 
 // Classes & app
@@ -36,6 +41,7 @@ const response = new Response();
 const locales = new Locales(environment.app.locale);
 const validator = new Validator();
 const logsManager = new LogsManager(environment);
+const routines = new Routines();
 
 process.env.TZ = environment.app.timezone;
 
@@ -72,7 +78,7 @@ const _setupRouters = () => {
  */
 const _appLog = (text) => {
     if (config.getEnvName() !== 'test') {
-        console.log(text)
+        console.log(text);
     }
 };
 
@@ -82,14 +88,14 @@ const _appLog = (text) => {
  */
 const _setupCors = () => {
     environment.server.cors['x-powered-by'] = environment.app.name;
-    cors.setCors(app, environment.server.cors)
+    cors.setCors(app, environment.server.cors);
 };
 
 /**
  * Set databases properties and connect
  * @private
  */
-const _setupDatabase = () => {
+const _setupDatabase = async () => {
 
     // Define cors headers
     _setupCors();
@@ -97,57 +103,59 @@ const _setupDatabase = () => {
     // Define validator configs
     _setupValidator();
 
-    // Connect to databases
-    if (Object.keys(environment.databases).length) {
+    await database.setup(environment, locales);
 
-        // Define languages
-        database.setMongooseLocale(locales.getLocaleObject('mongoose'));
+    _appLog('[Databases]\tConnect success!');
 
-        database
-            .connectDatabases(
-                environment.databases,
-                config.getEnvName() !== 'test'
-            )
-            .then(() => {
-                return _setupRouters();
-            })
-            .catch(err => {
-                throw err
-            });
-
-    } else {
-        _appLog('[!]\t No database to connect.');
-        _setupRouters();
-    }
+    _setupRouters();
 };
 
 /**
  * After Express listen with success run the setups functions...
  * @private
  */
-const _listenSuccess = () => {
+const _listenSuccess = async () => {
 
     // Init databases
-    _setupDatabase();
+    await _setupDatabase();
 
     // Print in console app status
     _appLog(`\n${environment.app.name} on at ${environment.server.host}:${environment.server.port}\n`);
 
     // Detect if app is running in secure mode and print this
     if (environment.server.secure) {
-        _appLog('[SSL_ON]\tSecure')
+        _appLog('[SSL_ON]\tSecure');
     } else {
-        _appLog('[SSL_OFF]\tNOT SECURE (!)')
+        _appLog('[SSL_OFF]\tNOT SECURE (!)');
     }
 };
+
+String.prototype.nfd = function () {
+    return this.normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z ]/gmi, '');
+}
 
 // No use logs in test environment!
 if (config.getEnvName() !== 'test') {
     app.use(morgan(config.getEnvName() === 'development' ? 'dev' : 'combined'));
 }
 
+const companyChecker = (req, res, next) => {
+    const company = process.env.WORKSPACE === 'prominas' ? 'prominas' : req.headers.company;
+
+    if (!company) return res.status(400).send({message: 'Company header is not set, please tell us what company you want to use.'});
+    if (!(company in mongoose.companies)) return res.status(400).send({message: `Company "${company}" is not configured, please change the company or implement this company.`});
+
+    req.models = mongoose.companies[company].models;
+    req.models.$company = company;
+
+    return next();
+};
+
 // Express global usages and middlewares
 app.use(bodyParser.json());
+app.use(companyChecker);
 app.use(requestQuery.parseQuery);
 app.use(compression({threshold: 100}));
 
@@ -159,5 +167,7 @@ const server = environment.server.secure ? ssl.getHTTPSServer(app, environment.s
 
 // Listen server
 server.listen(environment.server.port, environment.server.host, _listenSuccess);
+
+routines._setupRoutines();
 
 export default app;

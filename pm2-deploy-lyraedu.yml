@@ -1,0 +1,9 @@
+apps:
+  - script      : dist/app.js
+    name        : api_priceplan
+    instances   : 2
+    exec_mode   : cluster
+    watch       : false
+    env         :
+      NODE_ENV  : production
+      WORKSPACE : lyraedu
