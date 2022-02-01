@@ -28,7 +28,7 @@ export default class ApiConfig {
 
         if (process.env.NODE_ENV === 'development' || Object.keys(env.databases).length === 0) return env;
 
-        return Object.assign(env, {
+        return Object.assign({}, env, {
             apis: process.apis
         });
     }

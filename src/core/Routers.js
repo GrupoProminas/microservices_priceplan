@@ -70,7 +70,7 @@ export default class Routers {
          */
         app.use((err, req, res, next) => {
             if (err) {
-                res.api.send(err.message, res.api.codes.INTERNAL_SERVER_ERROR);
+                res.api.send(err.stack, res.api.codes.INTERNAL_SERVER_ERROR);
             }
             next();
         });

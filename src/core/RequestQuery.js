@@ -108,6 +108,11 @@ class RequestQuery {
         if (Object.keys(req.query.populate).length === 0)
             req.query.populate = '';
 
+        if ('metadata' in req.headers)
+            req.headers.metadata = JSON.parse(req.headers.metadata);
+        else
+            req.headers.metadata = {};
+
         // Continue...
         next();
     }

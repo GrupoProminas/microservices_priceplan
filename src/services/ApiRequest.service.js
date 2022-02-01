@@ -1,22 +1,26 @@
 /* eslint-disable multiline-ternary,no-return-assign */
-import request   from 'request-promise';
-import ApiConfig from '../config/api.conf';
+import request
+    from 'request-promise';
+import ApiConfig
+    from '../config/api.conf';
 
 class ApiRequestService {
 
-    constructor() {
-        this.apiGateway = new ApiConfig().env.gateway;
-        this.apis = new ApiConfig().env.apis;
+    constructor(company) {
+        this.company = company;
+        this.apiGateway = new ApiConfig().getEnv().gateway;
+        this.apis = new ApiConfig().getEnv().apis;
     }
 
     obj2queryStr(query = {}) {
 
         let queryString = '';
 
-        Object.keys(query).forEach((queryParam, index) =>
-            queryString += `${index === 0 ? '?' : '&'}${queryParam}=${typeof query[queryParam] === 'object'
-                ? JSON.stringify(query[queryParam]) : query[queryParam].toString()}`
-        );
+        Object.keys(query)
+            .forEach((queryParam, index) =>
+                queryString += `${index === 0 ? '?' : '&'}${queryParam}=${typeof query[queryParam] === 'object'
+                    ? JSON.stringify(query[queryParam]) : query[queryParam].toString()}`
+            );
 
         return queryString;
     }
@@ -51,7 +55,9 @@ class ApiRequestService {
             method : method.toUpperCase(),
             json   : method.toUpperCase() === 'GET' ? true : body,
             uri    : url,
-            headers: headers
+            headers: Object.assign({}, headers, {
+                Company: this.company
+            })
         };
 
         // Return request promise
@@ -59,4 +65,4 @@ class ApiRequestService {
     }
 }
 
-export default new ApiRequestService();
+export default ApiRequestService;
