@@ -1,11 +1,11 @@
-import {models} from 'mongoose';
-import { Promise } from 'sequelize';
+import {Promise} from 'sequelize';
 import CodeVoucherService from '../../services/CodeVoucher.service';
 
-const {Vouchers, Enrolments, VouchersConfigs} = models;
 
+const createVoucher = async (req, res) => {
+    const {Vouchers, Enrolments, VouchersConfigs} = req.models;
 
-const callGenerate = async (enrolment, vouchersConfigs, validCourse = null) => {
+    const callGenerate = async (enrolment, vouchersConfigs, validCourse = null) => {
 
         const messages = vouchersConfigs.certifier.filter(_c => _c.name === enrolment.registryCourse.course._certifierName).map(_c => _c.description);
 
@@ -25,7 +25,7 @@ const callGenerate = async (enrolment, vouchersConfigs, validCourse = null) => {
             }
         }
 
-        if(validCourse)  {
+        if (validCourse) {
             voucherElement._courseId = validCourse._courseId;
             voucherElement.metadata._courseName = validCourse.name;
         }
@@ -35,14 +35,13 @@ const callGenerate = async (enrolment, vouchersConfigs, validCourse = null) => {
             voucherElement.dateEnd = vouchersConfigs.dateEnd;
         }
 
-        const code = await CodeVoucherService.generateVoucher(6);
+        const code = await CodeVoucherService.generateVoucher(6, null, null, req.models);
         voucherElement.code = code;
 
         return Vouchers.create(voucherElement);
 
-}
+    }
 
-const createVoucher = async (req, res) => {
 
     const QTD_COMBO_VOUCHERS = 3;
 

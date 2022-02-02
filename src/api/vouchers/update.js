@@ -1,9 +1,10 @@
 /* eslint-disable id-length */
-import {models, Types} from 'mongoose';
+import {Types} from 'mongoose';
 
-const {Vouchers} = models;
 
 const updateVouchers = async (req, res) => {
+
+    const {Vouchers} = req.models;
 
     if (req.body.isActive === '' || req.body.isActive === undefined) delete req.body.isActive;
     if (req.body.userType === 'system') delete req.body.cpf;

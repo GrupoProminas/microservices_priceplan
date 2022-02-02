@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {Configurations} = models;
 
 const updateConfiguration = (req, res) => {
+
+const {Configurations} = req.models;
+
 
     Configurations
         .findOneAndUpdate(

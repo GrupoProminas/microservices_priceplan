@@ -1,9 +1,10 @@
-import {models} from 'mongoose';
 import CreditCardPlansService from '../../services/CREDITCARDPLANS/CreditCardPlans.service';
 
-const {CreditCardPlans} = models;
 
 const readByCertifier = (req, res) => {
+
+const {CreditCardPlans} = req.models;
+
 
     CreditCardPlans
         .findOne({
@@ -15,8 +16,8 @@ const readByCertifier = (req, res) => {
             _id: 0
         })
         .then(installmentArray => {
-
-            const result = CreditCardPlansService.calcCardPlanforPayment(installmentArray, req.params.total);
+            const creditCardPlansService = new CreditCardPlansService(req.models);
+            const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, req.params.total);
 
             if (!result) return res.api.send(null, res.api.codes.NOT_FOUND);
 

@@ -1,12 +1,12 @@
-import {models} from 'mongoose';
-
-const {CreditCardPlans} = models;
 
 class CreditCardPlansService {
-    constructor() {}
+
+    constructor(models) {
+        this.models = models;
+    }
 
     CheckExistsCerfierPlan(_certifierName, _typeName) {
-        return CreditCardPlans.findOne({_certifierName: _certifierName, _typeName: _typeName}).then(doc => {
+        return this.models.CreditCardPlans.findOne({_certifierName: _certifierName, _typeName: _typeName}).then(doc => {
             if (doc) return true;
 
             return false;
@@ -23,4 +23,4 @@ class CreditCardPlansService {
     }
 }
 
-export default new CreditCardPlansService();
+export default CreditCardPlansService;

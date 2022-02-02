@@ -1,21 +1,20 @@
 /* eslint-disable for-direction,newline-after-var,id-length,no-plusplus */
-import {models} from 'mongoose';
-const {Vouchers} = models;
+
 
 class CodeVoucherService {
 
-    static generateVoucher(charNumber, code = null, cpf = null) {
+    static generateVoucher(charNumber, code = null, cpf = null, models) {
         this.code = code;
         this.charNumber = charNumber;
 
         if (this.code === null) {
-            return this.getCode();
+            return this.getCode(models);
         }
 
-        return this.verifyDup(this.code, cpf);
+        return this.verifyDup(this.code, cpf, models);
     }
 
-    static getCode() {
+    static getCode(models) {
         let code = '';
         const uidChar = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -23,19 +22,19 @@ class CodeVoucherService {
             code += uidChar.charAt(Math.floor(Math.random() * uidChar.length));
         }
 
-        return this.verifyDup(code);
+        return this.verifyDup(code, false, models);
     }
 
-    static verifyDup(code, cpf) {
+    static verifyDup(code, cpf, models) {
         const agg = {
             code: code
         }
 
-        if(cpf) {
+        if (cpf) {
             Object.assign(agg, {cpf: cpf, userType: "partner"});
         }
 
-        return Vouchers
+        return models.Vouchers
             .findOne(agg)
             .then(result => {
 

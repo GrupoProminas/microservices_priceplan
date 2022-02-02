@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {CreditCardPlans} = models;
 
 const getCreditCardPlan = (req, res) => {
+
+const {CreditCardPlans} = req.models;
+
 
     CreditCardPlans
         .findById(req.params._id, req.query.project)

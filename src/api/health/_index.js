@@ -3,10 +3,6 @@ import mongoose
 
 export default (route) => {
     route.get('/health', async (req, res) => {
-        const piagetDatabaseCheck = async () => {
-            return mongoose.connection.readyState ? 'up' : 'down';
-        };
-
         const healthStatus = results => {
             const hasDownService = Object.keys(results)
                 .find(testName => results[testName] === 'down');
@@ -14,9 +10,11 @@ export default (route) => {
             return hasDownService ? 503 : 200;
         };
 
-        const results = {
-            db_piaget: await piagetDatabaseCheck()
-        };
+        const results = {};
+
+        Object.keys(mongoose.companies).forEach(company => {
+            results[`db_${company}`] = mongoose.companies[company].readyState ? 'up' : 'down';
+        });
 
         return res.api.send(results, healthStatus(results));
     });

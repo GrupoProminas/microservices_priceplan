@@ -1,8 +1,9 @@
 /* eslint-disable id-length,new-cap */
-import {models} from 'mongoose';
-const {Vouchers} = models;
 
 const getVouchers = (req, res) => {
+
+const {Vouchers} = req.models;
+
 
     /**
      * Find all registers of Model collection

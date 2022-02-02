@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {Configurations} = models;
 
 const listConfigurations = (req, res) => {
+
+const {Configurations} = req.models;
+
 
     Configurations
         .paginate(req.query.aggregate, req.query.limit, req.query.page)

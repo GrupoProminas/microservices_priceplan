@@ -24,7 +24,13 @@ export default class ApiConfig {
      * @returns {any | *}
      */
     getEnv() {
-        return this.env;
+        const env = this.env[process.env.WORKSPACE];
+
+        if (process.env.NODE_ENV === 'development' || Object.keys(env.databases).length === 0) return env;
+
+        return Object.assign({}, env, {
+            apis: process.apis
+        });
     }
 
     getEnvName() {

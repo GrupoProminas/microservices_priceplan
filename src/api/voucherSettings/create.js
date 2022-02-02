@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {VouchersConfigs} = models;
 
 const create = (req, res) => {
+
+const {VouchersConfigs} = req.models;
+
 
     VouchersConfigs.create(req.body)
     .then(doc => {

@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {RateEnrolments} = models;
 
 const listRates = (req, res) => {
+
+const {RateEnrolments} = req.models;
+
 
     RateEnrolments
         .paginate(req.query.aggregate, req.query.limit, req.query.page)

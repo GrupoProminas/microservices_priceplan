@@ -3,8 +3,8 @@ import ApiRequest from '../ApiRequest.service';
 
 class StorageService extends ApiRequest {
 
-    constructor() {
-        super();
+    constructor(company) {
+        super(company);
     }
 
     getSignedUrl(filename, bucket, path, isPublic = false) {
@@ -20,8 +20,6 @@ class StorageService extends ApiRequest {
 
     upload(file, name, bucket, path, isPublic = false) {
 
-        console.log(bucket, path);
-
         let uploadData = null;
 
         return this.getSignedUrl(name, bucket, path, isPublic)
@@ -36,4 +34,4 @@ class StorageService extends ApiRequest {
     }
 }
 
-export default new StorageService();
+export default StorageService;

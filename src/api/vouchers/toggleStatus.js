@@ -1,8 +1,7 @@
-import {models} from 'mongoose';
 
-const { Vouchers } = models;
 
 export default async (req, res) => {
+    const { Vouchers } = req.models;
 
     try {
         const voucher = await Vouchers.findById(req.params._id);

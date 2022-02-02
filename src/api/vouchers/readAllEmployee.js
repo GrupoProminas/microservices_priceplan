@@ -1,10 +1,11 @@
 /* eslint-disable quotes */
-import {models} from 'mongoose';
 import VoucherUserService from "../../services/VOUCHER/VoucherUser.service";
 
-const {Vouchers} = models;
 
 const listAllVoucherEmployee = (req, res) => {
+
+const {Vouchers} = req.models;
+
 
     const voucherUserService = new VoucherUserService(req);
 
