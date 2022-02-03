@@ -1,9 +1,10 @@
 /* eslint-disable id-length */
-import {models} from 'mongoose';
 
-const {Vouchers} = models;
 
 const updateUsage = (req, res) => {
+
+const {Vouchers} = req.models;
+
 
     Vouchers
         .update(

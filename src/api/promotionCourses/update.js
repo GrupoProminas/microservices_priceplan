@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {PromotionCourses} = models;
 
 const updatePromotion = (req, res) => {
+
+const {PromotionCourses} = req.models;
+
 
     PromotionCourses
         .findOneAndUpdate(

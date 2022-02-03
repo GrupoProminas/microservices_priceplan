@@ -3,6 +3,7 @@ import ApiRequestService from '../ApiRequest.service';
 class VoucherUserService {
 
     constructor(req) {
+        this.req = req
         this._userId = '5c62ac258036571ae6646d90';
         this._userType = 'employer';
 
@@ -16,7 +17,7 @@ class VoucherUserService {
     }
 
     verifyUser() {
-        return ApiRequestService
+        return new ApiRequestService(this.req.models.$company)
             .get('students', 'students', {
                 aggregate: [
                     {

@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {PromotionCourses} = models;
 
 const getPromotion = (req, res) => {
+
+const {PromotionCourses} = req.models;
+
 
     PromotionCourses
         .findById(req.params._id, req.query.project)

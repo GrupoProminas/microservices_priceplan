@@ -1,11 +1,12 @@
-import {models} from 'mongoose';
 import CreditCardPlansService from '../../services/CREDITCARDPLANS/CreditCardPlans.service';
 
-const {CreditCardPlans} = models;
 
 const createCreditCardPlan = async (req, res) => {
 
-    CreditCardPlansService.CheckExistsCerfierPlan(req.body._certifierName, req.body._typeName)
+    const {CreditCardPlans} = req.models;
+
+    const creditCardPlansService = new CreditCardPlansService(req.models);
+    creditCardPlansService.CheckExistsCerfierPlan(req.body._certifierName, req.body._typeName)
     .then(doc => {
         if(!doc) {
             return CreditCardPlans

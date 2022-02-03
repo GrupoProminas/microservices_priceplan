@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {RateEnrolments} = models;
 
 const updateRate = (req, res) => {
+
+const {RateEnrolments} = req.models;
+
 
     RateEnrolments
         .findOneAndUpdate(

@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {Products} = models;
 
 const createProduct = (req, res) => {
+
+const {Products} = req.models;
+
 
     Products
         .create(req.body)

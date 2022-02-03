@@ -3,6 +3,7 @@ apps:
     name        : api_priceplan_homo
     instances   : 1
     exec_mode   : fork
-    watch       : true
+    watch       : false
     env         :
       NODE_ENV  : homologation
+      WORKSPACE : lyraedu

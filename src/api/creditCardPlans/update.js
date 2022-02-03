@@ -1,8 +1,9 @@
-import {models} from 'mongoose';
 
-const {CreditCardPlans} = models;
 
 const updateCreditCardPlan = (req, res) => {
+
+const {CreditCardPlans} = req.models;
+
 
     CreditCardPlans
         .findOneAndUpdate(

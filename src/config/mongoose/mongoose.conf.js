@@ -1,7 +1,9 @@
 module.exports = {
-    defaultMongooseOptions: {},
-    defaultSchemaOptions  : {
-        timestamps       : true,
+    defaultMongooseOptions: {
+        useUnifiedTopology: true
+    },
+    defaultSchemaOptions: {
+        timestamps: true,
         runSettersOnQuery: true
     }
 };
