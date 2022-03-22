@@ -6,7 +6,7 @@ module.exports = {
       "version": "1.0.0",
       "locale": "pt_BR",
       "timezone": "America/Sao_Paulo",
-      "adminEmail": "desenvolvimento@lyratech.com.br",
+      "adminEmail": "desenvolvimento@lytex.com.br",
       "sendEmailErrors": false
     },
     "mail": {
@@ -17,7 +17,7 @@ module.exports = {
         "user": "Prominassigesp",
         "pass": "zJfFMHdg8398"
       },
-      "sender": "no-reply@lyratech.com.br"
+      "sender": "no-reply@lytex.com.br"
     },
     "server": {
       "secure": false,
@@ -82,7 +82,7 @@ module.exports = {
       "version": "1.0.0",
       "locale": "pt_BR",
       "timezone": "America/Sao_Paulo",
-      "adminEmail": "desenvolvimento@lyratech.com.br",
+      "adminEmail": "desenvolvimento@lytex.com.br",
       "sendEmailErrors": false
     },
     "mail": {
@@ -93,7 +93,7 @@ module.exports = {
         "user": "Prominassigesp",
         "pass": "zJfFMHdg8398"
       },
-      "sender": "no-reply@lyratech.com.br"
+      "sender": "no-reply@lytex.com.br"
     },
     "server": {
       "secure": false,
@@ -111,7 +111,7 @@ module.exports = {
       }
     },
     "databases": {
-      "lyratech": {
+      "lytex": {
         "servers": [
           {
             "host": "lyraedu-implantacao-shard-00-00.hwzha.mongodb.net",
@@ -139,7 +139,7 @@ module.exports = {
       }
     },
     "gateway": {
-      "baseUrl": "https://api-gateway-lyraedu.lyratech.com.br/"
+      "baseUrl": "https://api-gateway-lyraedu.lytex.com.br/"
     },
     "apis": {
       "users": {
