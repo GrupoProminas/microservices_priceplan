@@ -42,11 +42,11 @@ module.exports = {
             "port": 27017
           },
           {
-            "host": "erp-homologation2-shard-00-00.cm4wf.mongodb.net",
+            "host": "erp-homologation2-shard-00-01.cm4wf.mongodb.net",
             "port": 27017
           },
           {
-            "host": "erp-homologation2-shard-00-00.cm4wf.mongodb.net",
+            "host": "erp-homologation2-shard-00-02.cm4wf.mongodb.net",
             "port": 27017
           }
         ],
@@ -114,25 +114,25 @@ module.exports = {
       "lytex": {
         "servers": [
           {
-            "host": "lyraedu-implantacao-shard-00-00.hwzha.mongodb.net",
+            "host": "shared-shard-00-00-pri.9s9tp.mongodb.net",
             "port": 27017
           },
           {
-            "host": "lyraedu-implantacao-shard-00-01.hwzha.mongodb.net",
+            "host": "shared-shard-00-01-pri.9s9tp.mongodb.net",
             "port": 27017
           },
           {
-            "host": "lyraedu-implantacao-shard-00-02.hwzha.mongodb.net",
+            "host": "shared-shard-00-02-pri.9s9tp.mongodb.net",
             "port": 27017
           }
         ],
-        "replicaSet": "atlas-10lir3-shard-0",
+        "replicaSet": "atlas-caf2o9-shard-0",
         "authSource": "admin",
         "auto_reconnect": true,
         "ssl": true,
-        "user": "implantacao",
-        "pass": "implantacao",
-        "database": "lyraedu_erp",
+        "user": "iteq",
+        "pass": "OLSSBdFGYp2fLQ3w",
+        "database": "lytex_erp",
         "dialect": "mongodb",
         "charset": "utf8",
         "logging": false
