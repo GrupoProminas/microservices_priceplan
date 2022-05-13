@@ -3,8 +3,7 @@ export default {
     fields    :   {
         name: {
             type        : String,
-            required    : true,
-            index       : true
+            required    : true
         },
         alias: {
           type: String,
@@ -14,8 +13,7 @@ export default {
         isActive: {
             type        : Boolean,
             required    : true,
-            default     : true,
-            index       : true
+            default     : true
         }
     },
     options   : { // Opcional

@@ -79,8 +79,7 @@ export default {
         isActive: {
             type: Boolean,
             required: true,
-            default: true,
-            index: true
+            default: true
         }
     },
     post: {

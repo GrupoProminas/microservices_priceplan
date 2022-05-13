@@ -92,8 +92,7 @@ export default {
     fields    : {
         cpf           : {
             type    : String,
-            required: true,
-            index   : true
+            required: true
         },
         paymentDay    : {
             type    : Number,
@@ -552,7 +551,6 @@ export default {
                     'completed' // Completo (Efetuou todas as atividades avaliativas e aguarda emissão do certificado)
                 ],
                 default : 'waiting_confirm',
-                index: true,
                 required: true
             }
         },

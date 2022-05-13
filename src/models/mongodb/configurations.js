@@ -4,7 +4,6 @@ export default {
         name: {
             type: String,
             required: true,
-            index: true,
             unique: true
         },
         value: {

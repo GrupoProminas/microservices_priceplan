@@ -59,8 +59,7 @@ export default {
         ],
         isActive      : {
             type    : Boolean,
-            default : true,
-            index   : true
+            default : true
         }
     },
     pre      : {
