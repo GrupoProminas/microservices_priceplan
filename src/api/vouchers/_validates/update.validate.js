@@ -40,7 +40,8 @@ export default (req, res, next) => {
                 course: Joi.object({
                     amountType: Joi.string().valid([
                         'percentage',
-                        'value'
+                        'value',
+                        ''
                     ]).required(),
                     amount: Joi.object({
                         pix: Joi.number().required(),
