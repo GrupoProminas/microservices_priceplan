@@ -38,24 +38,24 @@ module.exports = {
       "prominas": {
         "servers": [
           {
-            "host": "erp-homologation2-shard-00-00.cm4wf.mongodb.net",
+            "host": "erp-lyratec-homologatio-shard-00-00.cm4wf.mongodb.net:27017",
             "port": 27017
           },
           {
-            "host": "erp-homologation2-shard-00-01.cm4wf.mongodb.net",
+            "host": "erp-lyratec-homologatio-shard-00-01.cm4wf.mongodb.net:27017",
             "port": 27017
           },
           {
-            "host": "erp-homologation2-shard-00-02.cm4wf.mongodb.net",
+            "host": "erp-lyratec-homologatio-shard-00-02.cm4wf.mongodb.net:27017",
             "port": 27017
           }
         ],
-        "replicaSet": "atlas-h1jpc3-shard-0",
+        "replicaSet": "atlas-tnyjey-shard-0",
         "authSource": "admin",
         "auto_reconnect": true,
         "ssl": true,
-        "user": "user-admin",
-        "pass": "sRAezX1laYL2lWWc",
+        "user": "homologation",
+        "pass": "88D1AvR0bYV0G61Q",
         "database": "database_piaget",
         "dialect": "mongodb",
         "charset": "utf8",
