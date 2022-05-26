@@ -105,7 +105,7 @@ const _setupDatabase = async () => {
 
     await database.setup(environment, locales);
 
-    _appLog('[Databases]\tConnect success!');
+    _appLog('[Databases]\tConnect success!!');
 
     _setupRouters();
 };
