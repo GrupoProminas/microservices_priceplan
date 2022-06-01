@@ -63,7 +63,7 @@ module.exports = {
       }
     },
     "gateway": {
-      "baseUrl": "https://api-gateway.institutoprominas.com.br/"
+      "baseUrl": "https://homo-api-gateway.institutoprominas.com.br/"
     },
     "apis": {
       "users": {
