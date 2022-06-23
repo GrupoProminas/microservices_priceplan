@@ -30,11 +30,6 @@ export default {
             required: false,
             default: '*'
         },
-        _courses: {
-            type: [SchemaTypes.ObjectId],
-            required: false,
-            default: []
-        },
         _exceptions: {
             type: [SchemaTypes.ObjectId],
             required: false,
@@ -49,6 +44,10 @@ export default {
             type: String,
             enum: ['min', 'med', 'max'],
             required: true
+        },
+        referenceCommissionType : {
+            type: String,
+            required: false
         },
         paymentPlan: [
             {

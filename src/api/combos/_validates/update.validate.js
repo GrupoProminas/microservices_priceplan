@@ -9,11 +9,11 @@ export default (req, res, next) => {
         tags: Joi.array().items(Joi.string()),
         subcategory: Joi.array().items(Joi.string())
 .allow('*'),
-        _courses: Joi.array().items(Joi.string()),
         _exceptions: Joi.array().items(Joi.string()),
         blackListedTags: Joi.array().items(Joi.string()),
         commissionLevel: Joi.string().valid('min', 'med', 'max')
 .required(),
+        referenceCommissionType: Joi.string(),
         paymentPlan: Joi.array().items(
             Joi.object({
                 courses: Joi.number().required(),
