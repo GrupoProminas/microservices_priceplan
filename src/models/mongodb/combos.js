@@ -8,6 +8,11 @@ export default {
             type: Number,
             required: true
         },
+        certificateCredits: {
+            type: Number | null,
+            required: false,
+            default: 0
+        },
         certifier: {
             type: String,
             required: true
