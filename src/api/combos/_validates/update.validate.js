@@ -4,7 +4,8 @@ export default (req, res, next) => {
     Joi.object({
         maxCourses: Joi.number().required(),
         certificateCredits: Joi.number().optional().allow([0,null]),
-        certifier: Joi.string().required(),
+        certifier: Joi.array().items(Joi.string())
+        .required(),
         courseType: Joi.string().required(),
         area: Joi.string().allow('*'),
         tags: Joi.array().items(Joi.string()),

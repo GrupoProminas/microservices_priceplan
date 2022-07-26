@@ -14,7 +14,7 @@ export default {
             default: 0
         },
         certifier: {
-            type: String,
+            type: [String],
             required: true
         },
         courseType: {
