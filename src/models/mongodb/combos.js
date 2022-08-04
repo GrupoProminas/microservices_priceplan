@@ -17,10 +17,6 @@ export default {
             type: [String],
             required: true
         },
-        courseType: {
-            type: String,
-            required: true
-        },
         area: {
             type: String,
             required: false,
@@ -29,11 +25,6 @@ export default {
         tags: {
             type: [String],
             required: false
-        },
-        subcategory: {
-            type: [String],
-            required: false,
-            default: '*'
         },
         _exceptions: {
             type: [SchemaTypes.ObjectId],

@@ -6,11 +6,8 @@ export default (req, res, next) => {
         certificateCredits: Joi.number().optional().allow([0,null]),
         certifier: Joi.array().items(Joi.string())
         .required(),
-        courseType: Joi.string().required(),
         area: Joi.string().allow('*'),
         tags: Joi.array().items(Joi.string()),
-        subcategory: Joi.array().items(Joi.string())
-.allow('*'),
         _exceptions: Joi.array().items(Joi.string()),
         blackListedTags: Joi.array().items(Joi.string()),
         commissionLevel: Joi.string().valid('min', 'med', 'max')
