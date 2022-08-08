@@ -13,13 +13,15 @@ class CreditCardPlansService {
         });
     }
 
-    calcCardPlanforPayment(installmentArray, total) {
-        return installmentArray.paymentPlan
-            .filter(installment => installment.value <= total)
-            .map(installment => ({
-                installment: installment.installment,
-                value: (total / installment.installment) * (1 + (installment.percent/100))
-            }))
+    calcCardPlanforPayment(installmentArray, total, charges = 1) {
+        return installmentArray.paymentPlan.filter(installment =>
+            !installment.value || installment.value <= total
+        ).filter(installment =>
+            !installment.charges || installment.charges <= charges
+        ).map(installment => ({
+            installment: installment.installment,
+            value: (total / installment.installment) * (1 + (installment.percent/100))
+        }));
     }
 }
 

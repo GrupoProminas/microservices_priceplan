@@ -51,6 +51,10 @@ export default {
                     type    : Number,
                     required: true
                 },
+                charges      : {
+                    type    : Number,
+                    required: false
+                },
                 percent: {
                     type    : Number,
                     default: 0
