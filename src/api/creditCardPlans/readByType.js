@@ -27,6 +27,8 @@ const {CreditCardPlans} = req.models;
             } else if (totalArray.length === 2) {
                 charges = totalArray[0];
                 total = totalArray[1];
+            } else {
+                return res.api.send('Parâmetro TOTAL inválido', res.api.codes.BAD_REQUEST);
             }
 
             if (!installmentArray) return res.api.send(null, res.api.codes.NOT_FOUND);
