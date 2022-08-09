@@ -19,10 +19,22 @@ const {CreditCardPlans} = req.models;
         })
         .then(installmentArray => {
 
+            const totalArray = req.params.total.split(',');
+            let total = 0;
+            let charges = 1;
+            if (totalArray.length === 1) {
+                total = totalArray[0];
+            } else if (totalArray.length === 2) {
+                charges = totalArray[0];
+                total = totalArray[1];
+            } else {
+                return res.api.send('Parâmetro TOTAL inválido', res.api.codes.BAD_REQUEST);
+            }
+
             if (!installmentArray) return res.api.send(null, res.api.codes.NOT_FOUND);
 
             const creditCardPlansService = new CreditCardPlansService(req.models);
-            const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, req.params.total);
+            const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges);
 
 
             if (!result) return res.api.send(null, res.api.codes.NOT_FOUND);
