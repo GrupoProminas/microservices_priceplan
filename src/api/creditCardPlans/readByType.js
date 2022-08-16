@@ -9,7 +9,7 @@ const getEnrolment = async (req) => {
 
     if (!enrolmentId) return false;
 
-    return Enrolments.findOne({_id: Types.ObjectId(enrolmentId)});
+    return Enrolments.findOne({_id: Types.ObjectId(enrolmentId)}, {registryCourse:1, enrolment: 1, metadata: 1});
 }
 
 const readByCertifier = async (req, res) => {
@@ -52,9 +52,9 @@ const readByCertifier = async (req, res) => {
 
             if (req.enrolment && req.enrolment.metadata && req.enrolment.metadata.prices) {
                 if (chargeType === 'rate-enrolment' && req.enrolment.metadata.prices.enrolment) {
-                    selectParcels = parseInt(req.enrolment.metadata.prices.enrolment.installments);
+                    selectParcels = parseInt(req.enrolment.enrolment.installment);
                 } else if ((chargeType === 'monthly' || chargeType === 'rate-enrolment-monthly') && req.enrolment.metadata.prices.course) {
-                    selectParcels = parseInt(req.enrolment.metadata.prices.course.installments);
+                    selectParcels = parseInt(req.enrolment.registryCourse.courseAmount.installment);
                 }
             }
 

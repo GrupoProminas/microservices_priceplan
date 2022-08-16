@@ -14,7 +14,7 @@ class CreditCardPlansService {
     }
 
     calcCardPlanforPayment(installmentArray, total, charges = 1, selectParcels = 1) {
-        if (parseInt(charges) === 1) {
+        if (parseInt(charges, 10) === 1) {
             return installmentArray.paymentPlan.filter(installment => !installment.value || installment.value <= total)
             .filter(installment => !installment.charges || installment.charges <= selectParcels)
             .map(installment => ({
