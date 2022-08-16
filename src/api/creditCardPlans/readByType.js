@@ -7,8 +7,6 @@ const getEnrolment = async (req) => {
 
     const enrolmentId = req.query.enrolmentId ? req.query.enrolmentId.split(',') : '';
 
-    console.log(enrolmentId);
-
     if (!enrolmentId) return false;
 
     return Enrolments.findOne({_id: {$in: enrolmentId.map(id => Types.ObjectId(id))}}, {registryCourse:1, enrolment: 1, metadata: 1});
