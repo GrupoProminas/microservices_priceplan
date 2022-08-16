@@ -5,11 +5,13 @@ import CreditCardPlansService from '../../services/CREDITCARDPLANS/CreditCardPla
 const getEnrolment = async (req) => {
     const {Enrolments} = req.models;
 
-    const enrolmentId = req.query.enrolmentId ? req.query.enrolmentId : '';
+    const enrolmentId = req.query.enrolmentId ? req.query.enrolmentId.split(',') : '';
+
+    console.log(enrolmentId);
 
     if (!enrolmentId) return false;
 
-    return Enrolments.findOne({_id: Types.ObjectId(enrolmentId)}, {registryCourse:1, enrolment: 1, metadata: 1});
+    return Enrolments.findOne({_id: {$in: enrolmentId.map(id => Types.ObjectId(id))}}, {registryCourse:1, enrolment: 1, metadata: 1});
 }
 
 const readByCertifier = async (req, res) => {
