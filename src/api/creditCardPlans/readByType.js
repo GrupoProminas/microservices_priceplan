@@ -51,9 +51,9 @@ const readByCertifier = async (req, res) => {
             if (!installmentArray) return res.api.send(null, res.api.codes.NOT_FOUND);
 
             if (req.enrolment && req.enrolment.metadata && req.enrolment.metadata.prices) {
-                if (chargeType === 'rate-enrolment' && req.enrolment.metadata.prices.enrolment) {
+                if (chargeType === 'rate-enrolment' && req.enrolment.metadata.prices.enrolment && ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase() === "creditcard") {
                     selectParcels = parseInt(req.enrolment.enrolment.installment);
-                } else if ((chargeType === 'monthly' || chargeType === 'rate-enrolment-monthly') && req.enrolment.metadata.prices.course) {
+                } else if ((chargeType === 'monthly' || chargeType === 'rate-enrolment-monthly') && req.enrolment.metadata.prices.course && ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase()=== "creditcard") {
                     selectParcels = parseInt(req.enrolment.registryCourse.courseAmount.installment);
                 }
             }
