@@ -53,7 +53,7 @@ const readByCertifier = async (req, res) => {
             if (req.enrolment && req.enrolment.metadata && req.enrolment.metadata.prices) {
                 if (chargeType === 'rate-enrolment' && req.enrolment.metadata.prices.enrolment && ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase() === "creditcard") {
                     selectParcels = parseInt(req.enrolment.enrolment.installment);
-                } else if ((chargeType === 'monthly' || chargeType === 'rate-enrolment-monthly') && req.enrolment.metadata.prices.course && ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase()=== "creditcard") {
+                } else if ((chargeType === 'monthly' || chargeType === 'rate-enrolment-monthly') && req.enrolment.metadata.prices.course && ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase()=== "creditcard") {
                     selectParcels = parseInt(req.enrolment.registryCourse.courseAmount.installment);
                 }
             }
