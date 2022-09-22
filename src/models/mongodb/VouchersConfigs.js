@@ -1,3 +1,5 @@
+import { SchemaTypes } from "mongoose";
+
 export default {
     collection: 'VouchersConfigs',
     fields: {
@@ -100,6 +102,11 @@ export default {
                     }
                 ]
             }
-        ]
+        ],
+        useConfigByCombo: {
+            type: Boolean,
+            default: false,
+            required: false
+        }
     }
 }
