@@ -1,5 +1,5 @@
 /* eslint-disable array-element-newline */
-import {SchemaTypes} from 'mongoose';
+import { SchemaTypes } from 'mongoose';
 
 export default {
     collection: 'Combos',
@@ -25,6 +25,11 @@ export default {
         tags: {
             type: [String],
             required: false
+        },
+        _courses: {
+            type: [SchemaTypes.ObjectId],
+            required: false,
+            default: []
         },
         _exceptions: {
             type: [SchemaTypes.ObjectId],
@@ -215,6 +220,96 @@ export default {
                 subcategory: {
                     type: String
                 }
+            }
+        ],
+        referenceCommissionType: {
+            type: String,
+            required: false
+        },
+        releaseVouchers: [
+            {
+                tags: [String],
+                maximunQuantity: Number,
+                validateType: String,
+                isFree: Boolean,
+                referenceCertifier: String,
+                course: {
+                    amountType: {
+                        type: String,
+                        enum: [
+                            'percentage',
+                            'value',
+                            ''
+                        ],
+                        required: true
+                    },
+                    amount: {
+                        boleto: {
+                            type: Number,
+                            required: true
+                        },
+                        creditCard: {
+                            type: Number,
+                            required: true
+                        },
+                        debitCard: {
+                            type: Number,
+                            required: true
+                        },
+                        cardRecurrence: {
+                            type: Number,
+                            required: true
+                        }
+                    }
+                },
+                enrolment: {
+                    amountType: {
+                        type: String,
+                        enum: [
+                            'percentage',
+                            'value',
+                            ''
+                        ],
+                        required: true
+                    },
+                    amount: {
+                        boleto: {
+                            type: Number,
+                            required: true
+                        },
+                        creditCard: {
+                            type: Number,
+                            required: true
+                        },
+                        debitCard: {
+                            type: Number,
+                            required: true
+                        },
+                        cardRecurrence: {
+                            type: Number,
+                            required: true
+                        }
+                    }
+                },
+                certifier: [
+                    {
+                        _id: false,
+                        name: {
+                            type: String,
+                            required: true
+                        },
+                        description: {
+                            type: String,
+                            required: true
+                        },
+                        courseType: [
+                            {
+                                type: String,
+                                required: true
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
