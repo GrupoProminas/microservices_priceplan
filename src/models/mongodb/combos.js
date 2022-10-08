@@ -222,10 +222,6 @@ export default {
                 }
             }
         ],
-        referenceCommissionType: {
-            type: String,
-            required: false
-        },
         releaseVouchers: [
             {
                 tags: [String],
