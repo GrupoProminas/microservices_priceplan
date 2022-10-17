@@ -10,7 +10,7 @@ export default class ApiRequestService {
 
   async generateFreeVouchers(_enrolmentId) {
     const enrolment = await this._getEnrolment(_enrolmentId);
-    const vouchersConfigs = await this._getVoucherConfig();
+    const vouchersConfigs = await this._getVoucherConfig(enrolment);
 
     if (vouchersConfigs && vouchersConfigs.useConfigByCombo && this._isCombo(enrolment)) return this._generateByCombo(enrolment);
 
@@ -120,10 +120,11 @@ export default class ApiRequestService {
     return enrolment;
   }
 
-  async _getVoucherConfig() {
+  async _getVoucherConfig(enrolment) {
     const vouchersConfigs = await this.models.VouchersConfigs
       .findOne({
-        isActive: true
+        isActive: true,
+        'certifier.name': enrolment.registryCourse.course._certifierName
       })
       .lean();
 

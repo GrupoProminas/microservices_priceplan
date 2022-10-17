@@ -114,15 +114,15 @@ module.exports = {
       "lytex": {
         "servers": [
           {
-            "host": "shared-shard-00-00-pri.9s9tp.mongodb.net",
+            "host": "shared-2-shard-00-00-pri.9s9tp.mongodb.net",
             "port": 27017
           },
           {
-            "host": "shared-shard-00-01-pri.9s9tp.mongodb.net",
+            "host": "shared-2-shard-00-01-pri.9s9tp.mongodb.net",
             "port": 27017
           },
           {
-            "host": "shared-shard-00-02-pri.9s9tp.mongodb.net",
+            "host": "shared-2-shard-00-02-pri.9s9tp.mongodb.net",
             "port": 27017
           }
         ],
@@ -140,15 +140,15 @@ module.exports = {
       "iteq": {
         "servers": [
           {
-            "host": "shared-shard-00-00-pri.9s9tp.mongodb.net",
+            "host": "shared-2-shard-00-00-pri.9s9tp.mongodb.net",
             "port": 27017
           },
           {
-            "host": "shared-shard-00-01-pri.9s9tp.mongodb.net",
+            "host": "shared-2-shard-00-01-pri.9s9tp.mongodb.net",
             "port": 27017
           },
           {
-            "host": "shared-shard-00-02-pri.9s9tp.mongodb.net",
+            "host": "shared-2-shard-00-02-pri.9s9tp.mongodb.net",
             "port": 27017
           }
         ],
