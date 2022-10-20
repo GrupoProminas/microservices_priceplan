@@ -105,6 +105,46 @@ export default (req, res, next) => {
                 quantity: Joi.number().required(),
                 subcategory: Joi.string().allow('*')
             })
+        ),
+        releaseVouchers: Joi.array().items(
+            Joi.object({
+                tags: Joi.array().items(Joi.string()),
+                maximumQuantity: Joi.number(),
+                validateType: Joi.string(),
+                isFree: Joi.boolean(),
+                course: Joi.object({
+                    amountType: Joi.string(),
+                    amount: Joi.object({
+                        pix: Joi.number(),
+                        creditCard: Joi.number(),
+                        debitCard: Joi.number(),
+                        cardRecurrence: Joi.number(),
+                        studentCredit: Joi.number(),
+                        boleto: Joi.number(),
+                        apple: Joi.number()
+                    })
+                }),
+                enrolment: Joi.object({
+                    amountType: Joi.string(),
+                    amount: Joi.object({
+                        pix: Joi.number(),
+                        creditCard: Joi.number(),
+                        debitCard: Joi.number(),
+                        cardRecurrence: Joi.number(),
+                        studentCredit: Joi.number(),
+                        boleto: Joi.number(),
+                        apple: Joi.number()
+                    })
+                }),
+                referenceCertifier: Joi.string(),
+                certifier: Joi.array().items(
+                    Joi.object({
+                        name: Joi.string(),
+                        description: Joi.string(),
+                        courseType: Joi.array().items(Joi.string())
+                    })
+                )
+            })
         )
     }).validate(req.body, (err) => {
         if (err) {
