@@ -81,6 +81,8 @@ export default class ApiRequestService {
   async _validate(enrolment, vouchersConfigs, limitOfVouchers = 1) {
     await this._validateVoucherIsAlreadyCreated(enrolment._id, limitOfVouchers);
     await this._validateEnrolmentCourseType(enrolment, vouchersConfigs);
+
+    if (vouchersConfigs.releaseCourse && vouchersConfigs.releaseCourse._courseId) await this._validateVoucherByCourse(enrolment, vouchersConfigs);
   }
 
   async _validateEnrolmentCourseType(enrolment, vouchersConfigs) {
@@ -101,6 +103,14 @@ export default class ApiRequestService {
     const voucher = await this.models.Vouchers.find(query);
 
     if (voucher.length > limitOfVouchers) throw new Error('voucher already exists');
+
+    return true;
+  }
+
+  async _validateVoucherByCourse(enrolment, vouchersConfigs) {
+    const hasVoucher = await this.models.Vouchers.find({cpf: enrolment.cpf, _courseId: vouchersConfigs.releaseCourse._courseId});
+
+    if (!hasVoucher) throw new Error('student_has_voucher');
 
     return true;
   }
