@@ -32,7 +32,7 @@ export default class ApiRequestService {
         try {
           const enrolment = await this._getEnrolment(enrolmentIds[0]);
   
-          await this._validate(enrolment, voucherConfig);
+          await this._validate(enrolment, voucherConfig, vouchersConfigs.length);
   
           const voucherData = await this.buildVoucherData(voucherConfig, enrolment);
   
@@ -46,8 +46,6 @@ export default class ApiRequestService {
         await asyncForEach(enrolmentIds, async (_enrolmentId) => {
           try {
             const enrolment = await this._getEnrolment(_enrolmentId);
-    
-            await this._validate(enrolment, voucherConfig);
     
             const voucherData = await this.buildVoucherData(voucherConfig, enrolment);
     
@@ -80,8 +78,8 @@ export default class ApiRequestService {
     return !!enrolment.metadata.combo;
   }
 
-  async _validate(enrolment, vouchersConfigs) {
-    await this._validateVoucherIsAlreadyCreated(enrolment._id);
+  async _validate(enrolment, vouchersConfigs, limitOfVouchers = 1) {
+    await this._validateVoucherIsAlreadyCreated(enrolment._id, limitOfVouchers);
     await this._validateEnrolmentCourseType(enrolment, vouchersConfigs);
   }
 
@@ -94,15 +92,15 @@ export default class ApiRequestService {
     return true;
   }
 
-  async _validateVoucherIsAlreadyCreated(_enrolmentId) {
+  async _validateVoucherIsAlreadyCreated(_enrolmentId, limitOfVouchers) {
     const query = {
       'userType': 'student',
       'metadata._enrolmentId': Types.ObjectId(_enrolmentId),
     };
 
-    const voucher = await this.models.Vouchers.findOne(query);
+    const voucher = await this.models.Vouchers.find(query);
 
-    if (voucher) throw new Error('voucher already exists');
+    if (voucher.length > limitOfVouchers) throw new Error('voucher already exists');
 
     return true;
   }
