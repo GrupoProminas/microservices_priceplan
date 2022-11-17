@@ -107,6 +107,13 @@ export default {
             type: Boolean,
             default: false,
             required: false
+        },
+        releaseCourse: {
+            courseName: String,
+            _courseId: SchemaTypes.ObjectId,
+            certifier: String,
+            acronim: String,
+            code: String
         }
     }
 }

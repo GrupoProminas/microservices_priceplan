@@ -1,6 +1,12 @@
 import { Types } from 'mongoose';
 import CodeVoucherService from './CodeVoucher.service';
 
+const asyncForEach = async (array, callback) => {
+  for (let index = 0; index < array.length; index++) {
+      await callback(array[index], index, array);
+  }
+};
+
 export default class ApiRequestService {
 
   constructor(req) {
@@ -12,7 +18,7 @@ export default class ApiRequestService {
     const enrolment = await this._getEnrolment(_enrolmentId);
     const vouchersConfigs = await this._getVoucherConfig(enrolment);
 
-    if (vouchersConfigs && vouchersConfigs.useConfigByCombo && this._isCombo(enrolment)) return this._generateByCombo(enrolment);
+    if (vouchersConfigs && vouchersConfigs.find(voucherConfig => voucherConfig.useConfigByCombo) && this._isCombo(enrolment)) return this._generateByCombo(enrolment);
 
     return this._generate(enrolment, vouchersConfigs);
   }
@@ -21,40 +27,37 @@ export default class ApiRequestService {
     const vouchersCreated = [];
     const enrolmentIds = this._isCombo(enrolment) ? enrolment.metadata.combo : [enrolment._id];
 
-    for (const _enrolmentId of enrolmentIds) {
-      try {
-        const enrolment = await this._getEnrolment(_enrolmentId);
-
-        await this._validate(enrolment, vouchersConfigs);
-
-        const voucherData = {
-          code        : await this._generateVoucherCode(),
-          userType    : 'student',
-          cpf         : enrolment.cpf,
-          isActive    : true,
-          tags        : vouchersConfigs.tags,
-          validateType: vouchersConfigs.validateType,
-          usage       : vouchersConfigs.maximunQuantity,
-          enrolment   : vouchersConfigs.enrolment,
-          course      : vouchersConfigs.course,
-          metadata: {
-              isFree        : vouchersConfigs.isFree,
-              _enrolmentId  : enrolment._id,
-              description   : this._getMessage(vouchersConfigs, enrolment.registryCourse.course._certifierName),
-          }
-        };
-
-        if (voucherData.validateType === 'period') {
-          voucherData.dateEnd = vouchersConfigs.dateEnd;
+    await asyncForEach(vouchersConfigs, async (voucherConfig) => {
+      if (voucherConfig.releaseCourse && voucherConfig.releaseCourse._courseId) {
+        try {
+          const enrolment = await this._getEnrolment(enrolmentIds[0]);
+  
+          await this._validate(enrolment, voucherConfig, vouchersConfigs.length);
+  
+          const voucherData = await this.buildVoucherData(voucherConfig, enrolment);
+  
+          const voucher = await this.models.Vouchers.create(voucherData);
+          vouchersCreated.push(voucher);
+  
+        } catch (err) {
+          console.error(err);
         }
-
-        const voucher = await this.models.Vouchers.create(voucherData);
-        vouchersCreated.push(voucher);
-
-      } catch (err) {
-        console.error(err);
+      } else {
+        await asyncForEach(enrolmentIds, async (_enrolmentId) => {
+          try {
+            const enrolment = await this._getEnrolment(_enrolmentId);
+    
+            const voucherData = await this.buildVoucherData(voucherConfig, enrolment);
+    
+            const voucher = await this.models.Vouchers.create(voucherData);
+            vouchersCreated.push(voucher);
+    
+          } catch (err) {
+            console.error(err);
+          }
+        });
       }
-    }
+    });
 
     return vouchersCreated;
   }
@@ -75,9 +78,11 @@ export default class ApiRequestService {
     return !!enrolment.metadata.combo;
   }
 
-  async _validate(enrolment, vouchersConfigs) {
-    await this._validateVoucherIsAlreadyCreated(enrolment._id);
+  async _validate(enrolment, vouchersConfigs, limitOfVouchers = 1) {
+    await this._validateVoucherIsAlreadyCreated(enrolment._id, limitOfVouchers);
     await this._validateEnrolmentCourseType(enrolment, vouchersConfigs);
+
+    if (vouchersConfigs.releaseCourse && vouchersConfigs.releaseCourse._courseId) await this._validateVoucherByCourse(enrolment, vouchersConfigs);
   }
 
   async _validateEnrolmentCourseType(enrolment, vouchersConfigs) {
@@ -89,15 +94,23 @@ export default class ApiRequestService {
     return true;
   }
 
-  async _validateVoucherIsAlreadyCreated(_enrolmentId) {
+  async _validateVoucherIsAlreadyCreated(_enrolmentId, limitOfVouchers) {
     const query = {
       'userType': 'student',
       'metadata._enrolmentId': Types.ObjectId(_enrolmentId),
     };
 
-    const voucher = await this.models.Vouchers.findOne(query);
+    const voucher = await this.models.Vouchers.find(query);
 
-    if (voucher) throw new Error('voucher already exists');
+    if (voucher.length > limitOfVouchers) throw new Error('voucher already exists');
+
+    return true;
+  }
+
+  async _validateVoucherByCourse(enrolment, vouchersConfigs) {
+    const hasVoucher = await this.models.Vouchers.find({cpf: enrolment.cpf, _courseId: vouchersConfigs.releaseCourse._courseId});
+
+    if (!hasVoucher) throw new Error('student_has_voucher');
 
     return true;
   }
@@ -122,13 +135,13 @@ export default class ApiRequestService {
 
   async _getVoucherConfig(enrolment) {
     const vouchersConfigs = await this.models.VouchersConfigs
-      .findOne({
+      .find({
         isActive: true,
         'certifier.name': enrolment.registryCourse.course._certifierName
       })
       .lean();
 
-    if (!vouchersConfigs) throw new Error('config not found');
+    if (!vouchersConfigs || !vouchersConfigs.length) throw new Error('config not found');
 
     return vouchersConfigs;
   }
@@ -148,26 +161,7 @@ export default class ApiRequestService {
 
       for (const voucherConfig of combo.releaseVouchers) {
         try {
-          const voucherData = {
-            code        : await this._generateVoucherCode(),
-            userType    : 'student',
-            cpf         : enrolment.cpf,
-            isActive    : true,
-            tags        : voucherConfig.tags,
-            validateType: voucherConfig.validateType,
-            usage       : voucherConfig.maximunQuantity,
-            enrolment   : voucherConfig.enrolment,
-            course      : voucherConfig.course,
-            metadata: {
-                isFree        : voucherConfig.isFree,
-                _enrolmentId  : enrolment._id,
-                description   : this._getMessage(voucherConfig, voucherConfig.referenceCertifier),
-            }
-          };
-  
-          if (voucherData.validateType === 'period') {
-            voucherData.dateEnd = voucherConfig.dateEnd;
-          }
+          const voucherData = await this.buildVoucherData(voucherConfig, enrolment);
   
           const voucher = await this.models.Vouchers.create(voucherData);
           vouchersCreated.push(voucher);
@@ -178,5 +172,34 @@ export default class ApiRequestService {
       }
 
     return vouchersCreated;
+  }
+
+  async buildVoucherData(voucherConfig, enrolment) {
+    const voucherData = {
+      code        : await this._generateVoucherCode(),
+      userType    : 'student',
+      cpf         : enrolment.cpf,
+      isActive    : true,
+      tags        : voucherConfig.tags,
+      validateType: voucherConfig.validateType,
+      usage       : voucherConfig.maximunQuantity,
+      enrolment   : voucherConfig.enrolment,
+      course      : voucherConfig.course,
+      metadata: {
+          isFree        : voucherConfig.isFree,
+          _enrolmentId  : enrolment._id,
+          description   : this._getMessage(voucherConfig, enrolment.registryCourse.course._certifierName),
+      }
+    };
+
+    if (voucherConfig.releaseCourse && voucherConfig.releaseCourse._courseId) voucherData._courseId = voucherConfig.releaseCourse._courseId;
+
+    if (voucherConfig.releaseCourse && voucherConfig.releaseCourse.code) voucherData.code = voucherConfig.releaseCourse.code;
+
+    if (voucherData.validateType === 'period') {
+      voucherData.dateEnd = voucherConfig.dateEnd;
+    }
+
+    return voucherData;
   }
 }
