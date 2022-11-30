@@ -162,6 +162,32 @@ module.exports = {
         "dialect": "mongodb",
         "charset": "utf8",
         "logging": false
+      },
+      "isafac": {
+        'servers': [
+          {
+            "host": "shared-2-shard-00-00-pri.9s9tp.mongodb.net",
+            'port': 27017
+          },
+          {
+            "host": "shared-2-shard-00-01-pri.9s9tp.mongodb.net",
+            'port': 27017
+          },
+          {
+            "host": "shared-2-shard-00-02-pri.9s9tp.mongodb.net",
+            'port': 27017
+          }
+        ],
+        'replicaSet': 'atlas-caf2o9-shard-0',
+        'authSource': 'admin',
+        'auto_reconnect': true,
+        'ssl': true,
+        'user': 'isafac',
+        'pass': 'dQaMtkxl6RkpTHlX',
+        'database': 'isafac_erp',
+        'dialect': 'mongodb',
+        'charset': 'utf8',
+        'logging': false
       }
     },
     "gateway": {
