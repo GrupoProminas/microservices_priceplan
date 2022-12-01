@@ -16,7 +16,7 @@ class CreditCardPlansService {
     calcCardPlanforPayment(installmentArray, total, charges = 1, selectParcels = 1) {
         if (parseInt(charges, 10) === 1) {
             return installmentArray.paymentPlan.filter(installment => !installment.value || installment.value <= total)
-            .filter(installment => !installment.charges || installment.charges <= selectParcels)
+            .filter(installment => installment.installment <= selectParcels)
             .map(installment => ({
                 installment: installment.installment,
                 value: (total / installment.installment) * (1 + (installment.percent/100))
