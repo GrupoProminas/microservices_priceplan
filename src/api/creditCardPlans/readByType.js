@@ -13,8 +13,12 @@ const getEnrolment = async (req) => {
 }
 
 const readByCertifier = async (req, res) => {
+    const {Configurations} = req.models;
 
     const {CreditCardPlans} = req.models;
+    const maxParcels = await Configurations.findOne({name:"config_num_max_parcels",isActive:true})
+    // Desabilita a trava de pagamento pelo contrato
+    let disableValidatePayment = await Configurations.findOne({name:"disable_valid_payment_by_contract",isActive:true})
 
     getEnrolment(req)
         .then(enrolment => {
@@ -34,7 +38,7 @@ const readByCertifier = async (req, res) => {
         })
         .then(installmentArray => {
             const totalArray  = req.params.total.split(',');
-            let selectParcels = 1;
+            let selectParcels = 18;
             const chargeType  = decodeURIComponent(req.params._type);
             let total         = 0;
             let charges       = 1;
@@ -50,13 +54,16 @@ const readByCertifier = async (req, res) => {
 
             if (!installmentArray) return res.api.send(null, res.api.codes.NOT_FOUND);
 
-            if (req.enrolment && req.enrolment.metadata && req.enrolment.metadata.prices) {
-                if (chargeType === 'rate-enrolment' && req.enrolment.metadata.prices.enrolment && ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase() === "creditcard") {
-                    selectParcels = parseInt(req.enrolment.enrolment.installment);
-                } else if (chargeType === 'monthly' && req.enrolment.metadata.prices.course && ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase()=== "creditcard") {
-                    selectParcels = parseInt(req.enrolment.registryCourse.courseAmount.installment);
-                } else if (chargeType === 'rate-enrolment-monthly' && ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase()=== "creditcard") {
-                    selectParcels = 12;
+
+            if (!disableValidatePayment) {
+                if (req.enrolment && req.enrolment.metadata && req.enrolment.metadata.prices) {
+                    if (chargeType === 'rate-enrolment' && req.enrolment.metadata.prices.enrolment && ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase() === "creditcard") {
+                        selectParcels = parseInt(req.enrolment.enrolment.installment);
+                    } else if (chargeType === 'monthly' && req.enrolment.metadata.prices.course && ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase() === "creditcard") {
+                        selectParcels = parseInt(req.enrolment.registryCourse.courseAmount.installment);
+                    } else if (chargeType === 'rate-enrolment-monthly' && ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase() === "creditcard") {
+                        selectParcels = maxParcels
+                    }
                 }
             }
 
@@ -64,6 +71,7 @@ const readByCertifier = async (req, res) => {
             const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges, selectParcels);
 
             if (!result) return res.api.send(null, res.api.codes.NOT_FOUND);
+            // console.log(JSON.stringify(result))
 
             return res.api.send(result, res.api.codes.OK);
         })
