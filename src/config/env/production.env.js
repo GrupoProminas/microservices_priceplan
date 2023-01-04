@@ -59,7 +59,9 @@ module.exports = {
         "database": "database_piaget",
         "dialect": "mongodb",
         "charset": "utf8",
-        "logging": false
+        "logging": false,
+        poolSize:  3,
+        maxPoolSize: 6
       }
     },
     "gateway": {
@@ -111,32 +113,34 @@ module.exports = {
       }
     },
     "databases": {
-      "lytex": {
-        "servers": [
-          {
-            "host": "shared-2-shard-00-00-pri.9s9tp.mongodb.net",
-            "port": 27017
-          },
-          {
-            "host": "shared-2-shard-00-01-pri.9s9tp.mongodb.net",
-            "port": 27017
-          },
-          {
-            "host": "shared-2-shard-00-02-pri.9s9tp.mongodb.net",
-            "port": 27017
-          }
-        ],
-        "replicaSet": "atlas-caf2o9-shard-0",
-        "authSource": "admin",
-        "auto_reconnect": true,
-        "ssl": true,
-        "user": "lytex",
-        "pass": "Cu716rVmpQ5Niv6X",
-        "database": "lytex_erp",
-        "dialect": "mongodb",
-        "charset": "utf8",
-        "logging": false
-      },
+      // "lytex": {
+      //   "servers": [
+      //     {
+      //       "host": "shared-2-shard-00-00-pri.9s9tp.mongodb.net",
+      //       "port": 27017
+      //     },
+      //     {
+      //       "host": "shared-2-shard-00-01-pri.9s9tp.mongodb.net",
+      //       "port": 27017
+      //     },
+      //     {
+      //       "host": "shared-2-shard-00-02-pri.9s9tp.mongodb.net",
+      //       "port": 27017
+      //     }
+      //   ],
+      //   "replicaSet": "atlas-caf2o9-shard-0",
+      //   "authSource": "admin",
+      //   "auto_reconnect": true,
+      //   "ssl": true,
+      //   "user": "lytex",
+      //   "pass": "Cu716rVmpQ5Niv6X",
+      //   "database": "lytex_erp",
+      //   "dialect": "mongodb",
+      //   "charset": "utf8",
+      //   "logging": false,
+      //   poolSize:  1,
+      //   maxPoolSize: 2
+      // },
       "iteq": {
         "servers": [
           {
@@ -161,7 +165,9 @@ module.exports = {
         "database": "iteq_erp",
         "dialect": "mongodb",
         "charset": "utf8",
-        "logging": false
+        "logging": false,
+        poolSize:  1,
+        maxPoolSize: 2
       },
       "isafac": {
         'servers': [
@@ -187,7 +193,9 @@ module.exports = {
         'database': 'isafac_erp',
         'dialect': 'mongodb',
         'charset': 'utf8',
-        'logging': false
+        'logging': false,
+        poolSize:  1,
+        maxPoolSize: 2
       }
     },
     "gateway": {
