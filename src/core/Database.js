@@ -65,7 +65,9 @@ export default class Database {
             useNewUrlParser: true,
             useFindAndModify: false,
             useCreateIndex: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            poolSize: databaseConfig.poolSize || 1,
+            maxPoolSize: databaseConfig.maxPoolSize || (databaseConfig.poolSize ? (databaseConfig.poolSize + 1) : 2)
         });
 
         // Synchronize models in dir to mongoose
