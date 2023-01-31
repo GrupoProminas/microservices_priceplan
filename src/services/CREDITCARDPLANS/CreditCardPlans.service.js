@@ -14,13 +14,12 @@ class CreditCardPlansService {
     }
 
     calcCardPlanforPayment(installmentArray, total, charges = 1, selectParcels = 1) {
-        console.log("installmentArray -> ", installmentArray)
-        console.log("total -> ", total)
-        console.log("charges -> ", JSON.stringify(charges))
-        console.log("selectParcels -> ", selectParcels)
+        // console.log("installmentArray -> ", installmentArray)
+        // console.log("total -> ", total)
+        // console.log("charges -> ", JSON.stringify(charges))
+        // console.log("selectParcels -> ", selectParcels)
 
         if (parseInt(charges, 10) === 1) {
-            console.log('@@@@@@@ oie');
 
             return installmentArray.paymentPlan.filter(installment => !installment.value || installment.value <= total)
             .filter(installment => parseInt(installment.installment, 10) <= selectParcels)
