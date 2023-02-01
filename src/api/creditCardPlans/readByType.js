@@ -16,7 +16,7 @@ const readByCertifier = async (req, res) => {
     const {Configurations} = req.models;
 
     const {CreditCardPlans} = req.models;
-    const maxParcels = await Configurations.findOne({name:"config_num_max_parcels",isActive:true})
+    const maxParcels = await Configurations.findOne({name:"config_num_max_parcels",isActive:true});
     // Desabilita a trava de pagamento pelo contrato
     let disableValidatePayment = await Configurations.findOne({name:"disable_valid_payment_by_contract",isActive:true})
 
@@ -38,7 +38,7 @@ const readByCertifier = async (req, res) => {
         })
         .then(installmentArray => {
             const totalArray  = req.params.total.split(',');
-            let selectParcels = 18;
+            let selectParcels = 1;
             const chargeType  = decodeURIComponent(req.params._type);
             let total         = 0;
             let charges       = 1;
@@ -71,7 +71,6 @@ const readByCertifier = async (req, res) => {
             const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges, selectParcels);
 
             if (!result) return res.api.send(null, res.api.codes.NOT_FOUND);
-            // console.log(JSON.stringify(result))
 
             return res.api.send(result, res.api.codes.OK);
         })
