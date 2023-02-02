@@ -16,7 +16,7 @@ const readByCertifier = async (req, res) => {
     const {Configurations} = req.models;
 
     const {CreditCardPlans} = req.models;
-    const maxParcels = await Configurations.findOne({name:"config_num_max_parcels",isActive:true})
+    const maxParcels = await Configurations.findOne({name:"config_num_max_parcels",isActive:true});
     // Desabilita a trava de pagamento pelo contrato
     let disableValidatePayment = await Configurations.findOne({name:"disable_valid_payment_by_contract",isActive:true})
 
