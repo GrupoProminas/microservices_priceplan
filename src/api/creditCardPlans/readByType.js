@@ -52,7 +52,9 @@ const readByCertifier = async (req, res) => {
                 return res.api.send('Parâmetro TOTAL inválido', res.api.codes.BAD_REQUEST);
             }
 
-            if (!installmentArray) return res.api.send(null, res.api.codes.NOT_FOUND);
+            if (!(installmentArray && installmentArray.paymentPlan && Array.isArray(installmentArray.paymentPlan) && installmentArray.paymentPlan.length)) {
+                return res.api.send(null, res.api.codes.NOT_FOUND);
+            }
 
 
             if (!disableValidatePayment) {
@@ -70,7 +72,9 @@ const readByCertifier = async (req, res) => {
             const creditCardPlansService = new CreditCardPlansService(req.models);
             const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges, selectParcels);
 
-            if (!result) return res.api.send(null, res.api.codes.NOT_FOUND);
+            if (!(result && Array.isArray(result) && result.length)) {
+                return res.api.send(null, res.api.codes.NOT_FOUND);
+            }
             // console.log(JSON.stringify(result))
 
             return res.api.send(result, res.api.codes.OK);
