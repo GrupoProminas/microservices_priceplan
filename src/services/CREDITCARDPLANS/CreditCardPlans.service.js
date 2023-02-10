@@ -22,7 +22,6 @@ class CreditCardPlansService {
         if (parseInt(charges, 10) === 1) {
 
             return installmentArray.paymentPlan.filter(installment => !installment.value || installment.value <= total)
-            .filter(installment =>!installment.charges || installment.charges <= charges)
             .filter(installment => parseInt(installment.installment, 10) <= selectParcels)
             .map(installment => ({
                 installment: installment.installment,
