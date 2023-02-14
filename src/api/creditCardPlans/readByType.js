@@ -38,7 +38,7 @@ const readByCertifier = async (req, res) => {
         })
         .then(installmentArray => {
             const totalArray  = req.params.total.split(',');
-            let selectParcels = (installmentArray.paymentPlan || []).find(pp => !!pp.charges && pp.charges >= 1) ? 1 : 18;
+            let selectParcels = ((installmentArray || {}).paymentPlan || []).find(pp => !!pp.charges && pp.charges >= 1) ? 1 : 18;
             const chargeType  = decodeURIComponent(req.params._type);
             let total         = 0;
             let charges       = 1;
