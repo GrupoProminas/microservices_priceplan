@@ -136,7 +136,91 @@ module.exports = {
         "dialect": "mongodb",
         "charset": "utf8",
         "logging": false
-      }
+      },
+      "chrispim": {
+        "servers": [
+          {
+            "host": "shared-homologation-shard-00-00-pri.9s9tp.mongodb.net",
+            "port": 27017
+          },
+          {
+            "host": "shared-homologation-shard-00-01-pri.9s9tp.mongodb.net",
+            "port": 27017
+          },
+          {
+            "host": "shared-homologation-shard-00-02-pri.9s9tp.mongodb.net",
+            "port": 27017
+          }
+        ],
+        "replicaSet": "atlas-caf2o9-shard-0",
+        "authSource": "admin",
+        "auto_reconnect": true,
+        "ssl": true,
+        "user": "shared-homo",
+        "pass": "4zsY0GB88qW7vmGK",
+        "database": "chrispim_erp",
+        "dialect": "mongodb",
+        "charset": "utf8",
+        "logging": false,
+        "poolSize": 1,
+        "maxPoolSize": 2
+      },
+      "iteq": {
+        "servers": [
+          {
+            "host": "shared-homologation-shard-00-00-pri.9s9tp.mongodb.net",
+            "port": 27017
+          },
+          {
+            "host": "shared-homologation-shard-00-01-pri.9s9tp.mongodb.net",
+            "port": 27017
+          },
+          {
+            "host": "shared-homologation-shard-00-02-pri.9s9tp.mongodb.net",
+            "port": 27017
+          }
+        ],
+        "replicaSet": "atlas-caf2o9-shard-0",
+        "authSource": "admin",
+        "auto_reconnect": true,
+        "ssl": true,
+        "user": "shared-homo",
+        "pass": "4zsY0GB88qW7vmGK",
+        "database": "iteq_erp",
+        "dialect": "mongodb",
+        "charset": "utf8",
+        "logging": false,
+        "poolSize": 1,
+        "maxPoolSize": 2
+      },
+      "isafac": {
+        "servers": [
+          {
+            "host": "shared-homologation-shard-00-00-pri.9s9tp.mongodb.net",
+            "port": 27017
+          },
+          {
+            "host": "shared-homologation-shard-00-01-pri.9s9tp.mongodb.net",
+            "port": 27017
+          },
+          {
+            "host": "shared-homologation-shard-00-02-pri.9s9tp.mongodb.net",
+            "port": 27017
+          }
+        ],
+        "replicaSet": "atlas-caf2o9-shard-0",
+        "authSource": "admin",
+        "auto_reconnect": true,
+        "ssl": true,
+        "user": "shared-homo",
+        "pass": "4zsY0GB88qW7vmGK",
+        "database": "isafac_erp",
+        "dialect": "mongodb",
+        "charset": "utf8",
+        "logging": false,
+        "poolSize": 1,
+        "maxPoolSize": 2
+      },
     },
     "gateway": {
       "baseUrl": "https://api-gateway-lyraedu.lytex.com.br/"

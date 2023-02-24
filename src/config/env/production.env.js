@@ -196,6 +196,34 @@ module.exports = {
         'logging': false,
         poolSize:  1,
         maxPoolSize: 2
+      },
+      "chrispim": {
+        "servers": [
+          {
+            "host": "shared-2-shard-00-00-pri.9s9tp.mongodb.net",
+            "port": 27017
+          },
+          {
+            "host": "shared-2-shard-00-01-pri.9s9tp.mongodb.net",
+            "port": 27017
+          },
+          {
+            "host": "shared-2-shard-00-02-pri.9s9tp.mongodb.net",
+            "port": 27017
+          }
+        ],
+        "replicaSet": "atlas-caf2o9-shard-0",
+        "authSource": "admin",
+        "auto_reconnect": true,
+        "ssl": true,
+        "user": "chrispim",
+        "pass": "oG77QR4wjlZZzQge",
+        "database": "chrispim_erp",
+        "dialect": "mongodb",
+        "charset": "utf8",
+        "logging": false,
+        "poolSize": 1,
+        "maxPoolSize": 2
       }
     },
     "gateway": {
