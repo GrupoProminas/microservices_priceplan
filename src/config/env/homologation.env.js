@@ -111,32 +111,6 @@ module.exports = {
       }
     },
     "databases": {
-      "lytex": {
-        "servers": [
-          {
-            "host": "shared-2-shard-00-00-pri.9s9tp.mongodb.net",
-            "port": 27017
-          },
-          {
-            "host": "shared-2-shard-00-01-pri.9s9tp.mongodb.net",
-            "port": 27017
-          },
-          {
-            "host": "shared-2-shard-00-02-pri.9s9tp.mongodb.net",
-            "port": 27017
-          }
-        ],
-        "replicaSet": "atlas-caf2o9-shard-0",
-        "authSource": "admin",
-        "auto_reconnect": true,
-        "ssl": true,
-        "user": "iteq",
-        "pass": "OLSSBdFGYp2fLQ3w",
-        "database": "lytex_erp",
-        "dialect": "mongodb",
-        "charset": "utf8",
-        "logging": false
-      },
       "chrispim": {
         "servers": [
           {
