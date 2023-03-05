@@ -197,7 +197,7 @@ module.exports = {
       },
     },
     "gateway": {
-      "baseUrl": "https://api-gateway-lyraedu.lytex.com.br/"
+      "baseUrl": "https://api-gateway.lyraedu.com.br/"
     },
     "apis": {
       "users": {
