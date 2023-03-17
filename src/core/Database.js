@@ -117,8 +117,19 @@ export default class Database {
                 schema.set('toJSON', {virtuals: true});
 
                 connection.model(schemaDef.collection, schema);
+                connection.models[schemaDef.collection].$parent = connection;
+                // Register methods
+                if ('methods' in schemaDef && typeof schemaDef.methods === 'object') {
+                    Object.keys(schemaDef.methods).forEach(
+                        method => {
+                            connection.models[schemaDef.collection][method] = schemaDef.methods[method];
+                        }
+                    );
+                }
             });
 
+        connection.$company = company;
+        connection.models.$company = company;
         return connection;
     }
 
