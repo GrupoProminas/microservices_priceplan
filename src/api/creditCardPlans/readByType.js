@@ -15,8 +15,19 @@ const getEnrolment = async (req) => {
 const readByCertifier = async (req, res) => {
     const {Configurations} = req.models;
 
+    const _getMaxParcelsConfig = async () => {
+        const config = await Configurations.findOne({
+            name:"config_num_max_parcels",
+            isActive:true
+        });
+
+        if (!config || !config.value) throw new Error('config-not-found');
+
+        return parseInt(config.value);
+    };
+
     const {CreditCardPlans} = req.models;
-    const maxParcels = await Configurations.findOne({name:"config_num_max_parcels",isActive:true});
+    const maxParcels = await _getMaxParcelsConfig();
     // Desabilita a trava de pagamento pelo contrato
     let disableValidatePayment = await Configurations.findOne({name:"disable_valid_payment_by_contract",isActive:true})
 
@@ -46,7 +57,7 @@ const readByCertifier = async (req, res) => {
             if (totalArray.length === 1) {
                 total = totalArray[0];
             } else if (totalArray.length === 2) {
-                charges = totalArray[0];
+                charges = parseInt(totalArray[0]);
                 total = totalArray[1];
             } else {
                 return res.api.send('Parâmetro TOTAL inválido', res.api.codes.BAD_REQUEST);
@@ -56,30 +67,55 @@ const readByCertifier = async (req, res) => {
                 return res.api.send(null, res.api.codes.NOT_FOUND);
             }
 
-
+            // RESPEITANDO O CONTRATO
             if (!disableValidatePayment) {
                 if (req.enrolment && req.enrolment.metadata && req.enrolment.metadata.prices) {
-                    if (chargeType === 'rate-enrolment' && req.enrolment.metadata.prices.enrolment && ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase() === "creditcard") {
-                        selectParcels = parseInt(req.enrolment.enrolment.installment);
-                    } else if (chargeType === 'monthly' && req.enrolment.metadata.prices.course && ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase() === "creditcard") {
-                        selectParcels = parseInt(req.enrolment.registryCourse.courseAmount.installment);
-                    } else if (chargeType === 'rate-enrolment-monthly' && ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase() === "creditcard") {
-                        selectParcels = maxParcels
+                    if (chargeType === 'rate-enrolment') {
+                        const paymentMethodPredefined = ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase();
+
+                        selectParcels = paymentMethodPredefined === 'creditcard' ?
+                            parseInt(req.enrolment.enrolment.installment) :
+                            1;
+                    } else if (chargeType === 'monthly') {
+                        const paymentMethodPredefined = ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase();
+
+                        selectParcels = paymentMethodPredefined === 'creditcard' ?
+                            parseInt(req.enrolment.registryCourse.courseAmount.installment) :
+                            1;
+                    } else if (chargeType === 'rate-enrolment-monthly') {
+                        const paymentMethodPredefined = ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase();
+
+                        selectParcels = paymentMethodPredefined === 'creditcard' ?
+                            parseInt(req.enrolment.metadata.prices.course.installments) :
+                            1;
                     }
                 }
             }
 
             const creditCardPlansService = new CreditCardPlansService(req.models);
-            const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges, selectParcels);
+            let result;
+
+            if (charges > 1 && [
+                'rate-enrolment',
+                'monthly',
+                'rate-enrolment-monthly',
+            ].includes(chargeType)) {
+                selectParcels = charges <= maxParcels ? charges : maxParcels;
+                charges = 1;
+                result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges, selectParcels);
+            } else {
+                result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges, selectParcels);
+            }
 
             if (!(result && Array.isArray(result) && result.length)) {
                 return res.api.send(null, res.api.codes.NOT_FOUND);
             }
-            // console.log(JSON.stringify(result))
 
             return res.api.send(result, res.api.codes.OK);
         })
         .catch(err => {
+            console.error(err);
+
             return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
         });
 };
