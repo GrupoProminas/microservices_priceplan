@@ -1,19 +1,40 @@
-/* eslint-disable max-statements */
 import { Types } from 'mongoose';
-import CreditCardPlansService from '../../services/CREDITCARDPLANS/CreditCardPlans.service';
 
-const getEnrolment = async (req) => {
-    const {Enrolments} = req.models;
+export default async (req, res) => {
 
-    const enrolmentId = req.query.enrolmentId ? req.query.enrolmentId.split(',') : '';
+    const {Configurations, Enrolments} = req.models;
 
-    if (!enrolmentId) return false;
+    const _extractTotalAmountAndTotalCharges = (inputData) => {
+        const splited = inputData.split(',');
 
-    return Enrolments.findOne({_id: {$in: enrolmentId.map(id => Types.ObjectId(id))}}, {registryCourse:1, enrolment: 1, metadata: 1});
-}
+        if (splited.length === 1) {
+            return {
+                totalAmount: splited[0],
+                totalCharges: 1,
+            };
+        }
+        
+        if (splited.length === 2) {
+            return {
+                totalAmount: splited[1],
+                totalCharges: splited[0],
+            };
+        }
 
-const readByCertifier = async (req, res) => {
-    const {Configurations} = req.models;
+        throw new Error('Parâmetro TOTAL inválido');
+    };
+
+    const _calcPlan = (totalAmount, maxParcels) => {
+        const installments = Array
+            .from({ length: maxParcels }, (_, i) => i + 1)
+            .filter(item => item !== 1);
+
+        return installments
+            .map(installment => ({
+                installment: installment,
+                value: totalAmount / installment,
+            }));
+    };
 
     const _getMaxParcelsConfig = async () => {
         const config = await Configurations.findOne({
@@ -26,98 +47,86 @@ const readByCertifier = async (req, res) => {
         return parseInt(config.value);
     };
 
-    const {CreditCardPlans} = req.models;
-    const maxParcels = await _getMaxParcelsConfig();
-    // Desabilita a trava de pagamento pelo contrato
-    let disableValidatePayment = await Configurations.findOne({name:"disable_valid_payment_by_contract",isActive:true})
-
-    getEnrolment(req)
-        .then(enrolment => {
-            if (enrolment) req.enrolment = enrolment;
-
-            return CreditCardPlans
-            .findOne({
-                _certifierName: decodeURIComponent(req.params.certifier),
-                _typeName: decodeURIComponent(req.params._typeName),
-                isActive: true,
-                _type: decodeURIComponent(req.params._type)
-            },
-            {
-                paymentPlan: 1,
-                _id: 0
-            });
-        })
-        .then(installmentArray => {
-            const totalArray  = req.params.total.split(',');
-            let selectParcels = ((installmentArray || {}).paymentPlan || []).find(pp => !!pp.charges && pp.charges >= 1) ? 1 : 18;
-            const chargeType  = decodeURIComponent(req.params._type);
-            let total         = 0;
-            let charges       = 1;
-
-            if (totalArray.length === 1) {
-                total = totalArray[0];
-            } else if (totalArray.length === 2) {
-                charges = parseInt(totalArray[0]);
-                total = totalArray[1];
-            } else {
-                return res.api.send('Parâmetro TOTAL inválido', res.api.codes.BAD_REQUEST);
+    const _getEnrolment = (enrolmentId) => {
+        const enrolment = Enrolments.findOne({
+            _id: {
+                $in: enrolmentId.map(id => Types.ObjectId(id))
             }
-
-            if (!(installmentArray && installmentArray.paymentPlan && Array.isArray(installmentArray.paymentPlan) && installmentArray.paymentPlan.length)) {
-                return res.api.send(null, res.api.codes.NOT_FOUND);
-            }
-
-            // RESPEITANDO O CONTRATO
-            if (!disableValidatePayment) {
-                if (req.enrolment && req.enrolment.metadata && req.enrolment.metadata.prices) {
-                    if (chargeType === 'rate-enrolment') {
-                        const paymentMethodPredefined = ((req.enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase();
-
-                        selectParcels = paymentMethodPredefined === 'creditcard' ?
-                            parseInt(req.enrolment.enrolment.installment) :
-                            1;
-                    } else if (chargeType === 'monthly') {
-                        const paymentMethodPredefined = ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase();
-
-                        selectParcels = paymentMethodPredefined === 'creditcard' ?
-                            parseInt(req.enrolment.registryCourse.courseAmount.installment) :
-                            1;
-                    } else if (chargeType === 'rate-enrolment-monthly') {
-                        const paymentMethodPredefined = ((req.enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase();
-
-                        selectParcels = paymentMethodPredefined === 'creditcard' ?
-                            parseInt(req.enrolment.metadata.prices.course.installments) :
-                            1;
-                    }
-                }
-            }
-
-            const creditCardPlansService = new CreditCardPlansService(req.models);
-            let result;
-
-            if (charges > 1 && [
-                'rate-enrolment',
-                'monthly',
-                'rate-enrolment-monthly',
-            ].includes(chargeType)) {
-                selectParcels = charges <= maxParcels ? charges : maxParcels;
-                charges = 1;
-                result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges, selectParcels);
-            } else {
-                result = creditCardPlansService.calcCardPlanforPayment(installmentArray, total, charges, selectParcels);
-            }
-
-            if (!(result && Array.isArray(result) && result.length)) {
-                return res.api.send(null, res.api.codes.NOT_FOUND);
-            }
-
-            return res.api.send(result, res.api.codes.OK);
-        })
-        .catch(err => {
-            console.error(err);
-
-            return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
         });
-};
 
-export default readByCertifier;
+        if (!enrolment) throw new Error('enrolment-not-found');
+
+        return enrolment;
+    };
+
+    const _getContractMaxParcels = (chargeType, enrolment) => {
+        if (!enrolment.metadata || !enrolment.metadata.prices) return 1;
+
+        if (chargeType === 'rate-enrolment') {
+            const paymentMethodPredefined = ((enrolment.metadata.prices.enrolment || {}).paymentMethod || "").toLowerCase();
+
+            return paymentMethodPredefined === 'creditcard' ?
+                parseInt(enrolment.enrolment.installment) :
+                1;
+        }
+
+        if (chargeType === 'monthly') {
+            const paymentMethodPredefined = ((enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase();
+
+            return paymentMethodPredefined === 'creditcard' ?
+                parseInt(enrolment.registryCourse.courseAmount.installment) :
+                1;
+        }
+
+        if (chargeType === 'rate-enrolment-monthly') {
+            const paymentMethodPredefined = ((enrolment.metadata.prices.course || {}).paymentMethod || "").toLowerCase();
+
+            return paymentMethodPredefined === 'creditcard' ?
+                parseInt(enrolment.metadata.prices.course.installments) :
+                1;
+        }
+
+        return 1;
+    };
+
+    try {
+
+        const maxParcelsConfig = await _getMaxParcelsConfig();
+        const chargeType  = decodeURIComponent(req.params._type);
+        const enrolmentId = req.query.enrolmentId ? req.query.enrolmentId.split(',') : '';
+        const {totalAmount, totalCharges} = _extractTotalAmountAndTotalCharges(req.params.total);
+
+        if (totalCharges <= 1 && ![
+            'rate-enrolment',
+            'monthly',
+            'rate-enrolment-monthly',
+        ].includes(chargeType)) {
+            throw new Error('not-found');
+        }
+
+        if (totalCharges > 1) {
+            const maxParcels = totalCharges <= maxParcelsConfig ? totalCharges : maxParcelsConfig;
+            const plan = _calcPlan(totalAmount, maxParcels);
+
+            return res.api.send(plan, res.api.codes.OK);
+        }
+
+        const enrolment = await _getEnrolment(enrolmentId);
+        const contratMaxParcels = _getContractMaxParcels(chargeType, enrolment);
+
+        if (contratMaxParcels === 1) throw new Error('not-found');
+
+        const maxParcels = contratMaxParcels <= maxParcelsConfig ? contratMaxParcels : maxParcelsConfig;
+        const plan = _calcPlan(totalAmount, maxParcels);
+
+        return res.api.send(plan, res.api.codes.OK);
+
+    } catch(err) {
+        console.error(err);
+
+        if (err.toString().includes('not-found'))
+            return res.api.send(null, res.api.codes.NOT_FOUND);
+
+        return res.api.send(err, res.api.codes.INTERNAL_SERVER_ERROR);
+    }
+};
