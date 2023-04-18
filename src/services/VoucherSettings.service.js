@@ -18,7 +18,7 @@ export default class ApiRequestService {
     const enrolment = await this._getEnrolment(_enrolmentId);
     const vouchersConfigs = await this._getVoucherConfig(enrolment);
 
-    if (vouchersConfigs && vouchersConfigs.find(voucherConfig => voucherConfig.useConfigByCombo) && this._isCombo(enrolment)) return this._generateByCombo(enrolment);
+    if (vouchersConfigs && vouchersConfigs.find(voucherConfig => voucherConfig.useConfigByCombo)) return this._generateByCombo(enrolment);
 
     return this._generate(enrolment, vouchersConfigs);
   }
