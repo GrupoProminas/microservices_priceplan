@@ -109,7 +109,7 @@ export default (req, res, next) => {
         releaseVouchers: Joi.array().items(
             Joi.object({
                 tags: Joi.array().items(Joi.string()),
-                maximumQuantity: Joi.number(),
+                maximunQuantity: Joi.number(),
                 validateType: Joi.string(),
                 isFree: Joi.boolean(),
                 course: Joi.object({
