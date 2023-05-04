@@ -10,6 +10,26 @@ import paginate from './Paginate';
 import beautifyUnique from 'mongoose-beautiful-unique-validation';
 import bluebird from "bluebird";
 
+const asyncForEach = async (array, callback) => {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+    }
+};
+
+const toAsyncObject = async function(options){
+    let obj = this.toObject(options);
+    if ((((this || {}).constructor || {}).schema || {}).virtuals) {
+        const virtuals = this.constructor.schema.virtuals;
+        for (let prop in virtuals) {
+            const virtual = virtuals[prop];
+            if (virtual.getters[0].constructor.name === 'AsyncFunction') {
+                obj[prop] = await this[prop];
+            }
+        }
+    }
+    return obj;
+};
+
 /**
  * Use this class for all methods that manage databases connections, MySQL, PGSql, MongoDB etc..
  */
@@ -35,8 +55,8 @@ export default class Database {
         mongoose.companies = {};
 
         // Connect to databases
-        Object.keys(env.databases).forEach(companyDbName => {
-            mongoose.companies[companyDbName] = this.connectMongo(companyDbName, env.databases[companyDbName]);
+        await asyncForEach(Object.keys(env.databases), async companyDbName => {
+            mongoose.companies[companyDbName] = await this.connectMongo(companyDbName, env.databases[companyDbName]);
         });
 
         if (Object.values(mongoose.companies).length > 0) {
@@ -58,10 +78,64 @@ export default class Database {
         }
     }
 
-    connectMongo(company, databaseConfig) {
+    childSchema(schemaDef, schema) {
+        if (typeof schemaDef.schemas[schema] === 'function') {
+            const child = schemaDef.schemas[schema]();
+            if (
+                child &&
+                typeof child === 'object' &&
+                (
+                    (
+                        child.path &&
+                        Array.isArray(child.path) &&
+                        child.path.length &&
+                        child.prop
+                    ) ||
+                    (
+                        !child.path &&
+                        child.prop
+                    )
+                ) &&
+                typeof child.schema === 'object'
+            ) {
+                let childSchema = new mongoose.Schema(child.schema);
+                // Register virtuals
+                if ('virtual' in child) {
+                    Object.keys(child.virtual).forEach(
+                        name => {
+                            childSchema.virtual(name).get(child.virtual[name]);
+                        }
+                    );
+                }
+                childSchema.methods.toAsyncObject = toAsyncObject;
+                let path = schemaDef.fields;
+                if (!child.path) {
+                    schemaDef.fields[child.prop] = !!child.isArray ? [childSchema] : childSchema;
+                } else {
+                    const obj = child.path.reduce(
+                        function(prev, curr) {
+                            return (curr && prev && curr in prev) ? prev[curr] : null
+                        },
+                        path
+                    );
+                    if (obj) {
+                        obj[child.prop] = !!child.isArray ? [childSchema] : childSchema;
+                    } else {
+                        return;
+                    }
+                }
+            } else {
+                return;
+            }
+        } else {
+            return;
+        }
+    }
+
+    async connectMongo(company, databaseConfig) {
 
         // Return mongo connection
-        const connection = mongoose.createConnection(this._createMongooseUri(databaseConfig), {
+        const connection = await mongoose.createConnection(this._createMongooseUri(databaseConfig), {
             useNewUrlParser: true,
             useFindAndModify: false,
             useCreateIndex: true,
@@ -82,6 +156,15 @@ export default class Database {
                 // Set schema options
                 schemaDef.options = 'options' in schemaDef
                     ? Object.assign(defaultSchemaOptions, schemaDef.options) : defaultSchemaOptions;
+
+                // Register Child Schemas
+                if ('schemas' in schemaDef) {
+                    Object.keys(schemaDef.schemas).forEach(
+                        schema => {
+                            this.childSchema(schemaDef, schema);
+                        }
+                    );
+                }
 
                 // Create schema
                 const schema = new mongoose.Schema(schemaDef.fields, schemaDef.options);
@@ -115,6 +198,16 @@ export default class Database {
                     });
 
                 schema.set('toJSON', {virtuals: true});
+                schema.set('toObject', {virtuals: true});
+                schema.methods.toAsyncObject = toAsyncObject;
+
+                if ('documentMethods' in schemaDef && typeof schemaDef.documentMethods === 'object') {
+                    Object.keys(schemaDef.documentMethods).forEach(
+                        method => {
+                            schema.methods[method] = schemaDef.documentMethods[method];
+                        }
+                    );
+                }
 
                 connection.model(schemaDef.collection, schema);
                 connection.models[schemaDef.collection].$parent = connection;
