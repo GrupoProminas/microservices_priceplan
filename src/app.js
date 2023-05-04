@@ -142,6 +142,14 @@ if (config.getEnvName() !== 'test') {
 }
 
 const companyChecker = (req, res, next) => {
+
+    const exceptions = [
+        '/health'
+    ];
+    if (exceptions.includes(req.originalUrl.split("?").shift())) {
+        return next();
+    }
+
     const company = process.env.WORKSPACE === 'prominas' ? 'prominas' : req.headers.company;
 
     if (!company) return res.status(400).send({message: 'Company header is not set, please tell us what company you want to use.'});
