@@ -2,7 +2,7 @@ import { Types } from 'mongoose';
 
 export default async (req, res) => {
 
-    const {Configurations, Enrolments} = req.models;
+    const {Configurations, Enrolments, Charges} = req.models;
 
     const _extractTotalAmountAndTotalCharges = (inputData) => {
         const splited = inputData.split(',');
@@ -13,7 +13,7 @@ export default async (req, res) => {
                 totalCharges: 1,
             };
         }
-        
+
         if (splited.length === 2) {
             return {
                 totalAmount: splited[1],
@@ -111,12 +111,16 @@ export default async (req, res) => {
             return res.api.send(plan, res.api.codes.OK);
         }
 
+        const chargeId  = req.query.chargeid;
         const enrolment = await _getEnrolment(enrolmentId);
         const contratMaxParcels = _getContractMaxParcels(chargeType, enrolment);
+        const objCharge = chargeId ? await Charges.findById(chargeId) : undefined;
+        //Se houver quantidade de parcelas na charge, vai usar esse como referencia
+        const maxParcCharges = (objCharge && ((objCharge.metadata || {}).maxInstallmentsOnCreditCard || null)) ? (objCharge.metadata || {}).maxInstallmentsOnCreditCard : null;
 
-        if (contratMaxParcels === 1) throw new Error('not-found');
+        if (contratMaxParcels === 1 && !maxParcCharges) throw new Error('not-found');
 
-        const maxParcels = contratMaxParcels <= maxParcelsConfig ? contratMaxParcels : maxParcelsConfig;
+        const maxParcels = (maxParcCharges || (contratMaxParcels <= maxParcelsConfig ? contratMaxParcels : maxParcelsConfig));
         const plan = _calcPlan(totalAmount, maxParcels);
 
         return res.api.send(plan, res.api.codes.OK);
