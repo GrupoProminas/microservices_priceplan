@@ -103,7 +103,7 @@ export default async (req, res) => {
             throw new Error('not-found');
         }
 
-        if (totalCharges > 1) {
+        if (totalCharges > 1 && !typeAcademic) {
             const maxParcels = totalCharges <= maxParcelsConfig ? totalCharges : maxParcelsConfig;
             const plan = _calcPlan(totalAmount, maxParcels);
 
