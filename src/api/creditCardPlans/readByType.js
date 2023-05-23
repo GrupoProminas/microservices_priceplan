@@ -1,8 +1,9 @@
 import { Types } from 'mongoose';
+import CreditCardPlansService from '../../services/CREDITCARDPLANS/CreditCardPlans.service';
 
 export default async (req, res) => {
 
-    const {Configurations, Enrolments, Charges} = req.models;
+    const {Configurations, Enrolments, Charges, CreditCardPlans} = req.models;
 
     const _extractTotalAmountAndTotalCharges = (inputData) => {
         const splited = inputData.split(',');
@@ -96,19 +97,35 @@ export default async (req, res) => {
         const enrolmentId = req.query.enrolmentId ? req.query.enrolmentId.split(',') : '';
         const {totalAmount, totalCharges} = _extractTotalAmountAndTotalCharges(req.params.total);
 
-        if (totalCharges <= 1 && ![
-            'rate-enrolment',
-            'monthly',
-            'rate-enrolment-monthly',
-        ].includes(chargeType)) {
+        const typeAcademic = ['rate-enrolment', 'monthly', 'rate-enrolment-monthly',].includes(chargeType);
+
+        if (totalCharges < 1) {
             throw new Error('not-found');
         }
 
-        if (totalCharges > 1) {
+        if (totalCharges > 1 && !typeAcademic) {
             const maxParcels = totalCharges <= maxParcelsConfig ? totalCharges : maxParcelsConfig;
             const plan = _calcPlan(totalAmount, maxParcels);
 
             return res.api.send(plan, res.api.codes.OK);
+        } else if (!typeAcademic) {
+
+            const installmentArray = await CreditCardPlans
+                .findOne({
+                        _certifierName: decodeURIComponent(req.params.certifier),
+                        _typeName: decodeURIComponent(req.params._typeName),
+                        isActive: true,
+                        _type: decodeURIComponent(req.params._type)
+                    },
+                    {
+                        paymentPlan: 1,
+                        _id: 0
+                    });
+
+            const creditCardPlansService = new CreditCardPlansService(req.models);
+            const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, totalAmount, totalCharges, 12);
+
+            return res.api.send(result, res.api.codes.OK);
         }
 
         const chargeId  = req.query.chargeid;
