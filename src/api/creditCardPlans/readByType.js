@@ -126,7 +126,6 @@ export default async (req, res) => {
                         _id: 0
                     });
 
-            console.log(installmentArray);
             const creditCardPlansService = new CreditCardPlansService(req.models);
             const result = creditCardPlansService.calcCardPlanforPayment(installmentArray, totalAmount, totalCharges, 12);
 
