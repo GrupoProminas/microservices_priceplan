@@ -242,19 +242,19 @@ export default {
                     amount: {
                         boleto: {
                             type: Number,
-                            required: true
+                            required: false
                         },
                         creditCard: {
                             type: Number,
-                            required: true
+                            required: false
                         },
                         debitCard: {
                             type: Number,
-                            required: true
+                            required: false
                         },
                         cardRecurrence: {
                             type: Number,
-                            required: true
+                            required: false
                         }
                     }
                 },
@@ -271,19 +271,19 @@ export default {
                     amount: {
                         boleto: {
                             type: Number,
-                            required: true
+                            required: false
                         },
                         creditCard: {
                             type: Number,
-                            required: true
+                            required: false
                         },
                         debitCard: {
                             type: Number,
-                            required: true
+                            required: false
                         },
                         cardRecurrence: {
                             type: Number,
-                            required: true
+                            required: false
                         }
                     }
                 },
