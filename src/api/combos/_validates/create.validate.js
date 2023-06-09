@@ -122,7 +122,7 @@ export default (req, res, next) => {
                         studentCredit: Joi.number(),
                         boleto: Joi.number(),
                         apple: Joi.number()
-                    })
+                    }).min(1)
                 }),
                 enrolment: Joi.object({
                     amountType: Joi.string(),
@@ -134,7 +134,7 @@ export default (req, res, next) => {
                         studentCredit: Joi.number(),
                         boleto: Joi.number(),
                         apple: Joi.number()
-                    })
+                    }).min(1)
                 }),
                 referenceCertifier: Joi.string(),
                 certifier: Joi.array().items(
