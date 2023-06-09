@@ -20,7 +20,7 @@ class CreditCardPlansService {
         // console.log("selectParcels -> ", selectParcels)
 
         if (parseInt(charges, 10) === 1) {
-            return installmentArray.paymentPlan
+            return ((installmentArray || {}).paymentPlan || [])
                 .filter(installment => !installment.value || installment.value <= total)
                 .filter(installment => parseInt(installment.installment, 10) <= selectParcels)
                 .map(installment => ({
@@ -28,7 +28,7 @@ class CreditCardPlansService {
                     value: (total / installment.installment) * (1 + (installment.percent/100))
                 }));
         } else {
-            return installmentArray.paymentPlan
+            return ((installmentArray || {}).paymentPlan || [])
                 .filter(installment => !installment.value || installment.value <= total)
                 .filter(installment => !installment.charges || installment.charges <= charges)
                 .map(installment => ({

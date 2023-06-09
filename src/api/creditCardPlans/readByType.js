@@ -99,6 +99,10 @@ export default async (req, res) => {
 
         const typeAcademic = ['rate-enrolment', 'monthly', 'rate-enrolment-monthly',].includes(chargeType);
 
+        const chargeId  = req.query.chargeid;
+        const objCharge = chargeId ? await Charges.findById(chargeId) : undefined;
+        const renegociation = (objCharge && typeof objCharge === 'object' && objCharge.installment === 1 && objCharge._renegociationId);
+
         if (totalCharges < 1) {
             throw new Error('not-found');
         }
@@ -108,7 +112,7 @@ export default async (req, res) => {
             const plan = _calcPlan(totalAmount, maxParcels);
 
             return res.api.send(plan, res.api.codes.OK);
-        } else if (!typeAcademic) {
+        } else if (!typeAcademic || renegociation) {
 
             const installmentArray = await CreditCardPlans
                 .findOne({
@@ -128,14 +132,12 @@ export default async (req, res) => {
             return res.api.send(result, res.api.codes.OK);
         }
 
-        const chargeId  = req.query.chargeid;
         const enrolment = await _getEnrolment(enrolmentId);
         const contratMaxParcels = _getContractMaxParcels(chargeType, enrolment);
-        const objCharge = chargeId ? await Charges.findById(chargeId) : undefined;
         //Se houver quantidade de parcelas na charge, vai usar esse como referencia
         const maxParcCharges = (objCharge && ((objCharge.metadata || {}).maxInstallmentsOnCreditCard || null)) ? (objCharge.metadata || {}).maxInstallmentsOnCreditCard : null;
 
-        if (contratMaxParcels === 1 && !maxParcCharges) throw new Error('not-found');
+        if (contratMaxParcels === 1 && !maxParcCharges && !renegociation) throw new Error('not-found');
 
         const maxParcels = (maxParcCharges || (contratMaxParcels <= maxParcelsConfig ? contratMaxParcels : maxParcelsConfig));
         const plan = _calcPlan(totalAmount, maxParcels);
