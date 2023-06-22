@@ -137,9 +137,15 @@ export default async (req, res) => {
         //Se houver quantidade de parcelas na charge, vai usar esse como referencia
         const maxParcCharges = (objCharge && ((objCharge.metadata || {}).maxInstallmentsOnCreditCard || null)) ? (objCharge.metadata || {}).maxInstallmentsOnCreditCard : null;
 
-        if (contratMaxParcels === 1 && !maxParcCharges && !renegociation) throw new Error('not-found');
+        if (contratMaxParcels === 1 && !maxParcCharges && !renegociation && totalCharges < 2) throw new Error('not-found');
 
-        const maxParcels = (maxParcCharges || (contratMaxParcels <= maxParcelsConfig ? contratMaxParcels : maxParcelsConfig));
+        let maxParcels = (maxParcCharges || (contratMaxParcels <= maxParcelsConfig ? contratMaxParcels : maxParcelsConfig));
+
+        // Regra de selecionar quantidade de cobrancas Iteq usa
+        if (totalCharges > maxParcels) {
+            maxParcels = totalCharges;
+        }
+
         const plan = _calcPlan(totalAmount, maxParcels);
 
         return res.api.send(plan, res.api.codes.OK);
