@@ -26,6 +26,7 @@ export default async (req, res) => {
     };
 
     const _calcPlan = (totalAmount, maxParcels) => {
+
         const installments = Array
             .from({ length: maxParcels }, (_, i) => i + 1)
             .filter(item => item !== 1);
@@ -43,7 +44,9 @@ export default async (req, res) => {
             isActive:true
         });
 
-        if (!config || !config.value) throw new Error('config-not-found');
+        if (!config || !config.value) {
+            return 1;
+        }
 
         return parseInt(config.value);
     };
@@ -108,7 +111,7 @@ export default async (req, res) => {
         }
 
         if (totalCharges > 1 && !typeAcademic) {
-            const maxParcels = totalCharges <= maxParcelsConfig ? totalCharges : maxParcelsConfig;
+            const maxParcels = totalCharges > maxParcelsConfig ? maxParcelsConfig : totalCharges;
             const plan = _calcPlan(totalAmount, maxParcels);
 
             return res.api.send(plan, res.api.codes.OK);
@@ -137,9 +140,16 @@ export default async (req, res) => {
         //Se houver quantidade de parcelas na charge, vai usar esse como referencia
         const maxParcCharges = (objCharge && ((objCharge.metadata || {}).maxInstallmentsOnCreditCard || null)) ? (objCharge.metadata || {}).maxInstallmentsOnCreditCard : null;
 
-        if (contratMaxParcels === 1 && !maxParcCharges && !renegociation) throw new Error('not-found');
+        if (contratMaxParcels === 1 && !maxParcCharges && !renegociation && totalCharges < 2) throw new Error('not-found');
 
-        const maxParcels = (maxParcCharges || (contratMaxParcels <= maxParcelsConfig ? contratMaxParcels : maxParcelsConfig));
+        let maxParcels = (maxParcCharges || (contratMaxParcels <= maxParcelsConfig ? contratMaxParcels : maxParcelsConfig));
+
+        // Regra de selecionar quantidade de cobrancas Iteq usa
+        if (totalCharges > maxParcels) {
+            maxParcels = totalCharges > maxParcelsConfig ? maxParcelsConfig : totalCharges;
+        }
+
+        maxParcels = maxParcels > (maxParcelsConfig || 1) ? maxParcelsConfig : maxParcels;
         const plan = _calcPlan(totalAmount, maxParcels);
 
         return res.api.send(plan, res.api.codes.OK);
