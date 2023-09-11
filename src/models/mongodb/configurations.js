@@ -1,24 +1,2 @@
-export default {
-    collection: 'Configurations',
-    fields: {
-        name: {
-            type: String,
-            required: true,
-            index: true,
-            unique: true
-        },
-        value: {
-            type: String,
-            required: true
-        },
-        description: String,
-        isActive: {
-            type: Boolean,
-            required: true,
-            default: true
-        }
-    },
-    options: {
-        timestamps: true
-    }
-}
+import * as Configurations from '../../../../piaget_models/models/configurations/Configurations';
+export default Configurations.database;
