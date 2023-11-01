@@ -31,14 +31,14 @@ export default class ApiRequestService {
       if (voucherConfig.releaseCourse && voucherConfig.releaseCourse._courseId) {
         try {
           const enrolment = await this._getEnrolment(enrolmentIds[0]);
-  
+
           await this._validate(enrolment, voucherConfig, vouchersConfigs.length);
-  
+
           const voucherData = await this.buildVoucherData(voucherConfig, enrolment);
-  
+
           const voucher = await this.models.Vouchers.create(voucherData);
           vouchersCreated.push(voucher);
-  
+
         } catch (err) {
           console.error(err);
         }
@@ -46,12 +46,12 @@ export default class ApiRequestService {
         await asyncForEach(enrolmentIds, async (_enrolmentId) => {
           try {
             const enrolment = await this._getEnrolment(_enrolmentId);
-    
+
             const voucherData = await this.buildVoucherData(voucherConfig, enrolment);
-    
+
             const voucher = await this.models.Vouchers.create(voucherData);
             vouchersCreated.push(voucher);
-    
+
           } catch (err) {
             console.error(err);
           }
@@ -86,7 +86,9 @@ export default class ApiRequestService {
   }
 
   async _validateEnrolmentCourseType(enrolment, vouchersConfigs) {
+    // Fixme função inutil por enquanto...
     const { courseType: availableCourseTypes } = this._getVoucherConfigsByCertifier(vouchersConfigs, enrolment.registryCourse.course._certifierName);
+
     const isValidCourseType = availableCourseTypes.includes(enrolment.registryCourse.course._typeName);
 
     if (!isValidCourseType) throw new Error('invalid course type');
@@ -134,12 +136,19 @@ export default class ApiRequestService {
   }
 
   async _getVoucherConfig(enrolment) {
-    const vouchersConfigs = await this.models.VouchersConfigs
-      .find({
-        isActive: true,
-        'certifier.name': enrolment.registryCourse.course._certifierName
-      })
-      .lean();
+    let vouchersConfigs = await this.models.VouchersConfigs
+        .find({
+          isActive: true,
+          'certifier.name': enrolment.registryCourse.course._certifierName
+        })
+        .lean();
+
+    vouchersConfigs = vouchersConfigs.filter(v => {
+      if (v.blockByCourseType) {
+        return (v.certifier || []).find(vf => vf.name === enrolment.registryCourse.course._certifierName && vf.courseType.includes(enrolment.registryCourse.course._typeName))
+      }
+      return v;
+    })
 
     if (!vouchersConfigs || !vouchersConfigs.length) throw new Error('config not found');
 
@@ -162,10 +171,10 @@ export default class ApiRequestService {
       for (const voucherConfig of combo.releaseVouchers) {
         try {
           const voucherData = await this.buildVoucherData(voucherConfig, enrolment);
-  
+
           const voucher = await this.models.Vouchers.create(voucherData);
           vouchersCreated.push(voucher);
-  
+
         } catch (err) {
           console.error(err);
         }
